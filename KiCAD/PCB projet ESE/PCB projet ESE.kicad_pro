@@ -411,6 +411,26 @@
     [
       "61bc2d2d-cd10-4636-b1b1-3d875f78e40b",
       "Root"
+    ],
+    [
+      "261d7bb0-1163-45ca-901d-11d0cf203b6b",
+      "TOF"
+    ],
+    [
+      "ea158019-ab8a-47c5-8451-862ac372ee0d",
+      "LED NEOPIXEL"
+    ],
+    [
+      "b1e379bf-9ce5-4f67-8538-795e9d1e5028",
+      "Régulateurs"
+    ],
+    [
+      "0d0f6199-fa17-417f-9bc5-2f2c16fc5820",
+      "Servo FS90"
+    ],
+    [
+      "7a080ce4-c82c-46c4-8a5a-914178d680a1",
+      "Rasbpi"
     ]
   ],
   "text_variables": {}
