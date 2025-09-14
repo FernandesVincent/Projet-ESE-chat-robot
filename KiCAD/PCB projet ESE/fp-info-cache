@@ -1,4 +1,4 @@
-24735720720007747
+24751559381607666
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -84630,6 +84630,13 @@ SOT-1334-1
 14
 14
 Package_TO_SOT_SMD
+Sans titre
+
+
+0
+0
+0
+Package_TO_SOT_SMD
 SuperSOT-3
 3-pin SuperSOT package https://www.fairchildsemi.com/package-drawings/MA/MA03B.pdf
 SuperSOT-3 SSOT-3
@@ -91194,6 +91201,62 @@ Rotary encoder with switch and illuminated 4,6,8,13,18mm shaft, dual-led, https:
 rotary encoder illuminated switch vertical
 0
 9
+8
+Régu
+SSOP5_BUxxSD5
+
+
+0
+5
+5
+Régu
+SW_SPDT
+
+
+0
+3
+3
+Régu
+SW_SPST
+
+
+0
+4
+2
+Régu
+Sans titre
+
+
+0
+0
+0
+Régu
+Sans titre_1
+
+
+0
+0
+0
+Régu
+Sans titre_2
+
+
+0
+4
+2
+Régu
+Sans titre_3
+
+
+0
+0
+0
+Régu
+TSOT23-8
+TSOT, 8 Pin (https://www.jedec.org/sites/default/files/docs/MO-193D.pdf variant BA), generated with kicad-footprint-generator ipc_gullwing_generator.py
+TSOT TO_SOT_SMD
+0
+8
 8
 Sensor
 ASAIR_AM2302_P2.54mm_Lead2.75mm_TabDown
