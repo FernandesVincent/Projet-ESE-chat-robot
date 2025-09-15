@@ -5296,7 +5296,7 @@
 		(uuid 1e10e3ac-f261-455f-96a2-307a691e6805)
 	)
 	(rectangle
-		(start 12.7 93.98)
+		(start 12.7 97.79)
 		(end 128.27 195.58)
 		(stroke
 			(width 0)
@@ -5393,7 +5393,7 @@
 	)
 	(text "Connecteurs"
 		(exclude_from_sim no)
-		(at 19.812 96.012 0)
+		(at 19.304 99.314 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5794,8 +5794,24 @@
 		(uuid "3369e807-8690-4d0e-a3fc-30c790c745b4")
 	)
 	(no_connect
+		(at 165.1 106.68)
+		(uuid "42c58cd6-d3d8-4054-ad3e-e39f58821e9f")
+	)
+	(no_connect
+		(at 165.1 38.1)
+		(uuid "4b46f129-d05a-498e-9aad-3cde98e7da94")
+	)
+	(no_connect
 		(at 129.54 50.8)
 		(uuid "4effa506-1a8f-48f1-9715-c72dc696efcc")
+	)
+	(no_connect
+		(at 129.54 66.04)
+		(uuid "5131c4b3-1757-453a-9b87-c8a7095cbbaf")
+	)
+	(no_connect
+		(at 165.1 88.9)
+		(uuid "60242c69-9f98-4f8e-b07b-5bbcaeed1690")
 	)
 	(no_connect
 		(at 238.76 93.98)
@@ -5814,8 +5830,28 @@
 		(uuid "827ffe72-1f45-4fd9-b6a9-b3a3966aa8a6")
 	)
 	(no_connect
+		(at 129.54 60.96)
+		(uuid "a4fca776-fbfd-4300-8412-d3c561020c32")
+	)
+	(no_connect
+		(at 129.54 68.58)
+		(uuid "aa8eca58-367f-4375-9291-8f585f1694b0")
+	)
+	(no_connect
 		(at 237.49 40.64)
 		(uuid "c6fb6fe2-603a-446e-97f6-f653a625c810")
+	)
+	(no_connect
+		(at 165.1 109.22)
+		(uuid "d02be0a2-36c1-400e-8ecc-2dd0877a5357")
+	)
+	(no_connect
+		(at 165.1 55.88)
+		(uuid "dc85e48f-6a61-441c-8e6c-dd4182206f0d")
+	)
+	(no_connect
+		(at 129.54 63.5)
+		(uuid "e5e1fea5-53fd-4e30-acbc-3a945f1b4936")
 	)
 	(no_connect
 		(at 162.56 179.07)
@@ -7073,30 +7109,6 @@
 			)
 		)
 	)
-	(global_label "PWM_servo_8"
-		(shape input)
-		(at 64.77 124.46 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "0f643b80-a426-42bc-9592-042d1a6fcd0b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.5682 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "Encodeur phase A 1"
 		(shape input)
 		(at 50.8 36.83 0)
@@ -7136,30 +7148,6 @@
 		(uuid "11711411-5dd3-495d-b967-8f280450043a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 44.4036 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "STBY_IN"
-		(shape input)
-		(at 165.1 55.88 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "13e22728-33a1-4955-9dee-01316c27a8c0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 175.9998 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7309,30 +7297,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_servo_6"
-		(shape input)
-		(at 165.1 88.9 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "18e652de-7456-49ff-9ff3-0fbe4aa0866f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.8982 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 				(hide yes)
 			)
 		)
@@ -7793,30 +7757,6 @@
 			)
 		)
 	)
-	(global_label "PWM_servo_7"
-		(shape input)
-		(at 64.77 121.92 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "5217787b-db4b-4acd-a44c-130933f7ce30")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.5682 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "Encodeur Phase B 1"
 		(shape input)
 		(at 24.13 144.78 0)
@@ -7832,30 +7772,6 @@
 		(uuid "52465625-cb22-4f11-a680-5ff43cbcdd31")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 47.3666 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_servo_7"
-		(shape input)
-		(at 165.1 106.68 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "5251e606-5741-406c-94e0-750e9d02aa26")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.8982 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7961,30 +7877,6 @@
 			)
 		)
 	)
-	(global_label "PWM_servo_1"
-		(shape input)
-		(at 129.54 60.96 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "66ccbe3a-ce0d-43a7-866d-2f69bc95bae8")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 113.7418 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "PWM REV 1"
 		(shape input)
 		(at 30.48 41.91 180)
@@ -8057,30 +7949,6 @@
 			)
 		)
 	)
-	(global_label "PWM_servo_2"
-		(shape input)
-		(at 129.54 63.5 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "69f85dbe-f983-4fad-b21b-b9a525ac6241")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 113.7418 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "XSHUT_6"
 		(shape input)
 		(at 33.02 124.46 0)
@@ -8101,30 +7969,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_servo_4"
-		(shape input)
-		(at 129.54 68.58 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "71757308-f668-4723-8d40-66dec4063535")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 113.7418 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 				(hide yes)
 			)
 		)
@@ -8465,30 +8309,6 @@
 			)
 		)
 	)
-	(global_label "PWM_servo_3"
-		(shape input)
-		(at 129.54 66.04 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "8f680764-2d37-4191-8aff-5e9007d3c88b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 113.7418 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "USB_DM"
 		(shape input)
 		(at 102.87 134.62 0)
@@ -8585,54 +8405,6 @@
 			)
 		)
 	)
-	(global_label "PWM_servo_1"
-		(shape input)
-		(at 64.77 106.68 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "9fd853fe-dc58-40a5-bf88-cf418c9cbf49")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.5682 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_servo_2"
-		(shape input)
-		(at 64.77 109.22 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "a4d06b54-5f24-4be3-8462-8915a9704780")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.5682 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "PWM REV 2"
 		(shape input)
 		(at 129.54 78.74 180)
@@ -8720,30 +8492,6 @@
 		(uuid "adbcb1ef-d492-485b-b30f-5efe3b349059")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 44.7059 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_servo_5"
-		(shape input)
-		(at 64.77 116.84 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "b240e147-3590-48df-87b0-c07a873574b5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.5682 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9185,54 +8933,6 @@
 			)
 		)
 	)
-	(global_label "PWM_servo_6"
-		(shape input)
-		(at 64.77 119.38 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "e97ebe19-f280-47e1-9d40-ee0768ac4c99")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.5682 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_servo_5"
-		(shape input)
-		(at 165.1 38.1 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "e9bd0473-844b-472f-8381-423a12e50449")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.8982 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "SWCLK"
 		(shape input)
 		(at 238.76 81.28 0)
@@ -9248,30 +8948,6 @@
 		(uuid "e9cec32f-bbbc-4c20-a0a6-eebe82d1b429")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 248.4502 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_servo_4"
-		(shape input)
-		(at 64.77 114.3 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "e9d486a7-bc29-4efb-930f-9b55a0c067f8")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.5682 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9401,30 +9077,6 @@
 			)
 		)
 	)
-	(global_label "PWM_servo_3"
-		(shape input)
-		(at 64.77 111.76 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "f8a25bb8-fd25-4ada-973e-8365926b8b5a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.5682 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "PG_52"
 		(shape input)
 		(at 106.68 115.57 0)
@@ -9493,30 +9145,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_servo_8"
-		(shape input)
-		(at 165.1 109.22 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "ffe2ca82-0acb-4cdf-90fe-c2d354af6685")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.8982 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 				(hide yes)
 			)
 		)
@@ -16472,128 +16100,6 @@
 				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b"
 					(reference "C2")
 					(unit 1)
-				)
-			)
-		)
-	)
-	(sheet
-		(at 49.53 105.41)
-		(size 15.24 20.32)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "0d0f6199-fa17-417f-9bc5-2f2c16fc5820")
-		(property "Sheetname" "Servo FS90"
-			(at 49.53 104.6984 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "ServoFS90.kicad_sch"
-			(at 49.53 126.3146 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(pin "PWM_servo_1" input
-			(at 64.77 106.68 0)
-			(uuid "959bc530-c6e4-42cd-a9ba-732cc527d477")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PWM_servo_2" input
-			(at 64.77 109.22 0)
-			(uuid "c6b562c5-1101-4f13-bc4b-3c878b7c9061")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PWM_servo_3" input
-			(at 64.77 111.76 0)
-			(uuid "4660e508-c5fd-4322-a74b-f0b0a518139e")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PWM_servo_4" input
-			(at 64.77 114.3 0)
-			(uuid "71f56f09-ca67-4c39-855c-cfc713609940")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PWM_servo_5" input
-			(at 64.77 116.84 0)
-			(uuid "0861722b-c0f5-4138-ac7a-2e7c8975e81d")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PWM_servo_6" input
-			(at 64.77 119.38 0)
-			(uuid "40d65b69-501e-4c8d-b30c-8882bd87538b")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PWM_servo_7" input
-			(at 64.77 121.92 0)
-			(uuid "c0a4715c-3f7c-4b80-95ae-268163e57886")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PWM_servo_8" input
-			(at 64.77 124.46 0)
-			(uuid "2937801b-46c5-4d80-9df1-81faf52d3f60")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(instances
-			(project "PCB projet ESE"
-				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b"
-					(page "5")
 				)
 			)
 		)
