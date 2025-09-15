@@ -486,6 +486,177 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector_Generic:Conn_01x03"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x03"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x03_1_1"
+				(rectangle
+					(start -1.27 3.81)
+					(end 1.27 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -1.27 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector_Generic:Conn_01x04"
 			(pin_names
 				(offset 1.016)
@@ -5463,6 +5634,16 @@
 		)
 		(uuid "8b8fcfa1-6bca-4f05-9800-9613c80bb7ac")
 	)
+	(text "Neopixel"
+		(exclude_from_sim no)
+		(at 62.992 121.158 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "cfd7c41a-c69d-4108-ad0f-81917080ce3b")
+	)
 	(text "STlink"
 		(exclude_from_sim no)
 		(at 198.882 66.548 0)
@@ -5798,10 +5979,6 @@
 		(uuid "42c58cd6-d3d8-4054-ad3e-e39f58821e9f")
 	)
 	(no_connect
-		(at 165.1 38.1)
-		(uuid "4b46f129-d05a-498e-9aad-3cde98e7da94")
-	)
-	(no_connect
 		(at 129.54 50.8)
 		(uuid "4effa506-1a8f-48f1-9715-c72dc696efcc")
 	)
@@ -5810,8 +5987,8 @@
 		(uuid "5131c4b3-1757-453a-9b87-c8a7095cbbaf")
 	)
 	(no_connect
-		(at 165.1 88.9)
-		(uuid "60242c69-9f98-4f8e-b07b-5bbcaeed1690")
+		(at 165.1 83.82)
+		(uuid "62899598-cb28-433f-bd52-23afe5dc368c")
 	)
 	(no_connect
 		(at 238.76 93.98)
@@ -5822,6 +5999,10 @@
 		(uuid "6dc51dfb-53ac-49af-a277-78d113155bb0")
 	)
 	(no_connect
+		(at 165.1 88.9)
+		(uuid "7885ead5-365b-4024-8d58-a068d9eaad38")
+	)
+	(no_connect
 		(at 57.15 176.53)
 		(uuid "7f73a867-5f66-4abc-832b-c1e0ec8ba22f")
 	)
@@ -5830,8 +6011,12 @@
 		(uuid "827ffe72-1f45-4fd9-b6a9-b3a3966aa8a6")
 	)
 	(no_connect
-		(at 129.54 60.96)
-		(uuid "a4fca776-fbfd-4300-8412-d3c561020c32")
+		(at 165.1 116.84)
+		(uuid "8502e315-96dc-4461-bfd4-35d1823d14f3")
+	)
+	(no_connect
+		(at 165.1 38.1)
+		(uuid "a8421f6f-fad0-4f25-8b0a-3cef5503f7b1")
 	)
 	(no_connect
 		(at 129.54 68.58)
@@ -5842,16 +6027,16 @@
 		(uuid "c6fb6fe2-603a-446e-97f6-f653a625c810")
 	)
 	(no_connect
+		(at 165.1 81.28)
+		(uuid "c80ee1c9-4c6d-410c-af75-7b7536f1f563")
+	)
+	(no_connect
+		(at 165.1 93.98)
+		(uuid "cffd277d-aeb4-486f-a661-246ed4779cd8")
+	)
+	(no_connect
 		(at 165.1 109.22)
 		(uuid "d02be0a2-36c1-400e-8ecc-2dd0877a5357")
-	)
-	(no_connect
-		(at 165.1 55.88)
-		(uuid "dc85e48f-6a61-441c-8e6c-dd4182206f0d")
-	)
-	(no_connect
-		(at 129.54 63.5)
-		(uuid "e5e1fea5-53fd-4e30-acbc-3a945f1b4936")
 	)
 	(no_connect
 		(at 162.56 179.07)
@@ -6553,6 +6738,16 @@
 	)
 	(wire
 		(pts
+			(xy 76.2 113.03) (xy 69.85 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a19b1a4c-b7b0-4759-b167-869288437a26")
+	)
+	(wire
+		(pts
 			(xy 151.13 22.86) (xy 154.94 22.86)
 		)
 		(stroke
@@ -7085,7 +7280,7 @@
 			)
 		)
 	)
-	(global_label "Encodeur Phase B 2"
+	(global_label "Moteur - 2"
 		(shape input)
 		(at 52.07 81.28 0)
 		(fields_autoplaced yes)
@@ -7099,7 +7294,7 @@
 		)
 		(uuid "078df2a2-ace5-45c8-81f6-f2009298c04c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 75.3066 81.28 0)
+			(at 66.5982 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7109,7 +7304,7 @@
 			)
 		)
 	)
-	(global_label "Encodeur phase A 1"
+	(global_label "Moteur + 1"
 		(shape input)
 		(at 50.8 36.83 0)
 		(fields_autoplaced yes)
@@ -7123,7 +7318,7 @@
 		)
 		(uuid "1116bfcb-88db-40e2-b6db-b3485f60d064")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 73.7342 36.83 0)
+			(at 65.3282 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7153,6 +7348,30 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Encodeur_A_Phase_1"
+		(shape input)
+		(at 129.54 63.5 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify right)
+		)
+		(uuid "1205179d-ed1f-4151-9c3c-56b8df61e0ae")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 106.4848 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -7273,30 +7492,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM FWD 2"
-		(shape input)
-		(at 129.54 76.2 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "18492c25-ff74-459b-82c3-953e8b3f9044")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 114.9513 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 				(hide yes)
 			)
 		)
@@ -7517,54 +7712,6 @@
 			)
 		)
 	)
-	(global_label "Encodeur phase A 2"
-		(shape input)
-		(at 60.96 157.48 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "352144da-79ac-4bc2-92ec-09169ce83236")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 83.8942 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_Encodeur_B_Phase_2"
-		(shape input)
-		(at 165.1 116.84 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "3546f887-3972-48ef-8996-6f5fddea2813")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 193.477 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "PWM FWD 1"
 		(shape input)
 		(at 30.48 39.37 180)
@@ -7628,6 +7775,30 @@
 		(uuid "3916a19e-7bdc-45ed-880b-c54649c7c5f6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 116.0678 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Moteur + 2"
+		(shape input)
+		(at 60.96 144.78 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "3b5708b5-1591-4b94-80bb-fa438ee01951")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 75.4882 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7733,9 +7904,9 @@
 			)
 		)
 	)
-	(global_label "PWM_Encodeur_B_Phase_1"
+	(global_label "PWM REV 2"
 		(shape input)
-		(at 165.1 83.82 0)
+		(at 165.1 104.14 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7745,9 +7916,9 @@
 			)
 			(justify left)
 		)
-		(uuid "52092520-8b2b-49ed-8456-261df432f1b1")
+		(uuid "4b4918ef-5d29-4571-a4a4-625bd2b45b02")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 193.477 83.82 0)
+			(at 179.3863 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7757,31 +7928,7 @@
 			)
 		)
 	)
-	(global_label "Encodeur Phase B 1"
-		(shape input)
-		(at 24.13 144.78 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "52465625-cb22-4f11-a680-5ff43cbcdd31")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 47.3666 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_Encodeur_A_Phase_1"
+	(global_label "Encodeur_A_Phase_1"
 		(shape input)
 		(at 24.13 152.4 0)
 		(fields_autoplaced yes)
@@ -7795,7 +7942,7 @@
 		)
 		(uuid "56101722-e036-4c7a-b08e-b144b029f5e5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 52.3256 152.4 0)
+			(at 47.1852 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7805,7 +7952,7 @@
 			)
 		)
 	)
-	(global_label "Encodeur Phase B 1"
+	(global_label "Moteur - 1"
 		(shape input)
 		(at 50.8 41.91 0)
 		(fields_autoplaced yes)
@@ -7819,31 +7966,7 @@
 		)
 		(uuid "5624a744-651b-438b-94b7-73da5f6c9974")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 74.0366 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_Encodeur_A_Phase_1"
-		(shape input)
-		(at 165.1 81.28 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "56c246b1-3251-4b0f-98d6-379f3ecaee84")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 193.2956 81.28 0)
+			(at 65.3282 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7925,7 +8048,31 @@
 			)
 		)
 	)
-	(global_label "Encodeur phase A 1"
+	(global_label "Encodeur_B_Phase_2"
+		(shape input)
+		(at 129.54 78.74 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify right)
+		)
+		(uuid "6b812c06-d863-4b94-878c-a78e0d3159f3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 106.3034 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Moteur - 1"
 		(shape input)
 		(at 24.13 157.48 0)
 		(fields_autoplaced yes)
@@ -7937,9 +8084,9 @@
 			)
 			(justify left)
 		)
-		(uuid "69899280-2471-479d-8ac7-5f9e3f8229b5")
+		(uuid "6c10bf75-cdf6-4610-bdb4-54ca8b872ca1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 47.0642 157.48 0)
+			(at 38.6582 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7997,7 +8144,7 @@
 			)
 		)
 	)
-	(global_label "Encodeur phase A 2"
+	(global_label "Moteur + 2"
 		(shape input)
 		(at 52.07 76.2 0)
 		(fields_autoplaced yes)
@@ -8011,7 +8158,7 @@
 		)
 		(uuid "755c04b1-07d4-47ec-9a82-70820ba3f491")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 75.0042 76.2 0)
+			(at 66.5982 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8141,6 +8288,30 @@
 			)
 		)
 	)
+	(global_label "Encodeur_B_Phase_1"
+		(shape input)
+		(at 129.54 60.96 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify right)
+		)
+		(uuid "7e1433aa-654e-49a1-9af8-336bdb8c71a4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 106.3034 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "UART_mp3_TX"
 		(shape input)
 		(at 26.67 182.88 0)
@@ -8180,30 +8351,6 @@
 		(uuid "83b0dcbe-629c-49e4-b3eb-1d8d026865ed")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 179.3863 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_LED2"
-		(shape input)
-		(at 104.14 151.13 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "85ee22e2-4ab1-48b5-8a5b-be941cc7e976")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 117.3982 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8285,6 +8432,30 @@
 			)
 		)
 	)
+	(global_label "Moteur + 1"
+		(shape input)
+		(at 24.13 144.78 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "8dd41e26-6459-4125-8e73-638c3f0e19fc")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 38.6582 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "XSHUT_5"
 		(shape input)
 		(at 33.02 121.92 0)
@@ -8333,33 +8504,9 @@
 			)
 		)
 	)
-	(global_label "Encodeur Phase B 2"
-		(shape input)
-		(at 60.96 144.78 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "9485ed11-37c6-49a9-8860-85c927696ee7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 84.1966 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "PWM_LED1"
 		(shape input)
-		(at 104.14 148.59 0)
+		(at 69.85 115.57 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8371,7 +8518,7 @@
 		)
 		(uuid "98e6a433-4464-4ff0-a9f0-a078032a260a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 117.3982 148.59 0)
+			(at 83.1082 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8405,31 +8552,7 @@
 			)
 		)
 	)
-	(global_label "PWM REV 2"
-		(shape input)
-		(at 129.54 78.74 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "aa86ef0d-988a-41d1-a7f9-ef7913a171ae")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 115.2537 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_Encodeur_B_Phase_1"
+	(global_label "Encodeur_B_Phase_1"
 		(shape input)
 		(at 24.13 149.86 0)
 		(fields_autoplaced yes)
@@ -8443,31 +8566,7 @@
 		)
 		(uuid "acf50699-326e-4aa8-815d-9430274b1a45")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 52.507 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_LED2"
-		(shape input)
-		(at 165.1 93.98 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "ad02791f-63c1-46a5-a1e9-677184654e37")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 178.3582 93.98 0)
+			(at 47.3666 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8597,6 +8696,30 @@
 			)
 		)
 	)
+	(global_label "Moteur - 2"
+		(shape input)
+		(at 60.96 157.48 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "bd83babb-8675-4ce2-b30d-d14d09dad152")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 75.4882 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "XSHUT_2"
 		(shape input)
 		(at 165.1 76.2 0)
@@ -8693,7 +8816,7 @@
 			)
 		)
 	)
-	(global_label "PWM_Encodeur_B_Phase_2"
+	(global_label "Encodeur_B_Phase_2"
 		(shape input)
 		(at 60.96 149.86 0)
 		(fields_autoplaced yes)
@@ -8707,7 +8830,7 @@
 		)
 		(uuid "ca19a5a1-5eeb-4449-90b5-3702a77c3043")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 89.337 149.86 0)
+			(at 84.1966 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8741,7 +8864,31 @@
 			)
 		)
 	)
-	(global_label "PWM_Encodeur_A_Phase_2"
+	(global_label "PWM FWD 2"
+		(shape input)
+		(at 165.1 96.52 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "ce2a7b87-0ea8-4ec8-8aab-05c80dd5ed55")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 179.6887 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Encodeur_A_Phase_2"
 		(shape input)
 		(at 60.96 152.4 0)
 		(fields_autoplaced yes)
@@ -8755,7 +8902,7 @@
 		)
 		(uuid "d0971176-519b-4642-9385-59386b92fa03")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 89.1556 152.4 0)
+			(at 84.0152 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8765,9 +8912,9 @@
 			)
 		)
 	)
-	(global_label "PWM_Encodeur_A_Phase_2"
+	(global_label "XSHUT_8"
 		(shape input)
-		(at 165.1 96.52 0)
+		(at 165.1 55.88 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8777,9 +8924,9 @@
 			)
 			(justify left)
 		)
-		(uuid "d69650bd-97e1-4032-af53-cbbb7af2f785")
+		(uuid "d9f9c7b1-1577-481a-800a-412755639d8e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 193.2956 96.52 0)
+			(at 176.7859 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8876,30 +9023,6 @@
 		(uuid "e731c23a-bb47-4eb7-9fa5-ea4a37026d24")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 176.7859 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "XSHUT_8"
-		(shape input)
-		(at 165.1 104.14 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "e825d33b-56be-4aa4-8d61-44f288c32c7f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 176.7859 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9140,6 +9263,30 @@
 		(uuid "fe6fe629-b895-41a6-a6b8-b45ff8a7daab")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 120.1522 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Encodeur_A_Phase_2"
+		(shape input)
+		(at 129.54 76.2 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify right)
+		)
+		(uuid "ff9ed1d3-236c-4379-99c8-33b037af0f02")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 106.4848 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10493,6 +10640,72 @@
 			(project ""
 				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b"
 					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 69.85 118.11 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "27178175-647f-4953-acac-40ac3d199b7f")
+		(property "Reference" "#PWR066"
+			(at 69.85 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 69.85 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 69.85 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 69.85 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 69.85 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a65d802c-e20b-49a5-a791-c474a23238e6")
+		)
+		(instances
+			(project "PCB projet ESE"
+				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b"
+					(reference "#PWR066")
 					(unit 1)
 				)
 			)
@@ -12123,6 +12336,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 76.2 113.03 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6f33e6f3-1f59-4a33-ae36-40aa1addcb18")
+		(property "Reference" "#PWR067"
+			(at 76.2 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 76.2 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 76.2 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 76.2 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 76.2 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3397b74d-8483-4196-af83-803122a026e7")
+		)
+		(instances
+			(project "PCB projet ESE"
+				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b"
+					(reference "#PWR067")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 265.43 26.67 0)
 		(unit 1)
@@ -13465,6 +13744,77 @@
 			(project ""
 				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b"
 					(reference "#PWR01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 64.77 115.57 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "98b10f74-a8f0-4b83-b765-19673fae4abb")
+		(property "Reference" "J16"
+			(at 64.77 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x03"
+			(at 64.77 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical"
+			(at 64.77 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 64.77 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 64.77 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e0792110-2acc-4960-81e8-9ac6f3ba652f")
+		)
+		(pin "3"
+			(uuid "7a63380b-a401-4678-8aad-22b2c5ea5ca4")
+		)
+		(pin "1"
+			(uuid "4f553559-230a-4f0b-94f5-5617b6961b11")
+		)
+		(instances
+			(project "PCB projet ESE"
+				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b"
+					(reference "J16")
 					(unit 1)
 				)
 			)
@@ -16383,68 +16733,6 @@
 			(project "PCB projet ESE"
 				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b"
 					(page "4")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 90.17 146.05)
-		(size 13.97 7.62)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "ea158019-ab8a-47c5-8451-862ac372ee0d")
-		(property "Sheetname" "LED NEOPIXEL"
-			(at 90.17 145.3384 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "neopixel.kicad_sch"
-			(at 90.17 154.2546 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(pin "PWM_LED1" input
-			(at 104.14 148.59 0)
-			(uuid "c0074837-9f18-44d5-b9f2-14da5c6f26b8")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PWM_LED2" input
-			(at 104.14 151.13 0)
-			(uuid "9acc730b-775a-49b6-b050-14baf672b77b")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(instances
-			(project "PCB projet ESE"
-				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b"
-					(page "3")
 				)
 			)
 		)
