@@ -49,8 +49,8 @@
       "conflict_shadows",
       "shapes"
     ],
-    "visible_layers": "ffffffff_ffffffff_ffffffff_ffffffff",
-    "zone_display_mode": 0
+    "visible_layers": "ffffffff_ffffffff_fffffff7_ffffffff",
+    "zone_display_mode": 1
   },
   "git": {
     "repo_type": "",
@@ -72,6 +72,8 @@
       false,
       false,
       false,
+      false,
+      false,
       false
     ],
     "col_order": [
@@ -84,9 +86,24 @@
       6,
       7,
       8,
-      9
+      9,
+      10,
+      11
     ],
-    "col_widths": [],
+    "col_widths": [
+      156,
+      141,
+      107,
+      105,
+      108,
+      140,
+      105,
+      109,
+      103,
+      103,
+      103,
+      103
+    ],
     "custom_group_rules": [],
     "expanded_rows": [],
     "filter_by_net_name": true,
@@ -97,7 +114,7 @@
     "show_unconnected_nets": false,
     "show_zero_pad_nets": false,
     "sort_ascending": true,
-    "sorting_column": -1
+    "sorting_column": 0
   },
   "open_jobsets": [],
   "project": {

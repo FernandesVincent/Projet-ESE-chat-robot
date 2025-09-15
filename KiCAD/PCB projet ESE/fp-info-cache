@@ -1,4 +1,4 @@
-24751559381607666
+24746278887487763
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -91224,33 +91224,12 @@ SW_SPST
 4
 2
 Régu
-Sans titre
-
-
+SW_Wurth_WS-TOTV_472123020421
+Ø 6.35 mm Panel Cut-Out Right Angle Operation Toggle Switch, body 12.7x22.9x6.6mm, https://www.we-online.com/en/components/products/datasheet/472123020421?ki
+THT
 0
-0
-0
-Régu
-Sans titre_1
-
-
-0
-0
-0
-Régu
-Sans titre_2
-
-
-0
-4
-2
-Régu
-Sans titre_3
-
-
-0
-0
-0
+5
+5
 Régu
 TSOT23-8
 TSOT, 8 Pin (https://www.jedec.org/sites/default/files/docs/MO-193D.pdf variant BA), generated with kicad-footprint-generator ipc_gullwing_generator.py
