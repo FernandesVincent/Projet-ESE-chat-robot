@@ -405,16 +405,6 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 99.06) (xy 100.33 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "10369e8a-5b38-4495-8860-de681b4bc3ff")
-	)
-	(wire
-		(pts
 			(xy 118.11 72.39) (xy 111.76 72.39)
 		)
 		(stroke
@@ -432,65 +422,6 @@
 			(type default)
 		)
 		(uuid "520deefe-3799-4892-babe-800a843de18e")
-	)
-	(wire
-		(pts
-			(xy 146.05 73.66) (xy 139.7 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d0191d56-6381-42a0-bd22-e0d7b23f99cb")
-	)
-	(wire
-		(pts
-			(xy 137.16 99.06) (xy 130.81 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d152fe5a-d4a1-4ee3-a8d4-3b781b3e1df7")
-	)
-	(hierarchical_label "PWM_LED4"
-		(shape input)
-		(at 100.33 101.6 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "3c2196c3-a3f7-4288-96df-72fd215e6ac4")
-	)
-	(hierarchical_label "PWM_LED3"
-		(shape input)
-		(at 139.7 76.2 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "6cb37bf1-f351-40b1-94df-0910dabe9121")
-	)
-	(hierarchical_label "PWM_LED5"
-		(shape input)
-		(at 130.81 101.6 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "7205372f-392a-453b-a2de-9d71fd4ac65d")
 	)
 	(hierarchical_label "PWM_LED1"
 		(shape input)
@@ -528,7 +459,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "213e5317-4cd0-484b-9f91-ba3886d3017c")
-		(property "Reference" "#PWR072"
+		(property "Reference" "#PWR068"
 			(at 111.76 83.82 0)
 			(effects
 				(font
@@ -578,7 +509,7 @@
 		(instances
 			(project "PCB projet ESE"
 				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "#PWR072")
+					(reference "#PWR068")
 					(unit 1)
 				)
 			)
@@ -594,7 +525,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "27178175-647f-4953-acac-40ac3d199b7f")
-		(property "Reference" "#PWR068"
+		(property "Reference" "#PWR066"
 			(at 87.63 82.55 0)
 			(effects
 				(font
@@ -644,78 +575,7 @@
 		(instances
 			(project "PCB projet ESE"
 				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "#PWR068")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 95.25 101.6 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2e2c4677-9d31-4a4d-9238-bd226e8505cf")
-		(property "Reference" "J17"
-			(at 95.25 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x03"
-			(at 95.25 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical"
-			(at 95.25 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 95.25 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 95.25 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "b82fd0f0-c8ee-4e7a-92e3-9a1ed773d8a4")
-		)
-		(pin "3"
-			(uuid "79b07922-456b-405a-9f92-282b0f62bd25")
-		)
-		(pin "1"
-			(uuid "8669f1a7-deee-4c13-8fd8-8264a16de58e")
-		)
-		(instances
-			(project "PCB projet ESE"
-				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "J17")
+					(reference "#PWR066")
 					(unit 1)
 				)
 			)
@@ -731,7 +591,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3171b33f-946e-49c3-b9cf-c4be1883d6f1")
-		(property "Reference" "#PWR073"
+		(property "Reference" "#PWR069"
 			(at 118.11 76.2 0)
 			(effects
 				(font
@@ -781,73 +641,7 @@
 		(instances
 			(project "PCB projet ESE"
 				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "#PWR073")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 130.81 104.14 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "358e399c-30bc-4093-9c57-497d2d4a4203")
-		(property "Reference" "#PWR074"
-			(at 130.81 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 130.81 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 130.81 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 130.81 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 130.81 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9565a8b2-919d-4433-8db2-15771c97f58c")
-		)
-		(instances
-			(project "PCB projet ESE"
-				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "#PWR074")
+					(reference "#PWR069")
 					(unit 1)
 				)
 			)
@@ -863,7 +657,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4e05ecf7-599f-47ca-a9b6-7c4589ab5320")
-		(property "Reference" "J18"
+		(property "Reference" "J17"
 			(at 106.68 66.04 0)
 			(effects
 				(font
@@ -918,73 +712,7 @@
 		(instances
 			(project "PCB projet ESE"
 				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "J18")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 146.05 73.66 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "656489ba-5966-40a4-9e8d-c4193f2ba0d2")
-		(property "Reference" "#PWR077"
-			(at 146.05 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 146.05 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 146.05 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 146.05 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 146.05 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d2b09e40-3aa1-46a6-9a0f-073d06a1d811")
-		)
-		(instances
-			(project "PCB projet ESE"
-				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "#PWR077")
+					(reference "J17")
 					(unit 1)
 				)
 			)
@@ -1000,7 +728,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6f33e6f3-1f59-4a33-ae36-40aa1addcb18")
-		(property "Reference" "#PWR069"
+		(property "Reference" "#PWR067"
 			(at 93.98 74.93 0)
 			(effects
 				(font
@@ -1050,73 +778,7 @@
 		(instances
 			(project "PCB projet ESE"
 				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "#PWR069")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 106.68 99.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "83038109-6fc1-44dc-b8d1-4bbb2922d034")
-		(property "Reference" "#PWR071"
-			(at 106.68 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 106.68 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 106.68 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 106.68 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 106.68 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9fcc7294-05bd-4e0e-88d1-791e3b599fee")
-		)
-		(instances
-			(project "PCB projet ESE"
-				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "#PWR071")
+					(reference "#PWR067")
 					(unit 1)
 				)
 			)
@@ -1188,346 +850,6 @@
 			(project "PCB projet ESE"
 				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
 					(reference "J16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 134.62 76.2 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "acf10a33-1d30-4a4f-b1be-e4a9dfd62911")
-		(property "Reference" "J20"
-			(at 134.62 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x03"
-			(at 134.62 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical"
-			(at 134.62 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 134.62 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 134.62 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2025e535-8341-44d0-95ee-3b8e4284a461")
-		)
-		(pin "3"
-			(uuid "632f1892-8421-4826-a563-b59c2de2aa64")
-		)
-		(pin "1"
-			(uuid "0ffa5632-faca-489b-8fce-d11628891629")
-		)
-		(instances
-			(project "PCB projet ESE"
-				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "J20")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 100.33 104.14 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b9ca8dd0-f827-43f4-9e72-441668141cba")
-		(property "Reference" "#PWR070"
-			(at 100.33 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 100.33 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 100.33 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 100.33 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 100.33 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "66ea9d13-1acc-4516-a1b8-91c4d254bdc0")
-		)
-		(instances
-			(project "PCB projet ESE"
-				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "#PWR070")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 137.16 99.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e9b06c27-4f00-48d6-bc7a-20c03ffa20e6")
-		(property "Reference" "#PWR075"
-			(at 137.16 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 137.16 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 137.16 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 137.16 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 137.16 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b5841e95-9ad2-45d8-be91-03663f4800da")
-		)
-		(instances
-			(project "PCB projet ESE"
-				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "#PWR075")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 125.73 101.6 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ef486eb8-cb89-4e5c-ae70-8b35e3daaad3")
-		(property "Reference" "J19"
-			(at 125.73 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x03"
-			(at 125.73 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical"
-			(at 125.73 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 125.73 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 125.73 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "0266b816-3985-4f31-ba21-9201b733207e")
-		)
-		(pin "3"
-			(uuid "8fbf4a2e-7cdd-4b3b-b37b-8e89a3362092")
-		)
-		(pin "1"
-			(uuid "8fab7311-b391-4642-a8b2-7516bc6a80e9")
-		)
-		(instances
-			(project "PCB projet ESE"
-				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "J19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 139.7 78.74 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f5e94bf7-2b7e-4528-b910-7491e899de38")
-		(property "Reference" "#PWR076"
-			(at 139.7 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 139.7 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 139.7 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 139.7 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 139.7 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5ff5421e-6371-4582-a8c9-a9f490f7e0ec")
-		)
-		(instances
-			(project "PCB projet ESE"
-				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/ea158019-ab8a-47c5-8451-862ac372ee0d"
-					(reference "#PWR076")
 					(unit 1)
 				)
 			)
