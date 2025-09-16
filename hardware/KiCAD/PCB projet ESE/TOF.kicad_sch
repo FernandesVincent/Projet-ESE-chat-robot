@@ -875,7 +875,7 @@
 		)
 		(uuid "0f421f36-5e06-42ca-b3d7-59645eab9828")
 	)
-	(hierarchical_label "INT"
+	(hierarchical_label "INT 2"
 		(shape input)
 		(at 116.84 72.39 0)
 		(effects
@@ -1005,7 +1005,7 @@
 		)
 		(uuid "5b9d1b51-30dd-43d7-8c9b-55f2564238ed")
 	)
-	(hierarchical_label "INT"
+	(hierarchical_label "INT 4"
 		(shape input)
 		(at 97.79 95.25 0)
 		(effects
@@ -1018,7 +1018,7 @@
 		)
 		(uuid "65052b96-b02a-40fc-8f94-2001727e7d8f")
 	)
-	(hierarchical_label "INT"
+	(hierarchical_label "INT 8"
 		(shape input)
 		(at 116.84 119.38 0)
 		(effects
@@ -1031,7 +1031,7 @@
 		)
 		(uuid "67bbbb95-0791-4997-94fd-2e4daef2c3f8")
 	)
-	(hierarchical_label "INT"
+	(hierarchical_label "INT 3"
 		(shape input)
 		(at 135.89 72.39 0)
 		(effects
@@ -1096,7 +1096,7 @@
 		)
 		(uuid "99f0f071-f7f3-4bd9-98f2-aacac129186e")
 	)
-	(hierarchical_label "INT"
+	(hierarchical_label "INT 5"
 		(shape input)
 		(at 116.84 95.25 0)
 		(effects
@@ -1161,7 +1161,7 @@
 		)
 		(uuid "bb8ab1c3-8941-4ee3-88b2-dda752741129")
 	)
-	(hierarchical_label "INT"
+	(hierarchical_label "INT 7"
 		(shape input)
 		(at 97.79 119.38 0)
 		(effects
@@ -1265,7 +1265,7 @@
 		)
 		(uuid "e17d76c8-576c-41f0-827f-b9329c5e748f")
 	)
-	(hierarchical_label "INT"
+	(hierarchical_label "INT 1"
 		(shape input)
 		(at 97.79 72.39 0)
 		(effects
@@ -1291,7 +1291,7 @@
 		)
 		(uuid "f345b756-0b62-4469-9129-1b0cad39ec96")
 	)
-	(hierarchical_label "INT"
+	(hierarchical_label "INT 6"
 		(shape input)
 		(at 135.89 95.25 0)
 		(effects
@@ -1329,7 +1329,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_BM06B-SRSS-TB_1x06-1MP_P1.00mm_Vertical"
 			(at 92.71 90.17 0)
 			(effects
 				(font
@@ -1673,7 +1673,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_BM06B-SRSS-TB_1x06-1MP_P1.00mm_Vertical"
 			(at 111.76 114.3 0)
 			(effects
 				(font
@@ -1752,7 +1752,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_BM06B-SRSS-TB_1x06-1MP_P1.00mm_Vertical"
 			(at 130.81 90.17 0)
 			(effects
 				(font
@@ -1968,7 +1968,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_BM06B-SRSS-TB_1x06-1MP_P1.00mm_Vertical"
 			(at 92.71 67.31 0)
 			(effects
 				(font
@@ -2312,7 +2312,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_BM06B-SRSS-TB_1x06-1MP_P1.00mm_Vertical"
 			(at 111.76 67.31 0)
 			(effects
 				(font
@@ -2457,7 +2457,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_BM06B-SRSS-TB_1x06-1MP_P1.00mm_Vertical"
 			(at 92.71 114.3 0)
 			(effects
 				(font
@@ -2869,7 +2869,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_BM06B-SRSS-TB_1x06-1MP_P1.00mm_Vertical"
 			(at 111.76 90.17 0)
 			(effects
 				(font
@@ -2948,7 +2948,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_BM06B-SRSS-TB_1x06-1MP_P1.00mm_Vertical"
 			(at 130.81 67.31 0)
 			(effects
 				(font

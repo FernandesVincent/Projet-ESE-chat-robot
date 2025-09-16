@@ -599,6 +599,72 @@
           "label": "#",
           "name": "${ITEM_NUMBER}",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer URL",
+          "name": "Manufacturer URL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Match Code",
+          "name": "Match Code",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Mounting Technology",
+          "name": "Mounting Technology",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Part Number",
+          "name": "Part Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Published Date",
+          "name": "Published Date",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Schematic",
+          "name": "Schematic",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Bushing Length (Value) (mm)",
+          "name": "Bushing Length (Value) (mm)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Switching Function",
+          "name": "Switching Function",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Actuator Length (Value) (mm)",
+          "name": "Actuator Length (Value) (mm)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Critical Parameter",
+          "name": "Critical Parameter",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer",
+          "name": "Manufacturer",
+          "show": false
         }
       ],
       "filter_string": "",
