@@ -10522,7 +10522,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "20c1799f-6a10-48eb-9eec-cd19ca10936a")
 		(property "Reference" "U3"
 			(at 152.0033 127 0)
@@ -15962,7 +15961,6 @@
 	(symbol
 		(lib_id "Connector:Conn_ST_STDC14")
 		(at 226.06 88.9 0)
-		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15970,7 +15968,7 @@
 		(dnp no)
 		(uuid "d32679d8-e3ac-4207-99eb-6b7b97a96140")
 		(property "Reference" "J7"
-			(at 237.49 87.6299 0)
+			(at 214.63 87.6299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15979,7 +15977,7 @@
 			)
 		)
 		(property "Value" "Conn_ST_STDC14"
-			(at 237.49 90.1699 0)
+			(at 214.63 90.1699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15997,7 +15995,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.st.com/content/ccc/resource/technical/document/user_manual/group1/99/49/91/b6/b2/3a/46/e5/DM00526767/files/DM00526767.pdf/jcr:content/translations/en.DM00526767.pdf"
-			(at 234.95 120.65 90)
+			(at 217.17 120.65 90)
 			(effects
 				(font
 					(size 1.27 1.27)

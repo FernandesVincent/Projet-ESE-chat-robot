@@ -1825,7 +1825,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 63.5) (xy 134.62 63.5)
+			(xy 163.83 57.15) (xy 175.26 57.15)
 		)
 		(stroke
 			(width 0)
@@ -1905,7 +1905,7 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 63.5) (xy 139.7 63.5)
+			(xy 187.96 57.15) (xy 180.34 57.15)
 		)
 		(stroke
 			(width 0)
@@ -1945,7 +1945,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 63.5) (xy 115.57 63.5)
+			(xy 158.75 57.15) (xy 156.21 57.15)
 		)
 		(stroke
 			(width 0)
@@ -2009,7 +2009,7 @@
 	)
 	(global_label "VBUS"
 		(shape input)
-		(at 115.57 63.5 180)
+		(at 156.21 57.15 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2021,7 +2021,7 @@
 		)
 		(uuid "75a0ea45-f625-40ef-8985-87bc5df575f5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 107.2102 63.5 0)
+			(at 147.8502 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2057,7 +2057,7 @@
 	)
 	(global_label "D+"
 		(shape input)
-		(at 134.62 87.63 180)
+		(at 175.26 81.28 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2069,7 +2069,7 @@
 		)
 		(uuid "ba37ba9c-b892-496f-9248-716878dfc717")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 128.3164 87.63 0)
+			(at 168.9564 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2081,7 +2081,7 @@
 	)
 	(global_label "VBUS"
 		(shape input)
-		(at 139.7 80.01 90)
+		(at 180.34 73.66 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2093,7 +2093,7 @@
 		)
 		(uuid "d9d3df09-5eea-4f90-bd36-78c895dc36f9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 139.7 71.6502 90)
+			(at 180.34 65.3002 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2105,7 +2105,7 @@
 	)
 	(global_label "D-"
 		(shape input)
-		(at 134.62 85.09 180)
+		(at 175.26 78.74 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2117,7 +2117,7 @@
 		)
 		(uuid "e3473424-34ee-4c67-94e3-dfa8e371d439")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 128.3164 85.09 0)
+			(at 168.9564 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2153,7 +2153,7 @@
 	)
 	(hierarchical_label "USB_DM"
 		(shape input)
-		(at 144.78 87.63 0)
+		(at 185.42 81.28 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2166,7 +2166,7 @@
 	)
 	(hierarchical_label "USB_DP"
 		(shape input)
-		(at 144.78 85.09 0)
+		(at 185.42 78.74 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2292,7 +2292,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 147.32 63.5 0)
+		(at 187.96 57.15 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2301,7 +2301,7 @@
 		(fields_autoplaced yes)
 		(uuid "395340bd-8067-4fea-8ea3-d9d2a1f5d7c5")
 		(property "Reference" "#PWR0108"
-			(at 147.32 67.31 0)
+			(at 187.96 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2310,7 +2310,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 147.32 58.42 0)
+			(at 187.96 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2318,7 +2318,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 147.32 63.5 0)
+			(at 187.96 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2327,7 +2327,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 147.32 63.5 0)
+			(at 187.96 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2336,7 +2336,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 147.32 63.5 0)
+			(at 187.96 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2358,7 +2358,7 @@
 	)
 	(symbol
 		(lib_id "Device:FerriteBead_Small")
-		(at 120.65 63.5 90)
+		(at 161.29 57.15 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2367,7 +2367,7 @@
 		(fields_autoplaced yes)
 		(uuid "62f87074-4a8c-47d1-aecd-0b63b213dc7c")
 		(property "Reference" "FB1"
-			(at 120.6119 57.15 90)
+			(at 161.2519 50.8 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2375,7 +2375,7 @@
 			)
 		)
 		(property "Value" "600 @ 100MHz"
-			(at 120.6119 59.69 90)
+			(at 161.2519 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2383,7 +2383,7 @@
 			)
 		)
 		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
-			(at 120.65 65.278 90)
+			(at 161.29 58.928 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2392,7 +2392,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 120.65 63.5 0)
+			(at 161.29 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2401,7 +2401,7 @@
 			)
 		)
 		(property "Description" "Ferrite bead, small symbol"
-			(at 120.65 63.5 0)
+			(at 161.29 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2426,7 +2426,7 @@
 	)
 	(symbol
 		(lib_id "Device:Polyfuse_Small")
-		(at 137.16 63.5 90)
+		(at 177.8 57.15 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2435,7 +2435,7 @@
 		(fields_autoplaced yes)
 		(uuid "850c200a-5484-49f8-87af-e0fd0f307b5f")
 		(property "Reference" "F1"
-			(at 137.16 57.15 90)
+			(at 177.8 50.8 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2443,7 +2443,7 @@
 			)
 		)
 		(property "Value" "250mA"
-			(at 137.16 59.69 90)
+			(at 177.8 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2451,7 +2451,7 @@
 			)
 		)
 		(property "Footprint" "Fuse:Fuse_1206_3216Metric"
-			(at 142.24 62.23 0)
+			(at 182.88 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2461,7 +2461,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 137.16 63.5 0)
+			(at 177.8 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2470,7 +2470,7 @@
 			)
 		)
 		(property "Description" "Resettable fuse, polymeric positive temperature coefficient, small symbol"
-			(at 137.16 63.5 0)
+			(at 177.8 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2561,7 +2561,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 139.7 92.71 0)
+		(at 180.34 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2570,7 +2570,7 @@
 		(fields_autoplaced yes)
 		(uuid "9de5bb76-0337-4130-b5ec-a986cd4e79a0")
 		(property "Reference" "#PWR0107"
-			(at 139.7 99.06 0)
+			(at 180.34 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2579,7 +2579,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 139.7 97.79 0)
+			(at 180.34 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2587,7 +2587,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 139.7 92.71 0)
+			(at 180.34 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2596,7 +2596,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 139.7 92.71 0)
+			(at 180.34 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2605,7 +2605,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 139.7 92.71 0)
+			(at 180.34 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2828,7 +2828,7 @@
 	)
 	(symbol
 		(lib_id "Power_Protection:USBLC6-2SC6")
-		(at 139.7 85.09 0)
+		(at 180.34 78.74 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2837,7 +2837,7 @@
 		(fields_autoplaced yes)
 		(uuid "ffdce39b-88e2-4507-b647-0505f0be52be")
 		(property "Reference" "U5"
-			(at 141.3511 77.47 0)
+			(at 181.9911 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2846,7 +2846,7 @@
 			)
 		)
 		(property "Value" "USBLC6-2SC6"
-			(at 141.3511 80.01 0)
+			(at 181.9911 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2855,7 +2855,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
-			(at 140.97 91.44 0)
+			(at 181.61 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2866,7 +2866,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.st.com/resource/en/datasheet/usblc6-2.pdf"
-			(at 140.97 93.345 0)
+			(at 181.61 86.995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2876,7 +2876,7 @@
 			)
 		)
 		(property "Description" "Very low capacitance ESD protection diode, 2 data-line, SOT-23-6"
-			(at 139.7 85.09 0)
+			(at 180.34 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2885,7 +2885,7 @@
 			)
 		)
 		(property "MPN" "624-7693"
-			(at 139.7 85.09 0)
+			(at 180.34 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
