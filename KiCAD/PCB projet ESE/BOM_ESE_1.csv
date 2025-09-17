@@ -1,0 +1,46 @@
+Reference,Qty,Value,Footprint,
+BUxxSD1,1,~,Régu:SSOP5_BUxxSD5,
+"C1,C3,C4,C7,C8,C10,C11,C12,C13",9,100n,Capacitor_SMD:C_0402_1005Metric,
+"C2,C5",2,4.7u,Capacitor_SMD:C_0603_1608Metric,
+C6,1,4u7,Capacitor_SMD:C_0603_1608Metric,
+"C9,C15,C16,C18,C25",5,1u,Capacitor_SMD:C_0603_1608Metric,
+C14,1,10n,Capacitor_SMD:C_0402_1005Metric,
+"C17,C21,C22,C23,C24,C26,C27,C35,C36,C37",10,0.1u,Capacitor_SMD:C_0402_1005Metric,
+"C19,C20,C30,C31,C32,C33,C34,C39,C40",9,22u,Capacitor_SMD:C_Elec_5x5.4,
+"C28,C29,C38",3,15p,Capacitor_SMD:C_0402_1005Metric,
+"D1,D2,D3,D4,D5",5,LED,LED_SMD:LED_0603_1608Metric,
+F1,1,250mA,Fuse:Fuse_1206_3216Metric,
+FB1,1,600 @ 100MHz,Inductor_SMD:L_0805_2012Metric,Wurth
+"H1,H2,H3,H4",4,MountingHole_Pad,MountingHole:MountingHole_3.2mm_M3_Pad_Via,
+"J1,J3,J4,J8,J9,J10,J11,J12,J13,J14,J15",11,Conn_01x06,Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical,
+"J2,J6",2,Conn_01x04,Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical,
+J5,1,Conn_01x02,Connector_AMASS:AMASS_XT60-M_1x02_P7.20mm_Vertical,
+J7,1,Conn_ST_STDC14,Connector_PinHeader_1.27mm:PinHeader_2x07_P1.27mm_Vertical_SMD,
+"J16,J17,J18,J19,J20,J21,J22,J23,J24,J25,J26,J27,J28",13,Conn_01x03,Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical,
+J29,1,USB_C_Receptacle_USB2.0_16P,Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12,
+L1,1,39n,Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder,CoilCraft 0603
+"L2,L3,L4",3,4.7u,Inductor_SMD:L_0603_1608Metric,CoilCraft 0603
+"MP1,MP2,MP3",3,~,Régu:TSOT23-8,
+R1,1,47k,Resistor_SMD:R_0402_1005Metric,
+R2,1,10k,Resistor_SMD:R_0402_1005Metric,
+R3,1,6k55,Resistor_SMD:R_0402_1005Metric,6.49k mais ok car LED
+R4,1,2k9,Resistor_SMD:R_0402_1005Metric,2.7k mais ok car LED
+R5,1,1k65,Resistor_SMD:R_0402_1005Metric,1.5k mais ok car LED
+"R6,R8,R10,R11",4,1k,Resistor_SMD:R_0402_1005Metric,
+R7,1,800,Resistor_SMD:R_0402_1005Metric,750 ohm mais ok car LED
+R9,1,550,Resistor_SMD:R_0402_1005Metric,510 ohm dans classeur mais ok car LED
+"R12,R13,R14,R15,R24,R25",6,100k,Resistor_SMD:R_0402_1005Metric,
+"R16,R17,R26",3,20,Resistor_SMD:R_0402_1005Metric,
+"R18,R19",2,16k,Resistor_SMD:R_0402_1005Metric,
+R20,1,7.68k,Resistor_SMD:R_0402_1005Metric,Vishay
+R21,1,4.9k,Resistor_SMD:R_0402_1005Metric,4.99k à vérif
+"R22,R23,R29",3,40.2k,Resistor_SMD:R_0402_1005Metric,
+R27,1,33k,Resistor_SMD:R_0402_1005Metric,ok classeur
+R28,1,16.3k,Resistor_SMD:R_0402_1005Metric,Vishay 16.2k
+"R30,R31",2,5k1,Resistor_SMD:R_0402_1005Metric,ok classeur
+SW1,1,SW_SPST,Régu:SW_SPST,
+SW2,1,SW_SPDT,Régu:SW_SPDT,
+"U1,U2",2,ZXBM5210-SP,Package_SO:Diodes_SO-8EP,
+U3,1,STM32G474RETx,Package_QFP:LQFP-64_10x10mm_P0.5mm,
+U4,1,ADXL343,Package_LGA:LGA-14_3x5mm_P0.8mm_LayoutBorder1x6y,
+U5,1,USBLC6-2SC6,Package_TO_SOT_SMD:SOT-23-6,
