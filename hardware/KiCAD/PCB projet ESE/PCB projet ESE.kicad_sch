@@ -5644,16 +5644,6 @@
 		)
 		(uuid "cfd7c41a-c69d-4108-ad0f-81917080ce3b")
 	)
-	(text "STlink"
-		(exclude_from_sim no)
-		(at 198.882 66.548 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "d19fd5d6-223b-4b6c-bca4-d24f7166943b")
-	)
 	(text "LED de tension"
 		(exclude_from_sim no)
 		(at 259.842 127 0)
@@ -5983,6 +5973,10 @@
 		(uuid "5131c4b3-1757-453a-9b87-c8a7095cbbaf")
 	)
 	(no_connect
+		(at 165.1 66.04)
+		(uuid "5ed50036-ee13-4a0e-8e04-4e22dec225f8")
+	)
+	(no_connect
 		(at 238.76 93.98)
 		(uuid "67e8876a-b11d-43b0-bc35-eddb8113ff58")
 	)
@@ -6005,6 +5999,10 @@
 	(no_connect
 		(at 237.49 40.64)
 		(uuid "c6fb6fe2-603a-446e-97f6-f653a625c810")
+	)
+	(no_connect
+		(at 165.1 68.58)
+		(uuid "e2d61cad-9f7c-445e-8d77-28864fe5b2e9")
 	)
 	(no_connect
 		(at 162.56 179.07)
@@ -7464,30 +7462,6 @@
 			)
 		)
 	)
-	(global_label "USB_DM"
-		(shape input)
-		(at 165.1 66.04 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "16dee66e-f87c-4b32-ad50-c0ebf32ed871")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 176.0602 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "INT 2"
 		(shape input)
 		(at 262.89 45.72 0)
@@ -8204,30 +8178,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "USB_DP"
-		(shape input)
-		(at 165.1 68.58 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left)
-		)
-		(uuid "68f535c9-3d44-44ba-b29f-8368888d7be3")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 175.8788 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 				(hide yes)
 			)
 		)
