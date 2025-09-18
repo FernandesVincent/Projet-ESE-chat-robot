@@ -1,14 +1,11 @@
 {
   "board": {
-    "active_layer": 2,
+    "active_layer": 41,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
     "hidden_nets": [
-      "+3.3V",
-      "GND",
-      "+5V",
-      "+7.4V"
+      "GND"
     ],
     "high_contrast_mode": 0,
     "net_color_mode": 1,
@@ -25,9 +22,9 @@
       "footprints": true,
       "graphics": true,
       "keepouts": true,
-      "lockedItems": false,
+      "lockedItems": true,
       "otherItems": true,
-      "pads": false,
+      "pads": true,
       "text": true,
       "tracks": true,
       "vias": true,
@@ -107,7 +104,7 @@
       103,
       103,
       103,
-      103
+      729
     ],
     "custom_group_rules": [],
     "expanded_rows": [],

@@ -824,28 +824,40 @@
 		(uuid "566a8ee6-94bc-4551-ab89-d20ac85f5a04")
 	)
 	(junction
-		(at 238.76 57.15)
+		(at 233.68 62.23)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "76bbeaeb-3327-4abb-9f3a-14b18be0322d")
+		(uuid "0f6a4ac3-d814-438e-b6e2-0c73ae5d16c0")
 	)
 	(junction
-		(at 229.87 57.15)
+		(at 233.68 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d31867b4-d810-483b-a1c0-85090cf7ffdb")
+		(uuid "1582f9d6-a6ec-4dbb-b158-b096d7856e05")
 	)
 	(junction
-		(at 238.76 62.23)
+		(at 241.3 62.23)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d652b67e-c8e6-4b4f-b04f-70a78e9414ef")
+		(uuid "336fc246-4ec8-4532-be75-31fd42c78847")
 	)
 	(junction
-		(at 229.87 62.23)
+		(at 227.33 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f2c13ab7-5686-417f-a02a-fdc60c81529b")
+		(uuid "48a7aae1-851a-4db7-ab94-e8e57cef623a")
+	)
+	(junction
+		(at 227.33 62.23)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "70e99ff9-0fa4-4a7b-b2b7-58d780be5235")
+	)
+	(junction
+		(at 241.3 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a28a0a56-1a7c-45be-bb51-51394592d213")
 	)
 	(wire
 		(pts
@@ -859,27 +871,27 @@
 	)
 	(wire
 		(pts
-			(xy 229.87 62.23) (xy 238.76 62.23)
+			(xy 227.33 62.23) (xy 233.68 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "467c9fd5-fe0b-42b7-ad57-86f1cac2b6b1")
+		(uuid "4dc19f49-233c-4aee-981b-7a7dad07e279")
 	)
 	(wire
 		(pts
-			(xy 238.76 57.15) (xy 242.57 57.15)
+			(xy 241.3 62.23) (xy 252.73 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4d721fb8-b5bc-4109-b98f-2397bb106995")
+		(uuid "58271341-c0f4-429b-81da-2c7d9210ed8d")
 	)
 	(wire
 		(pts
-			(xy 229.87 57.15) (xy 224.79 57.15)
+			(xy 227.33 57.15) (xy 233.68 57.15)
 		)
 		(stroke
 			(width 0)
@@ -899,23 +911,53 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 62.23) (xy 252.73 62.23)
+			(xy 233.68 62.23) (xy 241.3 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c0bafd93-f45f-4205-b9b8-8d550cdbe97c")
+		(uuid "8c827537-535a-46eb-a813-7dc704d55765")
 	)
 	(wire
 		(pts
-			(xy 224.79 62.23) (xy 229.87 62.23)
+			(xy 241.3 57.15) (xy 242.57 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c605bd56-f3f2-4869-9bd8-9e89b6d173d0")
+	)
+	(wire
+		(pts
+			(xy 224.79 62.23) (xy 227.33 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "cd9afd49-f2f1-4220-a24b-025de04cfde2")
+	)
+	(wire
+		(pts
+			(xy 233.68 57.15) (xy 241.3 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d042fd7b-2f63-4d14-9517-76cee89c8873")
+	)
+	(wire
+		(pts
+			(xy 227.33 57.15) (xy 224.79 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e139f501-8243-48b9-b819-74c551f8a991")
 	)
 	(wire
 		(pts
@@ -926,16 +968,6 @@
 			(type default)
 		)
 		(uuid "ebc5940b-cb51-42f8-a467-33c76ba07ced")
-	)
-	(wire
-		(pts
-			(xy 229.87 57.15) (xy 238.76 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eec27135-fc76-4554-964a-7554ead1b3c6")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1005,15 +1037,15 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 229.87 59.69 0)
+		(at 233.68 59.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1bc4a691-61a7-4764-8ec8-3c84b3f842dd")
-		(property "Reference" "C34"
-			(at 232.41 58.4262 0)
+		(uuid "153a069d-b7f9-4647-957c-77d45f269935")
+		(property "Reference" "C35"
+			(at 236.22 58.4262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1021,8 +1053,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
-			(at 232.41 60.96 0)
+		(property "Value" "10u"
+			(at 236.22 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1031,7 +1063,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 229.87 59.69 0)
+			(at 233.68 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1040,7 +1072,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 229.87 59.69 0)
+			(at 233.68 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1049,7 +1081,76 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 229.87 59.69 0)
+			(at 233.68 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3e55c723-f0ae-4fb2-924a-d2b8b70241ca")
+		)
+		(pin "2"
+			(uuid "e943a7f3-9982-41ff-8f7c-1a951c2a96a4")
+		)
+		(instances
+			(project "PCB projet ESE"
+				(path "/61bc2d2d-cd10-4636-b1b1-3d875f78e40b/7a080ce4-c82c-46c4-8a5a-914178d680a1"
+					(reference "C35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 227.33 59.69 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1bc4a691-61a7-4764-8ec8-3c84b3f842dd")
+		(property "Reference" "C34"
+			(at 229.87 58.4262 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 229.87 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 227.33 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 227.33 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 227.33 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1211,7 +1312,7 @@
 	)
 	(symbol
 		(lib_id "Device:D_TVS_Small")
-		(at 238.76 59.69 90)
+		(at 241.3 59.69 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1219,7 +1320,7 @@
 		(dnp no)
 		(uuid "b65efa43-756f-4ee8-9f0d-829cc603685a")
 		(property "Reference" "D4"
-			(at 241.046 58.928 90)
+			(at 243.586 58.928 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1228,7 +1329,7 @@
 			)
 		)
 		(property "Value" "D_TVS_Small"
-			(at 241.046 60.706 90)
+			(at 243.586 60.706 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1237,7 +1338,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_SOD-523"
-			(at 238.76 59.69 0)
+			(at 241.3 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1246,7 +1347,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 238.76 59.69 0)
+			(at 241.3 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1255,7 +1356,7 @@
 			)
 		)
 		(property "Description" "Bidirectional transient-voltage-suppression diode, small symbol"
-			(at 238.76 59.69 0)
+			(at 241.3 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
