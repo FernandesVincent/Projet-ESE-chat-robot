@@ -7,9 +7,13 @@
 
 #include "tof.h"
 #include "main.h"
+#include <stdbool.h>
 
 #define NUMBER_OF_TOF 2
 
+/*
+ * List of TOF devices
+ */
 tof_dev tof_devices[NUMBER_OF_TOF] = {
 	{
 			.dev_address = 0x54,
@@ -23,7 +27,10 @@ tof_dev tof_devices[NUMBER_OF_TOF] = {
 	}
 };
 
-
+/*
+ * Function that boots every TOF
+ * and changes its I2C slave address to the one specified
+ */
 void tof_boot()
 {
 
@@ -54,19 +61,26 @@ void tof_boot()
 	}
 }
 
-
-void tof_initialization(){
+/*
+ * Function that initialize every TOF
+ */
+void tof_initialization()
+{
 
 	for (int i=0; i< NUMBER_OF_TOF; i++)
 	{
 		tof_dev tof = tof_devices[i];
 		while(VL53L1X_SensorInit(tof.dev_address) != 0);
 	}
-	printf("TOF init done\n\r");
+	printf("TOF initialization done\n\r");
 }
 
-
-void tof_enable_ranging(){
+/*
+ * Function that enables ranging
+ * and therefore allows measurement
+ */
+void tof_enable_ranging()
+{
 
 	for (int i=0; i< NUMBER_OF_TOF; i++)
 	{
@@ -76,8 +90,13 @@ void tof_enable_ranging(){
 	printf("TOF ranging enabled\n\r");
 }
 
-
-void tof_callback(uint16_t GPIO_Pin){
+/*
+ * Callback function to be called
+ * for handing interruption
+ * It displays information of the measure
+ */
+void tof_callback(uint16_t GPIO_Pin)
+{
 	int status = 0;
 	uint8_t RangeStatus;
 	uint16_t Distance;
@@ -95,8 +114,19 @@ void tof_callback(uint16_t GPIO_Pin){
 			status = VL53L1X_GetAmbientRate(tof.dev_address, &AmbientRate);
 			status = VL53L1X_GetSpadNb(tof.dev_address, &SpadNum);
 			status = VL53L1X_ClearInterrupt(tof.dev_address); /* clear interrupt has to be called to enable next interrupt*/
-			printf("tof %d : %u, %u, %u, %u, %u \n\r", i, RangeStatus, Distance, SignalRate, AmbientRate, SpadNum);
+			printf("TOF %d: %u, %u, %u, %u, %u \n\r", i, RangeStatus, Distance, SignalRate, AmbientRate, SpadNum);
 			break;
 		}
 	}
+}
+
+/*
+ * Function that returns true if the given distance measured is above spcified threshold parameter
+ *
+ * @param distance_measured
+ * @param threshold
+ */
+bool tof_is_above_threshold(int distance_measured, int threshold)
+{
+		return distance_measured > threshold;
 }

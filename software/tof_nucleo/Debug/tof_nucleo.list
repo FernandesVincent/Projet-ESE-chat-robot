@@ -7,45 +7,45 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         000056b8  08000190  08000190  00001190  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       000001b4  08005848  08005848  00006848  2**2
+  2 .rodata       000001c0  08005848  08005848  00006848  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  080059fc  080059fc  00007090  2**0
+  3 .ARM.extab    00000000  08005a08  08005a08  00007090  2**0
                   CONTENTS, READONLY
-  4 .ARM          00000008  080059fc  080059fc  000069fc  2**2
+  4 .ARM          00000008  08005a08  08005a08  00006a08  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  08005a04  08005a04  00007090  2**0
+  5 .preinit_array 00000000  08005a10  08005a10  00007090  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08005a04  08005a04  00006a04  2**2
+  6 .init_array   00000004  08005a10  08005a10  00006a10  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .fini_array   00000004  08005a08  08005a08  00006a08  2**2
+  7 .fini_array   00000004  08005a14  08005a14  00006a14  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .data         00000090  20000000  08005a0c  00007000  2**2
+  8 .data         00000090  20000000  08005a18  00007000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          0000024c  20000090  08005a9c  00007090  2**2
+  9 .bss          0000024c  20000090  08005aa8  00007090  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  200002dc  08005a9c  000072dc  2**0
+ 10 ._user_heap_stack 00000604  200002dc  08005aa8  000072dc  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00007090  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00010907  00000000  00000000  000070c0  2**0
+ 12 .debug_info   00010944  00000000  00000000  000070c0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00002806  00000000  00000000  000179c7  2**0
+ 13 .debug_abbrev 00002824  00000000  00000000  00017a04  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000ed0  00000000  00000000  0001a1d0  2**3
+ 14 .debug_aranges 00000ed8  00000000  00000000  0001a228  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_rnglists 00000b64  00000000  00000000  0001b0a0  2**0
+ 15 .debug_rnglists 00000b6a  00000000  00000000  0001b100  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00028235  00000000  00000000  0001bc04  2**0
+ 16 .debug_macro  00028262  00000000  00000000  0001bc6a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00012e42  00000000  00000000  00043e39  2**0
+ 17 .debug_line   00012e36  00000000  00000000  00043ecc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000ee662  00000000  00000000  00056c7b  2**0
+ 18 .debug_str    000ee6d1  00000000  00000000  00056d02  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  001452dd  2**0
+ 19 .comment      00000043  00000000  00000000  001453d3  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00004380  00000000  00000000  00145320  2**2
+ 20 .debug_frame  000043a8  00000000  00000000  00145418  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000007c  00000000  00000000  001496a0  2**0
+ 21 .debug_line_str 0000007c  00000000  00000000  001497c0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -590,7 +590,7 @@ VL53L1X_ERROR VL53L1X_SensorInit(uint16_t dev)
  80006a6:	3710      	adds	r7, #16
  80006a8:	46bd      	mov	sp, r7
  80006aa:	bd80      	pop	{r7, pc}
- 80006ac:	0800590c 	.word	0x0800590c
+ 80006ac:	08005918 	.word	0x08005918
 
 080006b0 <VL53L1X_ClearInterrupt>:
 
@@ -1074,7 +1074,7 @@ VL53L1X_ERROR VL53L1X_GetRangeStatus(uint16_t dev, uint8_t *rangeStatus)
  8000986:	46bd      	mov	sp, r7
  8000988:	bd80      	pop	{r7, pc}
  800098a:	bf00      	nop
- 800098c:	08005968 	.word	0x08005968
+ 800098c:	08005974 	.word	0x08005974
 
 08000990 <MX_GPIO_Init>:
         * Output
@@ -2238,10 +2238,10 @@ void SystemInit(void)
  8000f48:	e000ed00 	.word	0xe000ed00
 
 08000f4c <tof_boot>:
-	}
-};
-
-
+/*
+ * Function that boots every TOF
+ * and changes its I2C slave address to the one specified
+ */
 void tof_boot()
 {
  8000f4c:	b5b0      	push	{r4, r5, r7, lr}
@@ -2349,8 +2349,11 @@ void tof_boot()
 
 08000ff8 <tof_initialization>:
 
-
-void tof_initialization(){
+/*
+ * Function that initialize every TOF
+ */
+void tof_initialization()
+{
  8000ff8:	b5b0      	push	{r4, r5, r7, lr}
  8000ffa:	b086      	sub	sp, #24
  8000ffc:	af00      	add	r7, sp, #0
@@ -2390,7 +2393,7 @@ void tof_initialization(){
  8001036:	2b01      	cmp	r3, #1
  8001038:	dde4      	ble.n	8001004 <tof_initialization+0xc>
 	}
-	printf("TOF init done\n\r");
+	printf("TOF initialization done\n\r");
  800103a:	4804      	ldr	r0, [pc, #16]	@ (800104c <tof_initialization+0x54>)
  800103c:	f003 fd2e 	bl	8004a9c <iprintf>
 }
@@ -2402,9 +2405,12 @@ void tof_initialization(){
  800104c:	080058c4 	.word	0x080058c4
 
 08001050 <tof_enable_ranging>:
-
-
-void tof_enable_ranging(){
+/*
+ * Function that enables ranging
+ * and therefore allows measurement
+ */
+void tof_enable_ranging()
+{
  8001050:	b5b0      	push	{r4, r5, r7, lr}
  8001052:	b086      	sub	sp, #24
  8001054:	af00      	add	r7, sp, #0
@@ -2453,12 +2459,15 @@ void tof_enable_ranging(){
  800109c:	46bd      	mov	sp, r7
  800109e:	bdb0      	pop	{r4, r5, r7, pc}
  80010a0:	20000004 	.word	0x20000004
- 80010a4:	080058d4 	.word	0x080058d4
+ 80010a4:	080058e0 	.word	0x080058e0
 
 080010a8 <tof_callback>:
-
-
-void tof_callback(uint16_t GPIO_Pin){
+ * Callback function to be called
+ * for handing interruption
+ * It displays information of the measure
+ */
+void tof_callback(uint16_t GPIO_Pin)
+{
  80010a8:	b5b0      	push	{r4, r5, r7, lr}
  80010aa:	b090      	sub	sp, #64	@ 0x40
  80010ac:	af04      	add	r7, sp, #16
@@ -2541,7 +2550,7 @@ void tof_callback(uint16_t GPIO_Pin){
  800113c:	4618      	mov	r0, r3
  800113e:	f7ff fab7 	bl	80006b0 <VL53L1X_ClearInterrupt>
  8001142:	62b8      	str	r0, [r7, #40]	@ 0x28
-			printf("tof %d : %u, %u, %u, %u, %u \n\r", i, RangeStatus, Distance, SignalRate, AmbientRate, SpadNum);
+			printf("TOF %d: %u, %u, %u, %u, %u \n\r", i, RangeStatus, Distance, SignalRate, AmbientRate, SpadNum);
  8001144:	f897 3027 	ldrb.w	r3, [r7, #39]	@ 0x27
  8001148:	4618      	mov	r0, r3
  800114a:	8cbb      	ldrh	r3, [r7, #36]	@ 0x24
@@ -2577,7 +2586,7 @@ void tof_callback(uint16_t GPIO_Pin){
  800117c:	bdb0      	pop	{r4, r5, r7, pc}
  800117e:	bf00      	nop
  8001180:	20000004 	.word	0x20000004
- 8001184:	080058ec 	.word	0x080058ec
+ 8001184:	080058f8 	.word	0x080058f8
 
 08001188 <MX_USART2_UART_Init>:
 UART_HandleTypeDef huart2;
@@ -2979,7 +2988,7 @@ LoopForever:
   ldr r1, =_edata
  80013a8:	20000090 	.word	0x20000090
   ldr r2, =_sidata
- 80013ac:	08005a0c 	.word	0x08005a0c
+ 80013ac:	08005a18 	.word	0x08005a18
   ldr r2, =_sbss
  80013b0:	20000090 	.word	0x20000090
   ldr r4, =_ebss
@@ -7080,7 +7089,7 @@ HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef  *RCC_OscInitStruct)
  8002ab4:	e014      	b.n	8002ae0 <HAL_RCC_OscConfig+0x298>
  8002ab6:	bf00      	nop
  8002ab8:	40021000 	.word	0x40021000
- 8002abc:	08005980 	.word	0x08005980
+ 8002abc:	0800598c 	.word	0x0800598c
  8002ac0:	20000000 	.word	0x20000000
  8002ac4:	2000002c 	.word	0x2000002c
  8002ac8:	4ba0      	ldr	r3, [pc, #640]	@ (8002d4c <HAL_RCC_OscConfig+0x504>)
@@ -8385,7 +8394,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  80031ea:	bd80      	pop	{r7, pc}
  80031ec:	40022000 	.word	0x40022000
  80031f0:	40021000 	.word	0x40021000
- 80031f4:	08005980 	.word	0x08005980
+ 80031f4:	0800598c 	.word	0x0800598c
  80031f8:	20000000 	.word	0x20000000
  80031fc:	2000002c 	.word	0x2000002c
 
@@ -8590,7 +8599,7 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
  8003304:	4770      	bx	lr
  8003306:	bf00      	nop
  8003308:	40021000 	.word	0x40021000
- 800330c:	08005998 	.word	0x08005998
+ 800330c:	080059a4 	.word	0x080059a4
  8003310:	00f42400 	.word	0x00f42400
  8003314:	007a1200 	.word	0x007a1200
 
@@ -8639,7 +8648,7 @@ uint32_t HAL_RCC_GetPCLK1Freq(void)
  8003350:	4618      	mov	r0, r3
  8003352:	bd80      	pop	{r7, pc}
  8003354:	40021000 	.word	0x40021000
- 8003358:	08005990 	.word	0x08005990
+ 8003358:	0800599c 	.word	0x0800599c
 
 0800335c <HAL_RCC_GetPCLK2Freq>:
   * @note   Each time PCLK2 changes, this function must be called to update the
@@ -8666,7 +8675,7 @@ uint32_t HAL_RCC_GetPCLK2Freq(void)
  800337c:	4618      	mov	r0, r3
  800337e:	bd80      	pop	{r7, pc}
  8003380:	40021000 	.word	0x40021000
- 8003384:	08005990 	.word	0x08005990
+ 8003384:	0800599c 	.word	0x0800599c
 
 08003388 <RCC_SetFlashLatencyFromMSIRange>:
             voltage range.
@@ -12994,10 +13003,10 @@ static void UART_EndRxTransfer(UART_HandleTypeDef *huart)
  8004e06:	4798      	blx	r3
  8004e08:	3601      	adds	r6, #1
  8004e0a:	e7f2      	b.n	8004df2 <__libc_init_array+0x1e>
- 8004e0c:	08005a04 	.word	0x08005a04
- 8004e10:	08005a04 	.word	0x08005a04
- 8004e14:	08005a04 	.word	0x08005a04
- 8004e18:	08005a08 	.word	0x08005a08
+ 8004e0c:	08005a10 	.word	0x08005a10
+ 8004e10:	08005a10 	.word	0x08005a10
+ 8004e14:	08005a10 	.word	0x08005a10
+ 8004e18:	08005a14 	.word	0x08005a14
 
 08004e1c <__retarget_lock_init_recursive>:
  8004e1c:	4770      	bx	lr
@@ -13496,11 +13505,11 @@ static void UART_EndRxTransfer(UART_HandleTypeDef *huart)
  800527c:	4630      	mov	r0, r6
  800527e:	f000 f879 	bl	8005374 <_printf_i>
  8005282:	e7e4      	b.n	800524e <_vfiprintf_r+0x1e6>
- 8005284:	080059c8 	.word	0x080059c8
- 8005288:	080059d2 	.word	0x080059d2
+ 8005284:	080059d4 	.word	0x080059d4
+ 8005288:	080059de 	.word	0x080059de
  800528c:	00000000 	.word	0x00000000
  8005290:	08005043 	.word	0x08005043
- 8005294:	080059ce 	.word	0x080059ce
+ 8005294:	080059da 	.word	0x080059da
 
 08005298 <_printf_common>:
  8005298:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -13829,8 +13838,8 @@ static void UART_EndRxTransfer(UART_HandleTypeDef *huart)
  80055a0:	2500      	movs	r5, #0
  80055a2:	f104 0619 	add.w	r6, r4, #25
  80055a6:	e7f5      	b.n	8005594 <_printf_i+0x220>
- 80055a8:	080059d9 	.word	0x080059d9
- 80055ac:	080059ea 	.word	0x080059ea
+ 80055a8:	080059e5 	.word	0x080059e5
+ 80055ac:	080059f6 	.word	0x080059f6
 
 080055b0 <__sflush_r>:
  80055b0:	f9b1 200c 	ldrsh.w	r2, [r1, #12]
