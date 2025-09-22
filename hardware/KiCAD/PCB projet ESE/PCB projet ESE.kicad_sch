@@ -9300,7 +9300,7 @@
 			)
 		)
 	)
-	(global_label "UART_PIi_Zero_RX"
+	(global_label "UART_Pi_Zero_RX"
 		(shape input)
 		(at 100.33 119.38 0)
 		(fields_autoplaced yes)
@@ -9314,7 +9314,7 @@
 		)
 		(uuid "a5a4171d-1c21-41a1-9cb3-09b486a154a7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 120.5431 119.38 0)
+			(at 119.9383 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9372,7 +9372,7 @@
 			)
 		)
 	)
-	(global_label "UART_PIi_Zero_RX"
+	(global_label "UART_Pi_Zero_RX"
 		(shape input)
 		(at 165.1 45.72 0)
 		(fields_autoplaced yes)
@@ -9386,7 +9386,7 @@
 		)
 		(uuid "b3e767c2-a81a-421e-9b92-87616d97e929")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 185.3131 45.72 0)
+			(at 184.7083 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
