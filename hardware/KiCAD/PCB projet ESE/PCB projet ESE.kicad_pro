@@ -38,7 +38,7 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 0.3,
+          "height": 1.8,
           "width": 1.2
         },
         "silk_line_width": 0.1,
@@ -58,7 +58,56 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "silk_edge_clearance|132000000|63040000|8d6dbd49-093c-4a46-88ac-79305dac7958|e0ffde00-d70e-4d21-9bb2-7bebd9346336",
+          ""
+        ],
+        [
+          "silk_edge_clearance|132000000|64300000|8d6dbd49-093c-4a46-88ac-79305dac7958|f9f47476-e975-467d-8b49-78b81e8cff7f",
+          ""
+        ],
+        [
+          "silk_edge_clearance|132000000|64800000|8d6dbd49-093c-4a46-88ac-79305dac7958|74624f87-8c54-401e-a392-1c3b70ed1ad1",
+          ""
+        ],
+        [
+          "silk_edge_clearance|132000000|65600000|8d6dbd49-093c-4a46-88ac-79305dac7958|d90d0875-947c-47e8-8eab-b39c9f46e539",
+          ""
+        ],
+        [
+          "silk_edge_clearance|132000000|74600000|8d6dbd49-093c-4a46-88ac-79305dac7958|be16fece-4d10-4ad4-84ce-afca21e0da53",
+          ""
+        ],
+        [
+          "silk_edge_clearance|132000000|77160000|8d6dbd49-093c-4a46-88ac-79305dac7958|f69fd9b9-23b3-423d-9f87-59a63674e3e4",
+          ""
+        ],
+        [
+          "silk_edge_clearance|79000000|69390000|225f017d-1871-44f3-a3c6-dd134779a887|42c3f8b8-b130-457d-8fa6-c320d7d09112",
+          ""
+        ],
+        [
+          "silk_edge_clearance|79000000|71950000|225f017d-1871-44f3-a3c6-dd134779a887|e16da27e-421d-4fe4-9be2-31ee5b00b868",
+          ""
+        ],
+        [
+          "silk_edge_clearance|79000000|80950000|225f017d-1871-44f3-a3c6-dd134779a887|60f45b69-ff91-4176-953f-abe73d3e1d79",
+          ""
+        ],
+        [
+          "silk_edge_clearance|79000000|81750000|225f017d-1871-44f3-a3c6-dd134779a887|105e1eec-901f-4758-99c1-f7b3c79602fe",
+          ""
+        ],
+        [
+          "silk_edge_clearance|79000000|82250000|225f017d-1871-44f3-a3c6-dd134779a887|6e5756a5-59d0-4cc8-a42f-550f062f8327",
+          ""
+        ],
+        [
+          "silk_edge_clearance|79000000|83510000|225f017d-1871-44f3-a3c6-dd134779a887|7a21dfb0-41f7-4c53-bc4a-5f58fc7825d2",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },
