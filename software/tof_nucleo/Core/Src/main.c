@@ -48,16 +48,17 @@
 
 /* USER CODE BEGIN PV */
 
-uint16_t	dev = 0x52;
-uint16_t	dev2 = 0x54;
-int status = 0;
-int state = 0;
-
 int __io_putchar(int chr)
 {
 	HAL_UART_Transmit(&huart2, (uint8_t*) &chr, 1, HAL_MAX_DELAY);
 	return chr;
 }
+
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	tof_callback(GPIO_Pin);
+}
+
 
 /* USER CODE END PV */
 
@@ -106,7 +107,6 @@ int main(void)
 	MX_I2C1_Init();
 	/* USER CODE BEGIN 2 */
 
-
 	HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
 	printf("\r\n==== PROJET ESE ROBOT CHAT TOF NUCLEO ====\r\n");
@@ -120,62 +120,6 @@ int main(void)
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
-
-	/*
-	// Wait for device booted
-	do {
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
-		status = VL53L1X_BootState(dev, &state);
-		HAL_Delay(2);
-		printf("TOF not booted\n\r");
-	} while(state == 0);
-
-	printf("TOF1 booted\n\r");
-
-	//changed I2C address of first TOF
-	do {
-		status = VL53L1X_SetI2CAddress(dev, dev2);
-	} while(status != 0);
-
-	printf("I2C address changed\n\r");
-
-	// boot second TOF
-	do {
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
-		status = VL53L1X_BootState(dev, &state);
-		HAL_Delay(2);
-		printf("TOF not booted\n\r");
-	} while(state == 0);
-
-	printf("TOF2 booted\n\r");
-
-
-	// Initialization of sensor
-	while(VL53L1X_SensorInit(dev) != 0);
-
-	while(VL53L1X_SensorInit(dev2) != 0);
-
-	printf("TOF init done\n\r");
-
-	// Sensor Calibration
-	// status = VL53L1X_SetInterMeasurementPeriod();
-	// status = VL53l1X_SetOffset();
-
-	// Enable ranging
-	do {
-		status = VL53L1X_StartRanging(dev);
-	} while(status != 0);
-
-	do {
-		status = VL53L1X_StartRanging(dev2);
-	} while(status != 0);
-
-	printf("TOF ranging enabled\n\r");
-	*/
-
-	// status = VL53L1X_SetDistanceMode(dev, 2); /* 1=short, 2=long */
-	// status = VL53L1X_SetTimingBudgetInMs(dev, 100); /* in ms possible values [20, 50, 100, 200, 500] */
-	// status = VL53L1X_SetInterMeasurementInMs(dev, 100); /* in ms, IM must be > = TB */
 
 	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
@@ -239,10 +183,6 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-	tof_callback(GPIO_Pin);
-}
 
 /* USER CODE END 4 */
 
