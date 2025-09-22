@@ -34731,6 +34731,31 @@
 		)
 	)
 	(zone
+		(net 54)
+		(net_name "+7.4V")
+		(layer "B.Cu")
+		(uuid "395265a3-f536-47e8-a16c-679d9d22dfef")
+		(hatch edge 0.5)
+		(priority 6)
+		(connect_pads
+			(clearance 0.5)
+		)
+		(min_thickness 0.25)
+		(filled_areas_thickness no)
+		(fill yes
+			(thermal_gap 0.5)
+			(thermal_bridge_width 0.5)
+			(smoothing fillet)
+			(radius 1)
+		)
+		(polygon
+			(pts
+				(xy 89.9 80.9) (xy 89.8 80) (xy 89.2 80) (xy 89.2 77.9) (xy 90.5 77.9) (xy 90.7 80) (xy 90.9 80)
+				(xy 90.9 80.9)
+			)
+		)
+	)
+	(zone
 		(net 41)
 		(net_name "Net-(MP1-SW)")
 		(layer "B.Cu")
@@ -34765,6 +34790,39 @@
 				(xy 116.666504 87.954206) (xy 116.653072 87.869397) (xy 116.653072 87.830603) (xy 116.666504 87.745793)
 				(xy 116.67849 87.708898) (xy 116.717479 87.632379) (xy 116.718863 87.630474) (xy 116.71913 87.629251)
 				(xy 116.740278 87.601) (xy 116.75796 87.583318) (xy 116.819281 87.549835)
+			)
+		)
+	)
+	(zone
+		(net 54)
+		(net_name "+7.4V")
+		(layer "B.Cu")
+		(uuid "eb2204ac-7450-40d3-93e8-3dc72048124b")
+		(hatch edge 0.5)
+		(priority 5)
+		(connect_pads
+			(clearance 0.5)
+		)
+		(min_thickness 0.25)
+		(filled_areas_thickness no)
+		(fill yes
+			(thermal_gap 0.5)
+			(thermal_bridge_width 0.5)
+			(smoothing fillet)
+			(radius 1)
+		)
+		(polygon
+			(pts
+				(xy 88.05 71.1) (xy 88.05 74.9) (xy 90.5 74.9) (xy 90.4 71.1)
+			)
+		)
+		(filled_polygon
+			(layer "B.Cu")
+			(pts
+				(xy 89.778039 73.672185) (xy 89.823794 73.724989) (xy 89.835 73.7765) (xy 89.835 74.0285) (xy 89.815315 74.095539)
+				(xy 89.762511 74.141294) (xy 89.711 74.1525) (xy 88.689 74.1525) (xy 88.621961 74.132815) (xy 88.576206 74.080011)
+				(xy 88.565 74.0285) (xy 88.565 73.7765) (xy 88.584685 73.709461) (xy 88.637489 73.663706) (xy 88.689 73.6525)
+				(xy 89.711 73.6525)
 			)
 		)
 	)

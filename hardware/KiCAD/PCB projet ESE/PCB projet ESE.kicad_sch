@@ -10070,7 +10070,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4u7"
 			(at 48.2535 60.96 0)
 			(effects
 				(font
@@ -10756,7 +10756,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4u7"
 			(at 46.9835 21.59 0)
 			(effects
 				(font
@@ -14187,7 +14187,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "100n"
 			(at 262.8963 22.86 90)
 			(effects
 				(font
