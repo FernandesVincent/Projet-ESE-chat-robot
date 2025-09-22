@@ -1,0 +1,4 @@
+../Core/Src/tof.c:27:6:tof_boot	4
+../Core/Src/tof.c:58:6:tof_initialization	3
+../Core/Src/tof.c:70:6:tof_enable_ranging	3
+../Core/Src/tof.c:81:6:tof_callback	3
