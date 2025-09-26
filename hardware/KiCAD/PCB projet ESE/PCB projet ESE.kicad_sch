@@ -14739,7 +14739,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/86130/vesd01c1-02vtovesd33c1-02v.pdf"
+		(property "Datasheet" "https://www.vishay.com/docs/86129/vesd05a1-02v.pdf"
 			(at 102.87 184.15 0)
 			(effects
 				(font
@@ -14757,7 +14757,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "VESD01C1-02V-G3-08 "
+		(property "MPN" "VESD05A1-02V-G3-08"
 			(at 102.87 184.15 90)
 			(effects
 				(font
@@ -16813,18 +16813,17 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "d0fca6fc-ed8a-4eba-bc35-5d072f9c27c2")
 		(property "Reference" "F2"
-			(at 106.68 193.04 90)
+			(at 109.22 188.722 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "3.3A"
-			(at 106.68 190.5 90)
+		(property "Value" "1A"
+			(at 106.68 188.722 90)
 			(effects
 				(font
 					(size 1.27 1.27)
