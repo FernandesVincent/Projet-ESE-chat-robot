@@ -7922,6 +7922,16 @@
 		)
 		(uuid "fe734fed-7828-4309-bd83-9efcd62eaf52")
 	)
+	(label "5V_Rpi"
+		(at 77.47 186.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bf0a450c-18ee-4b46-88db-1aa3c2f2bd6a")
+	)
 	(global_label "INT_1"
 		(shape input)
 		(at 165.1 53.34 0)
