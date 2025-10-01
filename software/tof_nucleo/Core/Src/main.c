@@ -46,6 +46,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+int threshold = 100;
 
 int __io_putchar(int chr)
 {
@@ -55,7 +56,7 @@ int __io_putchar(int chr)
 
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-	tof_callback(GPIO_Pin);
+	tof_callback(GPIO_PIN_9);
 }
 
 
@@ -125,8 +126,8 @@ int main(void)
 
 	while (1)
 	{
+		tof_is_above_threshold(threshold);
 		/* USER CODE END WHILE */
-
 		/* USER CODE BEGIN 3 */
 	}
 	/* USER CODE END 3 */

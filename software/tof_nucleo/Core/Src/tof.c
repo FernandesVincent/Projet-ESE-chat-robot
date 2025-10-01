@@ -9,7 +9,7 @@
 #include "main.h"
 #include <stdbool.h>
 
-#define NUMBER_OF_TOF 2
+#define NUMBER_OF_TOF 1
 
 /*
  * List of TOF devices
@@ -114,7 +114,8 @@ void tof_callback(uint16_t GPIO_Pin)
 			status = VL53L1X_GetAmbientRate(tof.dev_address, &AmbientRate);
 			status = VL53L1X_GetSpadNb(tof.dev_address, &SpadNum);
 			status = VL53L1X_ClearInterrupt(tof.dev_address); /* clear interrupt has to be called to enable next interrupt*/
-			printf("TOF %d: %u, %u, %u, %u, %u \n\r", i, RangeStatus, Distance, SignalRate, AmbientRate, SpadNum);
+//			printf("TOF %d: %u, %u, %u, %u, %u \n\r", i, RangeStatus, Distance, SignalRate, AmbientRate, SpadNum);
+			printf("TOF %d distance: %u mm \n\r", i, Distance);
 			break;
 		}
 	}
@@ -126,7 +127,18 @@ void tof_callback(uint16_t GPIO_Pin)
  * @param distance_measured
  * @param threshold
  */
-bool tof_is_above_threshold(int distance_measured, int threshold)
-{
-		return distance_measured > threshold;
+//bool tof_is_above_threshold(int distance_measured, int threshold){
+//	printf("ALERT");
+////	return distance_measured > threshold;
+//}
+
+void tof_is_above_threshold(int threshold){
+	uint16_t Distance;
+	for (int i=0; i< NUMBER_OF_TOF; i++)
+	{
+		tof_dev tof = tof_devices[i];
+		if(VL53L1X_GetDistance(tof.dev_address, &Distance > threshold)){
+			printf("Alert !");
+		}
+	}
 }
