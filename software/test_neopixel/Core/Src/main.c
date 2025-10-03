@@ -19,6 +19,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "dma.h"
+#include "i2c.h"
+#include "rng.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -26,6 +28,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "brillez.h"
+#include "tof.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,6 +70,18 @@ uint32_t palette[PALETTE_SIZE] =
 		0x0000FF,
 		0xFF00FF,
 };
+
+int __io_putchar(int chr)
+{
+	HAL_UART_Transmit(&huart2, (uint8_t*) &chr, 1, HAL_MAX_DELAY);
+	return chr;
+}
+
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	tof_callback(INT1_Pin);
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -101,8 +116,20 @@ int main(void)
   MX_DMA_Init();
   MX_USART2_UART_Init();
   MX_TIM1_Init();
+  MX_RNG_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  brillez_init();
+
+  HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+
+  printf("\r\n==== PROJET ESE ROBOT CHAT TOF NUCLEO ====\r\n");
+
+  tof_boot();
+  tof_initialization();
+  tof_enable_ranging();
+
+
+//  brillez_init();
   /* ticks 80MHz
    * T0H 400ns 32
    * T1H 800ns 64
@@ -120,36 +147,44 @@ int main(void)
   /* USER CODE END 2 */
 
   /* Infinite loop */
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		uint32_t random;
-		HAL_RNG_GenerateRandomNumber(&hrng, &random);
-		uint32_t effect = random %= 5;
-		HAL_RNG_GenerateRandomNumber(&hrng, &random);
-		uint32_t color = random %= PALETTE_SIZE;
+//		uint32_t random;
+//		HAL_RNG_GenerateRandomNumber(&hrng, &random);
+//		uint32_t effect = random %= 5;
+//		HAL_RNG_GenerateRandomNumber(&hrng, &random);
+//		uint32_t color = random %= PALETTE_SIZE;
+//
+//		for (int i = 0 ; i < 10 ; i++)
+//		{
+//			switch(effect)
+//			{
+//			case 0:
+//				chaser_forwùard(palette[color], 25);
+//				break;
+//			case 1:
+//				chaser_backward(palette[color], 30);
+//				break;
+//			case 2:
+//				chaser_from_center(palette[color], 50);
+//				break;
+//			case 3:
+//				chaser_to_center(palette[color], 50);
+//				break;
+//			case 4:
+//				blink(palette[color], 50);
+//				break;
+//			}
+//	  	  lidar(72.3);
+//	  	  HAL_Delay(1000); //40
+//	  	  lidar(212.1);
+//	  	  HAL_Delay(1000);
+//	  	  lidar(156.37);
+//	  	  HAL_Delay(1000);
 
-		for (int i = 0 ; i < 10 ; i++)
-		{
-			switch(effect)
-			{
-			case 0:
-				chaser_forward(palette[color], 25);
-				break;
-			case 1:
-				chaser_backward(palette[color], 30);
-				break;
-			case 2:
-				chaser_from_center(palette[color], 50);
-				break;
-			case 3:
-				chaser_to_center(palette[color], 50);
-				break;
-			case 4:
-				blink(palette[color], 50);
-				break;
-			}
-		}
+//		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
