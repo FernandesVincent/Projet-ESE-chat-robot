@@ -139,6 +139,7 @@ void one_on(int led_number,uint32_t color){
 void all_off(){
 	for(int i=0; i<WS2812B_LED_NUMBER; i++){
 		ws2812b_set_led_hex(&h_ws2812b,i,0);
+		ws2812b_send_buffer(&h_ws2812b);
 	};
 };
 

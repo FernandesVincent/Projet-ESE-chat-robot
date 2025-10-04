@@ -15,16 +15,16 @@
  * List of TOF devices
  */
 tof_dev tof_devices[NUMBER_OF_TOF] = {
-	{
-			.dev_address = 0x54,
-			.shutdown_pin = {XSHUT1_GPIO_Port, XSHUT1_Pin},
-			.int_pin = {INT1_GPIO_Port, INT1_Pin}
-	},
-//	{
-//			.dev_address = 0x58,
-//			.shutdown_pin = {GPIOC, GPIO_PIN_8},
-//			.int_pin = {GPIOA, TOF2_Pin}
-//	}
+		{
+				.dev_address = 0x54,
+				.shutdown_pin = {XSHUT1_GPIO_Port, XSHUT1_Pin},
+				.int_pin = {INT1_GPIO_Port, INT1_Pin}
+		},
+		//	{
+		//			.dev_address = 0x58,
+		//			.shutdown_pin = {GPIOC, GPIO_PIN_8},
+		//			.int_pin = {GPIOA, TOF2_Pin}
+		//	}
 };
 
 /*
@@ -90,6 +90,17 @@ void tof_enable_ranging()
 	printf("TOF ranging enabled\n\r");
 }
 
+
+void tof_interrupt_frequency_all(int freq){
+
+	int delay = 1000/freq;
+	for (int i=0; i< NUMBER_OF_TOF; i++)
+	{
+		tof_dev tof = tof_devices[i];
+		VL53L1X_SetInterMeasurementInMs(tof.dev_address, delay);
+		printf("TOF delay btw 2 measures: %d ms\n\r", delay);
+	}
+}
 /*
  * Callback function to be called
  * for handing interruption
@@ -114,31 +125,60 @@ void tof_callback(uint16_t GPIO_Pin)
 			status = VL53L1X_GetAmbientRate(tof.dev_address, &AmbientRate);
 			status = VL53L1X_GetSpadNb(tof.dev_address, &SpadNum);
 			status = VL53L1X_ClearInterrupt(tof.dev_address); /* clear interrupt has to be called to enable next interrupt*/
-//			printf("TOF %d: %u, %u, %u, %u, %u \n\r", i, RangeStatus, Distance, SignalRate, AmbientRate, SpadNum);
+			//			printf("TOF %d: %u, %u, %u, %u, %u \n\r", i, RangeStatus, Distance, SignalRate, AmbientRate, SpadNum);
 			printf("TOF %d distance: %u mm \n\r", i, Distance);
 			break;
 		}
 	}
 }
 
-/*
- * Function that returns true if the given distance measured is above spcified threshold parameter
- *
- * @param distance_measured
- * @param threshold
- */
-//bool tof_is_above_threshold(int distance_measured, int threshold){
-//	printf("ALERT");
-////	return distance_measured > threshold;
-//}
-
-void tof_is_above_threshold(int threshold){
+int tof_is_above_threshold(int threshold){
 	uint16_t Distance;
-	for (int i=0; i< NUMBER_OF_TOF; i++)
-	{
+	for (int i=0; i< NUMBER_OF_TOF; i++){
 		tof_dev tof = tof_devices[i];
-		if(VL53L1X_GetDistance(tof.dev_address, &Distance > threshold)){
-			printf("Alert !");
+		if(VL53L1X_GetDistance(tof.dev_address, &Distance) == 0){
+			if(Distance > threshold){
+//				printf("Alert !");
+				return 1;
+			}
+		}
+		else{
+			return -1;
 		}
 	}
+	return 0;
 }
+
+int tof_is_below_threshold(int threshold){
+	uint16_t Distance;
+	for (int i=0; i< NUMBER_OF_TOF; i++){
+		tof_dev tof = tof_devices[i];
+		if(VL53L1X_GetDistance(tof.dev_address, &Distance) == 0){
+			if(Distance < threshold){
+				return 1;
+			}
+		}
+		else{
+			return -1;
+		}
+	}
+	return 0;
+}
+
+int tof_is_between(int low, int high){
+	uint16_t Distance;
+	for (int i=0; i< NUMBER_OF_TOF; i++){
+		tof_dev tof = tof_devices[i];
+		if(VL53L1X_GetDistance(tof.dev_address, &Distance) == 0){
+			if(Distance > low && Distance < high){
+				return 1;
+			}
+		}
+		else{
+			return -1;
+		}
+	}
+	return 0;
+}
+
+

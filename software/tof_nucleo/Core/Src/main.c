@@ -126,7 +126,7 @@ int main(void)
 
 	while (1)
 	{
-		tof_is_above_threshold(threshold);
+//		tof_is_above_threshold(threshold);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

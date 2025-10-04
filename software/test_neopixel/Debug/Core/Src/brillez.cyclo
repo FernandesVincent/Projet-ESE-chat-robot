@@ -6,4 +6,4 @@
 ../Core/Src/brillez.c:110:6:blink	3
 ../Core/Src/brillez.c:133:6:one_on	1
 ../Core/Src/brillez.c:139:6:all_off	2
-../Core/Src/brillez.c:145:6:lidar	1
+../Core/Src/brillez.c:146:6:lidar	1

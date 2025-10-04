@@ -26,6 +26,9 @@ void tof_boot();
 void tof_initialization();
 void tof_enable_ranging();
 void tof_callback(uint16_t GPIO_Pin);
-
+void tof_interrupt_frequency_all(int freq);
+int tof_is_above_threshold(int threshold);
+int tof_is_below_threshold(int threshold);
+int tof_is_between(int low, int high);
 
 #endif /* INC_TOF_H_ */
