@@ -27,6 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 #include "brillez.h"
 #include "tof.h"
 /* USER CODE END Includes */
@@ -38,7 +39,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define RASBPI_MSG_LENGTH 256
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -49,7 +50,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+static char str[RASBPI_MSG_LENGTH];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -60,16 +61,6 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#define PALETTE_SIZE 6
-uint32_t palette[PALETTE_SIZE] =
-{
-		0xFF0000,
-		0xFFFF00,
-		0x00FF00,
-		0x00FFFF,
-		0x0000FF,
-		0xFF00FF,
-};
 
 int __io_putchar(int chr)
 {
@@ -77,10 +68,34 @@ int __io_putchar(int chr)
 	return chr;
 }
 
-
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	tof_callback(INT1_Pin);
 }
+
+// Structure de trame UART
+typedef struct {
+    char label[10];
+    int value;
+} UartData;
+
+// Tableau de données à envoyer
+UartData uart_table[] = {
+    {"TOF1", 1},
+    {"TOF2", 1},
+    {"TOF3", 1},
+    {"TOF4", 1},
+    {"TOF5", 1},
+    {"TOF6", 1}, //Pour les TOF 1 au dessus du seuil, 0 en dessous
+    {"LIDAR_D", 0}, // Distance LIDAR/objet
+    {"LIDAR_THETA", 0}, // angle LIDAR/objet
+    {"", },
+    {"", },
+    {"", },
+    {"", },
+    {"", },
+    {"", },
+    {"", },
+};
 
 /* USER CODE END 0 */
 
@@ -118,6 +133,7 @@ int main(void)
 	MX_TIM1_Init();
 	MX_RNG_Init();
 	MX_I2C1_Init();
+	MX_UART4_Init();
 	/* USER CODE BEGIN 2 */
 
 	HAL_NVIC_DisableIRQ(EXTI4_IRQn);
@@ -127,7 +143,7 @@ int main(void)
 	tof_boot();
 	tof_initialization();
 	tof_enable_ranging();
-	tof_interrupt_frequency_all(1); //in Hz
+	tof_interrupt_frequency_all(5); //in Hz
 	all_off();
 
 	//  brillez_init();
@@ -154,69 +170,22 @@ int main(void)
 
 	while (1)
 	{
-		//		uint32_t random;
-		//		HAL_RNG_GenerateRandomNumber(&hrng, &random);
-		//		uint32_t effect = random %= 5;
-		//		HAL_RNG_GenerateRandomNumber(&hrng, &random);
-		//		uint32_t color = random %= PALETTE_SIZE;
-		//
-		//		for (int i = 0 ; i < 10 ; i++)
-		//		{
-		//			switch(effect)
-		//			{
-		//			case 0:
-		//				chaser_forwùard(palette[color], 25);
-		//				break;
-		//			case 1:
-		//				chaser_backward(palette[color], 30);
-		//				break;
-		//			case 2:
-		//				chaser_from_center(palette[color], 50);
-		//				break;
-		//			case 3:
-		//				chaser_to_center(palette[color], 50);
-		//				break;
-		//			case 4:
-		//				blink(palette[color], 50);
-		//				break;
-		//			}
-		//	  	  lidar(72.3);
-		//	  	  HAL_Delay(1000); //40
-		//	  	  lidar(212.1);
-		//	  	  HAL_Delay(1000);
-		//	  	  lidar(156.37);
-		//	  	  HAL_Delay(1000);
-		if(tof_is_above_threshold(200) == 1 && tof_is_below_threshold(400) == 1){ //mm
-			one_on(57, 0x00FF00);
-//			printf("voici la valeur de la fonction, %d\n\r", tof_is_above_threshold(200));
-			HAL_Delay(500);
+		tof_print_distance();
+
+		if (tof_is_above_threshold(400)== 1){
 			all_off();
+			}
+		if(tof_is_between(200, 400) == 1){ //mm
+			one_on(57, 0x00FF00);
 		}
+
 		if(tof_is_between(100, 200) == 1){ //mm
 			one_on(57, 0xFF0000);
-//			printf("voici la valeur de la fonction, %d\n\r", tof_is_above_threshold(200));
-			HAL_Delay(500);
-			all_off();
 		}
-		if(tof_is_above_threshold(0) == 1 && tof_is_below_threshold(100) == 1){ //mm
+		if(tof_is_between(0, 100) == 1){ //mm
 			one_on(57, 0x0000FF);
-//			printf("voici la valeur de la fonction, %d\n\r", tof_is_above_threshold(200));
-			HAL_Delay(500);
-			all_off();
 		}
-//		else{
-////			printf("voici la valeur de la fonction, %d\n\r", tof_is_above_threshold(200));
-//			printf("ERROR\n\r");
-//			HAL_Delay(500);
-//
-//		}
-		//	  	  else if(tof_is_above_threshold(100)){
-		//	  		  one_on(70, 0xFF0000);
-		//	  	  }
-		//	  	  else if(tof_is_above_threshold(500)){
-		//	  		  one_on(30, 0x0000FF);
-		//
-		//	  	  }
+
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */

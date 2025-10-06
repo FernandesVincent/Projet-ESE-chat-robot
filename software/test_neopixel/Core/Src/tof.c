@@ -8,8 +8,10 @@
 #include "tof.h"
 #include "main.h"
 #include <stdbool.h>
+#include <stdio.h>
 
 #define NUMBER_OF_TOF 1
+int flag_tof = 0;
 
 /*
  * List of TOF devices
@@ -106,30 +108,61 @@ void tof_interrupt_frequency_all(int freq){
  * for handing interruption
  * It displays information of the measure
  */
+
+
 void tof_callback(uint16_t GPIO_Pin)
 {
-	int status = 0;
-	uint8_t RangeStatus;
-	uint16_t Distance;
-	uint16_t SignalRate;
-	uint16_t AmbientRate;
-	uint16_t SpadNum;
 
-	for (int i=0; i< NUMBER_OF_TOF; i++)
-	{
-		tof_dev tof = tof_devices[i];
-		if (GPIO_Pin == tof.int_pin.pin){
-			status = VL53L1X_GetRangeStatus(tof.dev_address, &RangeStatus);
-			status = VL53L1X_GetDistance(tof.dev_address, &Distance);
-			status = VL53L1X_GetSignalRate(tof.dev_address, &SignalRate);
-			status = VL53L1X_GetAmbientRate(tof.dev_address, &AmbientRate);
-			status = VL53L1X_GetSpadNb(tof.dev_address, &SpadNum);
-			status = VL53L1X_ClearInterrupt(tof.dev_address); /* clear interrupt has to be called to enable next interrupt*/
+	flag_tof = 1;
+
+    for (int i = 0; i < NUMBER_OF_TOF; i++) {
+        tof_dev tof = tof_devices[i];
+        if (GPIO_Pin == tof.int_pin.pin) {
+            VL53L1X_ClearInterrupt(tof.dev_address);
+            break;
+        }
+    }
+
+//	int status = 0;
+	//	uint8_t RangeStatus;
+//	uint16_t Distance;
+	//	uint16_t SignalRate;
+	//	uint16_t AmbientRate;
+	//	uint16_t SpadNum;
+//
+//	for (int i=0; i< NUMBER_OF_TOF; i++)
+//	{
+//		tof_dev tof = tof_devices[i];
+//		if (GPIO_Pin == tof.int_pin.pin){
+			//			status = VL53L1X_GetRangeStatus(tof.dev_address, &RangeStatus);
+//			status = VL53L1X_GetDistance(tof.dev_address, &Distance);
+			//			status = VL53L1X_GetSignalRate(tof.dev_address, &SignalRate);
+			//			status = VL53L1X_GetAmbientRate(tof.dev_address, &AmbientRate);
+			//			status = VL53L1X_GetSpadNb(tof.dev_address, &SpadNum);
+//			status = VL53L1X_ClearInterrupt(tof.dev_address); /* clear interrupt has to be called to enable next interrupt*/
 			//			printf("TOF %d: %u, %u, %u, %u, %u \n\r", i, RangeStatus, Distance, SignalRate, AmbientRate, SpadNum);
-			printf("TOF %d distance: %u mm \n\r", i, Distance);
-			break;
+//			printf("TOF %d distance: %u mm \n\r", i, Distance);
+			//			break;
+			//			return(Distance);
+//		}
+//	}
+}
+
+void tof_print_distance(){
+	uint16_t Distance;
+
+	if(flag_tof == 1){
+		for (int i=0; i< NUMBER_OF_TOF; i++){
+			tof_dev tof = tof_devices[i];
+			VL53L1X_GetDistance(tof.dev_address, &Distance);
+			printf("distance: %u mm \n\r", Distance);
 		}
 	}
+	else{
+		printf("Error printing distance\r\n");
+	}
+	flag_tof = 0;
+	HAL_Delay(200);
 }
 
 int tof_is_above_threshold(int threshold){
@@ -138,7 +171,7 @@ int tof_is_above_threshold(int threshold){
 		tof_dev tof = tof_devices[i];
 		if(VL53L1X_GetDistance(tof.dev_address, &Distance) == 0){
 			if(Distance > threshold){
-//				printf("Alert !");
+				//				printf("Alert !");
 				return 1;
 			}
 		}

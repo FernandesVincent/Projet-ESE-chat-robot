@@ -30,5 +30,5 @@ void tof_interrupt_frequency_all(int freq);
 int tof_is_above_threshold(int threshold);
 int tof_is_below_threshold(int threshold);
 int tof_is_between(int low, int high);
-
+void tof_print_distance();
 #endif /* INC_TOF_H_ */
