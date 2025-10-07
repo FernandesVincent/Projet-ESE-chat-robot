@@ -156,12 +156,9 @@ int main(void)
 		if (lidar_flag == 1)
 		{
 
-
-			/*
-			printf("taille de la trame : %d \r\n", taille);
-			for(int i = 0; i< taille; i++)
-			  	printf("%02x ", lidar_buffer[i]);
-			 */
+//			printf("taille de la trame : %d \r\n", taille);
+//			for(int i = 0; i< taille; i++)
+//				printf("%02x ", lidar_buffer[i]);
 
 			uint16_t PH = (uint16_t)(lidar_buffer[1] << 8 | lidar_buffer[0]);
 			uint8_t CT = lidar_buffer[2];
@@ -192,6 +189,7 @@ int main(void)
 			if (PH == 0x55AA)
 			{
 				// printf("header pass\r\n");
+
 				uint16_t checksumcal = PH;
 				checksumcal ^= FSA;
 				checksumcal ^= (uint16_t)(LSN << 8 | CT);
@@ -199,10 +197,9 @@ int main(void)
 				for (int i = 0; i<LSN; i++)
 					checksumcal ^= SI[i];
 
-
 				// printf("checksumcal %04x \r\n", checksumcal);
 
-				if (checksumcal == CS)
+				if (checksumcal == CS && (CT & 0x01) == 0x00)
 				{
 					// printf("CHECKSUM pass\r\n");
 
@@ -236,17 +233,17 @@ int main(void)
 
 					for(int i = 0; i < LSN; i++)
 					{
-						// printf("angle: %f distance: %.2f mm \r\n", Angle[i], distance_mm[i]);
-						if (distance_mm[i] > 0.0 && distance_mm[i] < 3600)
+						//printf("angle: %f distance: %.2f mm \r\n", Angle[i], distance_mm[i]);
+						if (distance_mm[i] > 0.0 && distance_mm[i] < 200)
 						{
 							Valid_point point = {Angle[i], distance_mm[i]};
 							printf("object detecte a %f mm  vers %f degre \r\n", point.distance , point.angle);
 						}
 					}
-
 				}
 			}
 			lidar_flag = 0;
+
 		}
 
 		/* USER CODE END WHILE */
