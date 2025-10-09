@@ -101,7 +101,7 @@ void lidar_get_angle_and_distance(){
 				Valid_point point = {Angle[i], distance_mm[i]};
 
 				static int counter = 0;
-				if(counter++ % 50 == 0)
+				if(counter++ % 100 == 0)
 				{
 					led_angle = point.angle;
 					led_distance = point.distance;

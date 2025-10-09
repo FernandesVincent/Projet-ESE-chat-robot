@@ -61,7 +61,7 @@ main-build: test_neopixel.elf secondary-outputs
 
 # Tool invocations
 test_neopixel.elf test_neopixel.map: $(OBJS) $(USER_OBJS) /Users/fernandesvincent/Desktop/3A/Projet/Projet-ESE-chat-robot/software/test_neopixel/STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "test_neopixel.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/fernandesvincent/Desktop/3A/Projet/Projet-ESE-chat-robot/software/test_neopixel/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_neopixel.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "test_neopixel.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/fernandesvincent/Desktop/3A/Projet/Projet-ESE-chat-robot/software/test_neopixel/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_neopixel.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
