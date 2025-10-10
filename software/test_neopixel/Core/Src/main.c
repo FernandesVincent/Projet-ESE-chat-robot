@@ -1,31 +1,36 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "dma.h"
+#include "i2c.h"
+#include "rng.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 #include "brillez.h"
+#include "tof.h"
+#include "lidar.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,7 +40,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define RASBPI_MSG_LENGTH 256
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -46,7 +51,11 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+//static char str[RASBPI_MSG_LENGTH];
+uint8_t lidar_buffer[UART_RX_BUFFER_SIZE];
+uint8_t UART1_RxBuffer[UART_RX_BUFFER_SIZE];
+uint16_t taille = 0;
+int lidar_flag = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -57,16 +66,59 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#define PALETTE_SIZE 6
-uint32_t palette[PALETTE_SIZE] =
+
+int __io_putchar(int chr)
 {
-		0xFF0000,
-		0xFFFF00,
-		0x00FF00,
-		0x00FFFF,
-		0x0000FF,
-		0xFF00FF,
-};
+	HAL_UART_Transmit(&huart2, (uint8_t*) &chr, 1, HAL_MAX_DELAY);
+	return chr;
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	tof_callback(INT1_Pin);
+}
+
+
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+{
+	if (huart->Instance == USART1) {
+		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+
+		taille = Size;
+		lidar_flag = 1;
+		for (int i = 0; i<Size; i++)
+			lidar_buffer[i] = UART1_RxBuffer[i];
+
+		HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, UART_RX_BUFFER_SIZE);
+	}
+
+}
+
+
+// Structure de trame UART
+//typedef struct {
+//    char label[10];
+//    int value;
+//} UartData;
+
+// Tableau de données à envoyer
+//UartData uart_table[] = {
+//    {"TOF1", 1},
+//    {"TOF2", 1},
+//    {"TOF3", 1},
+//    {"TOF4", 1},
+//    {"TOF5", 1},
+//    {"TOF6", 1}, //Pour les TOF 1 au dessus du seuil, 0 en dessous
+//    {"LIDAR_D", 0}, // Distance LIDAR/objet
+//    {"LIDAR_THETA", 0}, // angle LIDAR/objet
+//    {"speed", 0}, //robot speed
+//    {"accel", 0}, // robot accel
+//    {"batt", 0}, //battery value with ADC
+//    {"role", 0}, //role of the robot
+//    {"cat_as_not", 0}, // not = number of touch
+//    {"mouse_as_not", 0},
+//    {"", },
+//};
+
 /* USER CODE END 0 */
 
 /**
@@ -101,59 +153,78 @@ int main(void)
   MX_DMA_Init();
   MX_USART2_UART_Init();
   MX_TIM1_Init();
+  MX_RNG_Init();
+  MX_I2C1_Init();
+  MX_UART4_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  brillez_init();
-  /* ticks 80MHz
-   * T0H 400ns 32
-   * T1H 800ns 64
-   * T0L 850ns 68
-   * T1L 450ns 36
-   * RES 50000ns 4000
-   *
-   * Send 0 : 32 + 68 = 100
-   * Send 1 : 64 + 36 = 100
-   *
-   * Green : 0x0000FF
-   * Red :   0x00FF00
-   * Blue :  0xFF0000
-   */
+
+	HAL_NVIC_DisableIRQ(EXTI4_IRQn);
+
+	printf("\r\n==== PROJET ESE ROBOT CHAT ALL TEST ====\r\n");
+
+//	tof_boot();
+//	tof_initialization();
+//	tof_enable_ranging();
+//	tof_interrupt_frequency_all(5); //in Hz
+//	all_off();
+
+	HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, UART_RX_BUFFER_SIZE);
+
+	//  brillez_init();
+	/* ticks 80MHz
+	 * T0H 400ns 32
+	 * T1H 800ns 64
+	 * T0L 850ns 68
+	 * T1L 450ns 36
+	 * RES 50000ns 4000
+	 *
+	 * Send 0 : 32 + 68 = 100
+	 * Send 1 : 64 + 36 = 100
+	 *
+	 * Green : 0x0000FF
+	 * Red :   0x00FF00
+	 * Blue :  0xFF0000
+	 */
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-		uint32_t random;
-		HAL_RNG_GenerateRandomNumber(&hrng, &random);
-		uint32_t effect = random %= 5;
-		HAL_RNG_GenerateRandomNumber(&hrng, &random);
-		uint32_t color = random %= PALETTE_SIZE;
 
-		for (int i = 0 ; i < 10 ; i++)
+	HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
+	while (1)
+	{
+
+		if (lidar_flag == 1)
 		{
-			switch(effect)
-			{
-			case 0:
-				chaser_forward(palette[color], 25);
-				break;
-			case 1:
-				chaser_backward(palette[color], 30);
-				break;
-			case 2:
-				chaser_from_center(palette[color], 50);
-				break;
-			case 3:
-				chaser_to_center(palette[color], 50);
-				break;
-			case 4:
-				blink(palette[color], 50);
-				break;
-			}
+			lidar_check_frames();
+			lidar_checksum_test();
+			lidar_get_angle_and_distance();
+			lidar_flag = 0;
+
 		}
+
+//		tof_print_distance();
+//
+//		if (tof_is_above_threshold(400)== 1){
+//			all_off();
+//			}
+//		if(tof_is_between(200, 400) == 1){ //mm
+//			one_on(57, 0x00FF00);
+//		}
+//
+//		if(tof_is_between(100, 200) == 1){ //mm
+//			one_on(57, 0xFF0000);
+//		}
+//		if(tof_is_between(0, 100) == 1){ //mm
+//			one_on(57, 0x0000FF);
+//		}
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+	}
   /* USER CODE END 3 */
 }
 
@@ -217,11 +288,11 @@ void SystemClock_Config(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+	/* User can add his own implementation to report the HAL error return state */
+	__disable_irq();
+	while (1)
+	{
+	}
   /* USER CODE END Error_Handler_Debug */
 }
 #ifdef USE_FULL_ASSERT
@@ -235,7 +306,7 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
+	/* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }

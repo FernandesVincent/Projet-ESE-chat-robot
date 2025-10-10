@@ -23,8 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <math.h>
-
+#include "lidar.h"
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,7 +35,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define UART_RX_BUFFER_SIZE 256
+//#define UART_RX_BUFFER_SIZE 256
 
 
 /* USER CODE END PD */
@@ -49,17 +49,16 @@
 
 /* USER CODE BEGIN PV */
 
-
+uint8_t lidar_buffer[UART_RX_BUFFER_SIZE];
 uint8_t UART1_RxBuffer[UART_RX_BUFFER_SIZE];
 uint16_t taille = 0;
 int lidar_flag = 0;
-uint8_t lidar_buffer[UART_RX_BUFFER_SIZE];
 
 
-typedef struct {
-	float angle;
-	float distance;
-} Valid_point;
+//typedef struct {
+//	float angle;
+//	float distance;
+//} Valid_point;
 
 
 /* USER CODE END PV */
@@ -82,7 +81,7 @@ int __io_putchar(int chr)
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
 	if (huart->Instance == USART1) {
-		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+//		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 
 		taille = Size;
 		lidar_flag = 1;
@@ -142,10 +141,6 @@ int main(void)
 
 	HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, UART_RX_BUFFER_SIZE);
 
-	// Démarrer le DMA sur USART1
-	// HAL_UART_Receive_DMA(&huart1, dma_rx_buffer, RX_BUF_SIZE);
-
-
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -155,98 +150,11 @@ int main(void)
 	{
 		if (lidar_flag == 1)
 		{
-
-
-			/*
-			printf("taille de la trame : %d \r\n", taille);
-			for(int i = 0; i< taille; i++)
-			  	printf("%02x ", lidar_buffer[i]);
-			 */
-
-			uint16_t PH = (uint16_t)(lidar_buffer[1] << 8 | lidar_buffer[0]);
-			uint8_t CT = lidar_buffer[2];
-			uint8_t LSN = lidar_buffer[3];
-
-			// printf("\n\r %d échantillons\r\n", LSN);
-
-			uint16_t FSA = (uint16_t)(lidar_buffer[5] << 8 | lidar_buffer[4]);
-			uint16_t LSA = (uint16_t)(lidar_buffer[7] << 8 | lidar_buffer[6]);
-			uint16_t CS = (uint16_t)(lidar_buffer[9] << 8 | lidar_buffer[8]);
-
-			uint16_t SI[LSN];
-			float distance_mm[LSN];
-			for (int i = 0; i < LSN; i++)
-				SI[i] = (uint16_t)(lidar_buffer[i*2+11] << 8 | lidar_buffer[i*2+10]);
-
-			/*
-			printf("PH %04x \r\n", PH);
-			printf("FSA %04x \r\n", FSA);
-			printf("LSA %04x \r\n", LSA);
-			printf("CS %04x \r\n", CS);
-
-			for (int i = 0; i<LSN; i++)
-				printf(" SI[i] %04x \r\n",  SI[i]);
-			 */
-
-
-			if (PH == 0x55AA)
-			{
-				// printf("header pass\r\n");
-				uint16_t checksumcal = PH;
-				checksumcal ^= FSA;
-				checksumcal ^= (uint16_t)(LSN << 8 | CT);
-				checksumcal ^= LSA;
-				for (int i = 0; i<LSN; i++)
-					checksumcal ^= SI[i];
-
-
-				// printf("checksumcal %04x \r\n", checksumcal);
-
-				if (checksumcal == CS)
-				{
-					// printf("CHECKSUM pass\r\n");
-
-					for (int i = 0; i < LSN; i++)
-						distance_mm[i] = SI[i] / 4.0f;
-
-					double Angle_FSA = (FSA >> 1) / 64.0;
-					double Angle_LSA = (LSA >> 1) / 64.0;
-					double Angle_diff = Angle_LSA - Angle_FSA;
-
-					if (Angle_diff < 0)
-						Angle_diff += 360.0;
-
-					double Angle[LSN];
-					for (int i = 0; i < LSN; i++)
-					{
-						if(LSN > 1)
-							Angle[i] = (i+1) * Angle_diff/(LSN-1) + Angle_FSA;
-						else
-							Angle[i] = Angle_FSA;
-
-						if(distance_mm[i] > 0)
-						{
-							double AngCorrect = atan(21.8 * (155.3 - distance_mm[i]) / (155.3 * distance_mm[i]));
-							Angle[i] += AngCorrect * 180.0 / M_PI;
-						}
-						if (Angle[i] >= 360)
-							Angle[i] -= 360.0;
-					}
-
-
-					for(int i = 0; i < LSN; i++)
-					{
-						// printf("angle: %f distance: %.2f mm \r\n", Angle[i], distance_mm[i]);
-						if (distance_mm[i] > 0.0 && distance_mm[i] < 3600)
-						{
-							Valid_point point = {Angle[i], distance_mm[i]};
-							printf("object detecte a %f mm  vers %f degre \r\n", point.distance , point.angle);
-						}
-					}
-
-				}
-			}
+			lidar_check_frames();
+			lidar_checksum_test();
+			lidar_get_angle_and_distance();
 			lidar_flag = 0;
+
 		}
 
 		/* USER CODE END WHILE */
