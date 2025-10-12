@@ -9,6 +9,8 @@
 #include "main.h"
 #include <stdbool.h>
 #include <stdio.h>
+#include "VL53L1X_api.h"
+#include "vl53l1_platform.h"
 
 #define NUMBER_OF_TOF 1
 int flag_tof = 0;

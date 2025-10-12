@@ -59,6 +59,9 @@ uint8_t UART1_RxBuffer[UART_RX_BUFFER_SIZE];
 char uart_json[512];
 uint16_t taille = 0;
 int lidar_flag = 0;
+int raspi_flag_TX = 1;
+uint8_t UART3_RxBuffer[512];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -80,7 +83,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	tof_callback(INT1_Pin);
 }
 
-
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
 	if (huart->Instance == USART1) {
@@ -94,13 +96,19 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 		HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, UART_RX_BUFFER_SIZE);
 	}
 
+	if (huart->Instance == USART3)
+	{
+		UART3_RxBuffer[Size] = '\0';
+		printf("Received on USART3: %s\r\n", UART3_RxBuffer);
+		HAL_UARTEx_ReceiveToIdle_IT(&huart3, UART3_RxBuffer, sizeof(UART3_RxBuffer));
+	}
+
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if (huart->Instance == USART3) {
-		build_json();
-		HAL_UART_Transmit_DMA(&huart3, (uint8_t*)uart_json, strlen(uart_json));
+		raspi_flag_TX = 1;
 
 	}
 }
@@ -150,22 +158,20 @@ int main(void)
 	HAL_NVIC_DisableIRQ(EXTI4_IRQn);
 
 	printf("\r\n==== PROJET ESE ROBOT CHAT TEST RASBPI ====\r\n");
-	printf("COUCOU\r\n");
 
+	HAL_UARTEx_ReceiveToIdle_IT(&huart3, UART3_RxBuffer, sizeof(UART3_RxBuffer));
 	//	tof_boot();
 	//	tof_initialization();
 	//	tof_enable_ranging();
 	//	tof_interrupt_frequency_all(5); //in Hz
 	//	all_off();
 
+	build_json();
+	printf("JSON: %s\r\n", uart_json);
+	HAL_UART_Transmit_DMA(&huart3, (uint8_t*)uart_json, strlen(uart_json));
 	//	HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, UART_RX_BUFFER_SIZE);
-//	build_json(); // préparer le buffer initial
-//	printf("JSON: %s\r\n", uart_json);
-//	HAL_UART_Transmit_DMA(&huart3, (uint8_t*)uart_json, strlen(uart_json));
 
-	char test[] = "Hello Node!\n";
-	HAL_UART_Transmit(&huart3, (uint8_t*)test, strlen(test), HAL_MAX_DELAY);
-	printf("test done\r\n");
+
 	//  brillez_init();
 	/* ticks 80MHz
 	 * T0H 400ns 32
@@ -185,11 +191,31 @@ int main(void)
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
-
 	HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
+	//	uint32_t last_send_time = 0;
 
 	while (1)
 	{
+		//	    uint32_t now = HAL_GetTick();
+		//
+		//	    if ((now - last_send_time) >= 5000)
+		//	    {
+		//	        last_send_time = now;
+		//
+		//	        if (raspi_flag_TX == 1)
+		//	        {
+		//	            raspi_flag_TX = 0;
+		//	            build_json();
+		//	            printf("JSON: %s\r\n", uart_json);
+		//	            HAL_UART_Transmit_DMA(&huart3, (uint8_t*)uart_json, strlen(uart_json));
+		//	        }
+		//	    }
+
+
+
+
+
 		////////////////////////////////////////////////////////////////
 		//		printf("test");
 		//		mp3_selectStorageDevice();
