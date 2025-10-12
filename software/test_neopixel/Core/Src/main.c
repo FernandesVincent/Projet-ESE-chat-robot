@@ -31,6 +31,7 @@
 #include "brillez.h"
 #include "tof.h"
 #include "lidar.h"
+#include "mp3.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -157,6 +158,7 @@ int main(void)
   MX_I2C1_Init();
   MX_UART4_Init();
   MX_USART1_UART_Init();
+  MX_UART5_Init();
   /* USER CODE BEGIN 2 */
 
 	HAL_NVIC_DisableIRQ(EXTI4_IRQn);
@@ -195,15 +197,32 @@ int main(void)
 
 	while (1)
 	{
+		printf("test");
+		mp3_selectStorageDevice();
+		printf("test1");
 
-		if (lidar_flag == 1)
-		{
-			lidar_check_frames();
-			lidar_checksum_test();
-			lidar_get_angle_and_distance();
-			lidar_flag = 0;
+		HAL_Delay(20);
+		printf("test2");
 
-		}
+		mp3_setVolume(100);
+		printf("test3");
+
+		HAL_Delay(20);
+		printf("test4");
+
+		mp3_playWithIndex(0);
+		printf("test5");
+		HAL_Delay(30000);
+		mp3_stopPlay();
+
+//		if (lidar_flag == 1)
+//		{
+//			lidar_check_frames();
+//			lidar_checksum_test();
+//			lidar_get_angle_and_distance();
+//			lidar_flag = 0;
+//
+//		}
 
 //		tof_print_distance();
 //

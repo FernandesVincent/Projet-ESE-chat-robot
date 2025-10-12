@@ -1,0 +1,5 @@
+../Core/Src/mp3.c:13:6:mp3_selectStorageDevice	1
+../Core/Src/mp3.c:26:6:mp3_playWithIndex	1
+../Core/Src/mp3.c:39:6:mp3_playFromFolder	1
+../Core/Src/mp3.c:52:6:mp3_setVolume	1
+../Core/Src/mp3.c:65:6:mp3_stopPlay	1

@@ -116,3 +116,7 @@ void lidar_get_angle_and_distance(){
 //		printf("CS_flag incorrect\r\n");
 //	}
 }
+
+void lidar_between_distance(){
+
+}
