@@ -1,9 +1,0 @@
-../Core/Src/tof.c:38:6:tof_boot	56	static
-../Core/Src/tof.c:71:6:tof_initialization	40	static
-../Core/Src/tof.c:86:6:tof_enable_ranging	40	static
-../Core/Src/tof.c:98:6:tof_interrupt_frequency_all	56	static
-../Core/Src/tof.c:115:6:tof_callback	48	static
-../Core/Src/tof.c:153:6:tof_print_distance	48	static
-../Core/Src/tof.c:170:5:tof_is_above_threshold	56	static
-../Core/Src/tof.c:187:5:tof_is_below_threshold	56	static
-../Core/Src/tof.c:203:5:tof_is_between	56	static

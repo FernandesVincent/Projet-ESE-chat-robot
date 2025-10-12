@@ -1,9 +1,0 @@
-../Core/Src/brillez.c:17:6:brillez_init	1
-../Core/Src/brillez.c:22:6:chaser_forward	3
-../Core/Src/brillez.c:41:6:chaser_backward	3
-../Core/Src/brillez.c:60:6:chaser_from_center	3
-../Core/Src/brillez.c:85:6:chaser_to_center	3
-../Core/Src/brillez.c:110:6:blink	3
-../Core/Src/brillez.c:133:6:one_on	1
-../Core/Src/brillez.c:139:6:all_off	2
-../Core/Src/brillez.c:146:6:lidar	1

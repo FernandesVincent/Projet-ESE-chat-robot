@@ -1,3 +1,0 @@
-../Core/Src/lidar.c:33:6:lidar_check_frames	16	static
-../Core/Src/lidar.c:48:6:lidar_checksum_test	16	static
-../Core/Src/lidar.c:69:6:lidar_get_angle_and_distance	72	static
