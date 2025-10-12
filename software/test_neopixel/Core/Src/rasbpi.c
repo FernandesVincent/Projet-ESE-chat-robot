@@ -37,7 +37,6 @@ UartData uart_table[] = {
 extern char uart_json[512];
 
 void build_json(void) {
-	printf("test");
     len += sprintf(&uart_json[len], "{");
 
     for (int i = 0; uart_table[i].label[0] != '\0'; i++) {
@@ -46,6 +45,5 @@ void build_json(void) {
             len += sprintf(&uart_json[len], ",");
         }
     }
-
-    len += sprintf(&uart_json[len], "}");
+    len += sprintf(&uart_json[len], "}\n");
 }
