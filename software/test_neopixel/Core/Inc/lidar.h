@@ -1,8 +1,8 @@
 /*
- * tof.h
+ * lidar.h
  *
  *  Created on: Oct 8, 2025
- *      Author: Vincent
+ *      Author: fernandesvincent
  */
 
 #ifndef __LIDAR_H__

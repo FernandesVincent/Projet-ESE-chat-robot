@@ -12,11 +12,7 @@ const options = {
 
 const port = new SerialPort(options);
 
-if (port.connected) {
-  console.log("Nucleo connected");
-} else {
-  console.log("Nucleo not connected");
-}
+
 
 const parser = port.pipe(new ReadlineParser({ delimiter: '\n' }));
 

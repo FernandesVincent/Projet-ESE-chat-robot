@@ -32,6 +32,7 @@
 #include "tof.h"
 #include "lidar.h"
 #include "mp3.h"
+#include "rasbpi.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -41,7 +42,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define RASBPI_MSG_LENGTH 256
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -55,6 +55,7 @@
 //static char str[RASBPI_MSG_LENGTH];
 uint8_t lidar_buffer[UART_RX_BUFFER_SIZE];
 uint8_t UART1_RxBuffer[UART_RX_BUFFER_SIZE];
+char uart_json[512];
 uint16_t taille = 0;
 int lidar_flag = 0;
 /* USER CODE END PV */
@@ -94,31 +95,14 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 
 }
 
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART3) {
+    	build_json();
+    	HAL_UART_Transmit_DMA(&huart3, (uint8_t*)uart_json, strlen(uart_json));
 
-// Structure de trame UART
-//typedef struct {
-//    char label[10];
-//    int value;
-//} UartData;
-
-// Tableau de données à envoyer
-//UartData uart_table[] = {
-//    {"TOF1", 1},
-//    {"TOF2", 1},
-//    {"TOF3", 1},
-//    {"TOF4", 1},
-//    {"TOF5", 1},
-//    {"TOF6", 1}, //Pour les TOF 1 au dessus du seuil, 0 en dessous
-//    {"LIDAR_D", 0}, // Distance LIDAR/objet
-//    {"LIDAR_THETA", 0}, // angle LIDAR/objet
-//    {"speed", 0}, //robot speed
-//    {"accel", 0}, // robot accel
-//    {"batt", 0}, //battery value with ADC
-//    {"role", 0}, //role of the robot
-//    {"cat_as_not", 0}, // not = number of touch
-//    {"mouse_as_not", 0},
-//    {"", },
-//};
+    }
+}
 
 /* USER CODE END 0 */
 
@@ -198,24 +182,25 @@ int main(void)
 
 	while (1)
 	{
-		printf("test");
-		mp3_selectStorageDevice();
-		printf("test1");
-
-		HAL_Delay(20);
-		printf("test2");
-
-		mp3_setVolume(100);
-		printf("test3");
-
-		HAL_Delay(20);
-		printf("test4");
-
-		mp3_playWithIndex(0);
-		printf("test5");
-		HAL_Delay(30000);
-		mp3_stopPlay();
-
+////////////////////////////////////////////////////////////////
+//		printf("test");
+//		mp3_selectStorageDevice();
+//		printf("test1");
+//
+//		HAL_Delay(20);
+//		printf("test2");
+//
+//		mp3_setVolume(100);
+//		printf("test3");
+//
+//		HAL_Delay(20);
+//		printf("test4");
+//
+//		mp3_playWithIndex(0);
+//		printf("test5");
+//		HAL_Delay(30000);
+//		mp3_stopPlay();
+///////////////////////////////////////////////////////////////
 //		if (lidar_flag == 1)
 //		{
 //			lidar_check_frames();
@@ -240,7 +225,7 @@ int main(void)
 //		if(tof_is_between(0, 100) == 1){ //mm
 //			one_on(57, 0x0000FF);
 //		}
-
+///////////////////////////////////////////////////////////////
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
