@@ -1,10 +1,22 @@
 import { SerialPort } from 'serialport';
 import { ReadlineParser } from '@serialport/parser-readline';
 
-const port = new SerialPort({
-path: '/dev/serial0',
-baudRate: 115200
-});
+const options = {
+  path: '/dev/serial0',
+  baudRate: 115200,
+  dataBits: 8,
+  parity: 'None',
+  stopBits : 1
+}
+
+
+const port = new SerialPort(options);
+
+if (port.connected) {
+  console.log("Nucleo connected");
+} else {
+  console.log("Nucleo not connected");
+}
 
 const parser = port.pipe(new ReadlineParser({ delimiter: '\n' }));
 
