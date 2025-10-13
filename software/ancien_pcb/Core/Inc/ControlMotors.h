@@ -25,6 +25,17 @@ typedef struct Motor_HandleTypeDef {
 } Motor_HandleTypeDef;
 
 
+typedef struct Mvt_frame {
+	char direction;		//direction
+	float speed;		//vitesse
+	float omega;		//vitesse angulaire
+	float theta;		//angle de detection
+	uint8_t role;		//role
+	struct Motor_HandleTypeDef Right_Motor;	//2 moteurs
+	struct Motor_HandleTypeDef Left_Motor;
+};
+
+
 //Structure for the robot
 //a faire après que les moteurs tournent
 
@@ -33,7 +44,8 @@ typedef struct Motor_HandleTypeDef {
 void Motor_Init(Motor_HandleTypeDef* motor, TIM_HandleTypeDef* timer, uint32_t channel);
 void Motor_SetSpeed(Motor_HandleTypeDef* motor, int spd);
 void Motor_SetDir(Motor_HandleTypeDef* motor, char direction);
-void Motor_Start(Motor_HandleTypeDef* motor);
+void Motor_Forward(Motor_HandleTypeDef* motor);
+void Motor_Reverse(Motor_HandleTypeDef* motor);
 void Motor_Stop(Motor_HandleTypeDef* motor);
 //reste les prototypes du robot à faire
 
