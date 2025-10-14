@@ -1,6 +1,8 @@
 const { SerialPort } = require('serialport');
 const { ReadlineParser } = require('@serialport/parser-readline');
 
+import { dataToSend } from "./gamepad.js";
+
 const options = {
   path: '/dev/serial0',
   baudRate: 115200,
@@ -24,7 +26,7 @@ let role;
 let cat_as_not;
 let mouse_as_not;
 
-const port = new SerialPort(options);
+export const port = new SerialPort(options);
 
 const parser = port.pipe(new ReadlineParser({ delimiter: '\n' }));
 
@@ -50,12 +52,13 @@ parser.on('data', data => {
   mouse_as_not = dataObj.mouse_as_not;
 
   console.log("TOF1 =", TOF1, "Speed =", speed, "Battery =", batt);
-});
+});   
 
 
 port.on('open', () => {
   console.log('Port série ouvert');
-  port.write('Hello Nucleo!\n');
+  setInterval(() => {
+    port.write(dataToSend);
+  }, 100);
+  console.log("message envoyé : ", dataToSend)
 });
-
-
