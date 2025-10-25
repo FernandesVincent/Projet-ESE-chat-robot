@@ -1,8 +1,6 @@
 const { SerialPort } = require('serialport');
 const { ReadlineParser } = require('@serialport/parser-readline');
 
-import { dataToSend } from "./gamepad.js";
-
 const options = {
   path: '/dev/serial0',
   baudRate: 115200,
