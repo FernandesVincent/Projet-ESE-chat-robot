@@ -7,17 +7,121 @@
   <title>Projet ESE Robot Chat</title>
 
 </head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  main {
+    display: flex;
+    flex: 1;
+  }
+  .left {
+    width: 20%;
+    background-color: #dde54a;
+    position: relative;
+  }
+
+  .center {
+    width: 60%;
+    background-color: #7644c7;
+    position: relative;
+  }
+
+  .right {
+    width: 20%;
+    background-color: #fc1313;
+    position: relative;
+  }
+
+  .box {
+    position: absolute;
+    border: 2px solid black;
+    background-color: white;
+  }
+
+  .box-lvl2 {
+    position: absolute;
+    border: 2px solid black;
+    background-color: rgb(193, 215, 80);
+  }
+
+  .camera {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1280px;
+    height: 720px;
+  }
+
+  .score {
+    top: 12.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 100px;
+  }
+
+</style>
+
 <body>
   <main>
-    <section>
-      <h2>Section</h2>
-      <p>Contenu principal de la page.</p>
-    </section>
-  </main>
+    <div id="left" class="left">
+      <div class="box" style="width: 90%; height: 10%; top: 8%; left: 50%; transform: translate(-50%, -50%);">
+        <h2 style="text-align: center;">Role</h2>
+      </div>
+      <div class="box" style="width: 90%; height: 10%; top: 20%; left: 50%; transform: translate(-50%, -50%);">
+        <h2 style="text-align: center;">Batterie</h2>
+      </div>
+      <div class="box" style="width: 90%; height: 10%; top: 32%; left: 50%; transform: translate(-50%, -50%);">
+        <h2 style="text-align: center;">Vitesse</h2>
+      </div>
+      <div class="box" style="width: 90%; height: 10%; top: 44%; left: 50%; transform: translate(-50%, -50%);">
+        <h2 style="text-align: center;">Accel</h2>
+      </div>
 
-  <footer>
-    <p>© 2025 Ton nom</p>
-  </footer>
+    </div>
+
+    <div id="center" class="center">
+    <div>
+      <h1 style="text-align: center;">Projet ESE Robot Chat</h1>
+    </div>
+
+    <div class="box score" >
+      <h2 style="text-align: center;">Score</h2>
+    </div>
+
+    <div class="box camera">
+      <h2 style="text-align: center;">Camera Raspi</h2>
+    </div>
+
+    <div class="box" style="top: 90%; left: 50%; transform: translate(-50%, -50%); width: 1000px; height: 200px;">
+      <div class="box-lvl2" style="width: 33.33% ; height: 100%;">
+        <h2 style="text-align: center;">Start</h2>
+      </div>
+      <div class="box-lvl2" style="width: 33.33% ; height: 100%; left: 33.33%;">
+        <h2 style="text-align: center;">Stop</h2>
+      </div>
+      <div class="box-lvl2" style="width: 33.33% ; height: 100%; left: 66.66%;">
+        <h2 style="text-align: center;">Break</h2>
+      </div>
+    </div>
+    </div>
+
+    <div id="right" class="right">
+      <div class="box" style="width: 400px; height: 400px; top: 8%; left: 3%;">
+        <h2 style="text-align: center;">Map</h2>
+      </div>
+      <div class="box" style="width: 400px; height: 600px; top: 45%; left: 3%;">
+        <h2 style="text-align: center;">Odométrie</h2>
+    </div>
+    
+  </main>
 
 </body>
 </html>
