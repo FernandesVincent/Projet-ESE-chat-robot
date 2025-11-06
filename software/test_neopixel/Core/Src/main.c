@@ -98,12 +98,12 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 		HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, UART_RX_BUFFER_SIZE);
 	}
 
-//	if (huart->Instance == USART3)
-//	{
-//		UART3_RxBuffer[Size] = '\0';
-//		printf("Received on USART3: %s\r\n", UART3_RxBuffer);
-//		HAL_UARTEx_ReceiveToIdle_IT(&huart3, UART3_RxBuffer, sizeof(UART3_RxBuffer));
-//	}
+	//	if (huart->Instance == USART3)
+	//	{
+	//		UART3_RxBuffer[Size] = '\0';
+	//		printf("Received on USART3: %s\r\n", UART3_RxBuffer);
+	//		HAL_UARTEx_ReceiveToIdle_IT(&huart3, UART3_RxBuffer, sizeof(UART3_RxBuffer));
+	//	}
 
 }
 

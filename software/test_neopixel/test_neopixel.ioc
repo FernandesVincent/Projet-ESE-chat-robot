@@ -26,6 +26,7 @@ Dma.USART3_TX.1.RequestParameters=Instance,Direction,PeriphInc,MemInc,PeriphData
 FREERTOS.IPParameters=Tasks01
 FREERTOS.Tasks01=defaultTask,0,128,StartDefaultTask,Default,NULL,Dynamic,NULL,NULL
 File.Version=6
+GPIO.groupedBy=Group By Peripherals
 I2C1.IPParameters=Timing
 I2C1.Timing=0x10D19CE4
 KeepUserPlacement=false
