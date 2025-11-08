@@ -4,9 +4,7 @@
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
-    "hidden_nets": [
-      "GND"
-    ],
+    "hidden_nets": [],
     "high_contrast_mode": 0,
     "net_color_mode": 1,
     "opacity": {
@@ -51,8 +49,8 @@
       "conflict_shadows",
       "shapes"
     ],
-    "visible_layers": "ffffffff_ffffffff_fffffff5_ffffffff",
-    "zone_display_mode": 1
+    "visible_layers": "ffffffff_ffffffff_fffffff7_ffffffff",
+    "zone_display_mode": 0
   },
   "git": {
     "repo_type": "",
@@ -60,13 +58,11 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "PCB projet ESE.kicad_prl",
+    "filename": "PCB_AMPLI.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
     "col_hidden": [
-      false,
-      false,
       false,
       false,
       false,
@@ -88,24 +84,9 @@
       6,
       7,
       8,
-      9,
-      10,
-      11
+      9
     ],
-    "col_widths": [
-      156,
-      141,
-      107,
-      105,
-      108,
-      140,
-      105,
-      109,
-      103,
-      103,
-      103,
-      729
-    ],
+    "col_widths": [],
     "custom_group_rules": [],
     "expanded_rows": [],
     "filter_by_net_name": true,
@@ -116,7 +97,7 @@
     "show_unconnected_nets": false,
     "show_zero_pad_nets": false,
     "sort_ascending": true,
-    "sorting_column": 0
+    "sorting_column": -1
   },
   "open_jobsets": [],
   "project": {
