@@ -191,6 +191,24 @@
 				)
 			)
 			(pin power_in line
+				(at 5.08 -1.27 90)
+				(length 2.54)
+				(name "EP"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "15"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
 				(at 15.24 17.78 180)
 				(length 2.54)
 				(name "VDD"
