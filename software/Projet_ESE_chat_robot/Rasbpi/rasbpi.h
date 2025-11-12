@@ -8,7 +8,6 @@
 #ifndef __RASBPI_H__
 #define __RASBPI_H__
 
-
 #include "main.h"
 
 #define RASBPI_MSG_LENGTH 256
@@ -18,5 +17,6 @@ typedef struct {
     int value;
 } UartData;
 
-void build_json();
+void build_json(void);
+
 #endif

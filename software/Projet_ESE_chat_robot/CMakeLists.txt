@@ -44,6 +44,17 @@ file(GLOB_RECURSE SOURCES
     "${CMAKE_SOURCE_DIR}/Drivers/STM32L4xx_HAL_Driver/Src/*.c"
     "${CMAKE_SOURCE_DIR}/Drivers/CMSIS/RTOS2/Template/*.c"
     "${CMAKE_SOURCE_DIR}/Drivers/CMSIS/RTOS2/Source/*.c"
+    "${CMAKE_SOURCE_DIR}/LED/led.c"
+    "${CMAKE_SOURCE_DIR}/MP3/mp3.c"
+    "${CMAKE_SOURCE_DIR}/TOF/tof.c"
+    "${CMAKE_SOURCE_DIR}/Rasbpi/rasbpi.c"
+    "${CMAKE_SOURCE_DIR}/LiDAR/lidar.c"
+    "${CMAKE_SOURCE_DIR}/TOF/VL53L1X_api.c"
+    "${CMAKE_SOURCE_DIR}/TOF/vl53l1_platform.c"
+    "${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os2.c"
+    "${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c"
+    "${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/Source/*.c"
+
 )
 
 # --------------------------------------------
@@ -61,6 +72,16 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     "${CMAKE_SOURCE_DIR}/Drivers/CMSIS/Device/ST/STM32L4xx/Include"
     "${CMAKE_SOURCE_DIR}/Drivers/CMSIS/RTOS2/Template"
     "${CMAKE_SOURCE_DIR}/Drivers/CMSIS/RTOS2/Source"
+    "${CMAKE_SOURCE_DIR}/LED"
+    "${CMAKE_SOURCE_DIR}/MP3"
+    "${CMAKE_SOURCE_DIR}/TOF"
+    "${CMAKE_SOURCE_DIR}/Rasbpi"
+    "${CMAKE_SOURCE_DIR}/LiDAR"
+    "${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
+    "${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/Source/include"
+    "${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+
+
 )
 
 # --------------------------------------------

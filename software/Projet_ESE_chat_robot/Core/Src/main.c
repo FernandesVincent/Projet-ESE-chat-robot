@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 #include "dma.h"
 #include "i2c.h"
 #include "rng.h"
@@ -66,6 +67,7 @@ uint8_t UART3_RxBuffer[512];
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -112,6 +114,25 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 	}
 }
 
+void task_mp3(void *argument)
+{
+  /* USER CODE BEGIN 5 */
+  for(;;)
+  {
+    // mp3_loop();
+  }
+  /* USER CODE END 5 */
+}
+
+void task_led(void *argument)
+{
+  /* USER CODE BEGIN 5 */
+  for(;;)
+  {
+    // brillez_loop();
+  }
+  /* USER CODE END 5 */
+}
 /* USER CODE END 0 */
 
 /**
@@ -169,31 +190,34 @@ int main(void)
 	HAL_UART_Transmit_DMA(&huart3, (uint8_t*)uart_json, strlen(uart_json));
 	//	HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, UART_RX_BUFFER_SIZE);
 
+  if(xTaskCreate(task_mp3, "MP3", 256, NULL, 1, NULL) != pdPASS)
+  {
+    printf("Failed to create MP3 Task\r\n");
+  }
+  if(xTaskCreate(task_led, "LED", 256, NULL, 1, NULL) != pdPASS)
+    {
+      printf("Failed to create RASBPI Task\r\n");
+    }
 
-	//  brillez_init();
-	/* ticks 80MHz
-	 * T0H 400ns 32
-	 * T1H 800ns 64
-	 * T0L 850ns 68
-	 * T1L 450ns 36
-	 * RES 50000ns 4000
-	 *
-	 * Send 0 : 32 + 68 = 100
-	 * Send 1 : 64 + 36 = 100
-	 *
-	 * Green : 0x0000FF
-	 * Red :   0x00FF00
-	 * Blue :  0xFF0000
-	 */
+
+
+
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+  vTaskStartScheduler();
   /* USER CODE END 2 */
+
+  /* Call init function for freertos objects (in cmsis_os2.c) */
+  MX_FREERTOS_Init();
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
   while (1)
   {
-    HAL_Delay (100);
-    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
     	//	    uint32_t now = HAL_GetTick();
 		//
 		//	    if ((now - last_send_time) >= 5000)
