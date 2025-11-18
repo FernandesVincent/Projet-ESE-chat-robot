@@ -1,8 +1,7 @@
-../Core/Src/main.c:83:5:__io_putchar	16	static
-../Core/Src/main.c:89:6:HAL_UARTEx_RxEventCallback	280	static,ignoring_inline_asm
-../Core/Src/main.c:108:5:largeur_attendue	24	static
-../Core/Src/main.c:125:14:detecter_lidar	872	static
-../Core/Src/main.c:179:6:task_uart_parsing	472	dynamic
-../Core/Src/main.c:334:5:main	16	static
-../Core/Src/main.c:401:6:SystemClock_Config	96	static
-../Core/Src/main.c:454:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:77:5:__io_putchar	16	static
+../Core/Src/main.c:83:6:HAL_UARTEx_RxEventCallback	16	static
+../Core/Src/main.c:92:6:task_lidar_parsing	24	static
+../Core/Src/main.c:116:6:task_lidar_detection	24	static
+../Core/Src/main.c:143:5:main	16	static
+../Core/Src/main.c:216:6:SystemClock_Config	96	static
+../Core/Src/main.c:269:6:Error_Handler	4	static,ignoring_inline_asm
