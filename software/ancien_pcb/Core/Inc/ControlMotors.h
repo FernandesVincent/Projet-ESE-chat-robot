@@ -32,8 +32,8 @@ typedef struct Mvt_frame {
 	float omega;		//vitesse angulaire
 	float theta;		//angle de detection
 	uint8_t role;		//role
-	struct Motor_HandleTypeDef Right_Motor;	//2 moteurs
-	struct Motor_HandleTypeDef Left_Motor;
+	struct Motor_HandleTypeDef *Right_Motor;	//2 moteurs
+	struct Motor_HandleTypeDef *Left_Motor;
 } Robot_struct;
 
 
