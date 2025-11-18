@@ -28,6 +28,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+#include "lidar.h"
 
 /* USER CODE END Includes */
 
@@ -38,8 +39,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
-#define UART_RX_BUFFER_SIZE 256
 
 
 /* USER CODE END PD */
@@ -54,19 +53,14 @@
 /* USER CODE BEGIN PV */
 
 
-uint8_t UART1_RxBuffer[UART_RX_BUFFER_SIZE];
+uint8_t UART1_RxBuffer[LIDAR_UART_RX_BUFFER_SIZE];
 uint16_t taille = 0;
 
-typedef struct {
-	uint16_t taille;
-	uint8_t data[UART_RX_BUFFER_SIZE];
-} Trame;
 
 float cercle[360];
 
 static TaskHandle_t h_task_uart;
 
-QueueHandle_t q_usart = NULL;
 
 /* USER CODE END PV */
 
@@ -88,239 +82,54 @@ int __io_putchar(int chr)
 
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
-	BaseType_t hptw = pdFALSE;;
-	if (huart->Instance == USART1) {
-		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-
-		Trame t;
-		t.taille = Size;
-		memcpy(t.data, UART1_RxBuffer, Size);
-
-		// TODO : Envoyer pointeur de pointeur pour pas recopier le data
-		xQueueSendFromISR(q_usart, &t, &hptw);
-
-		HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, UART_RX_BUFFER_SIZE);
-	}
-	portYIELD_FROM_ISR(&hptw)
-
+	lidar_callback_from_isr(huart, Size);
 }
 
-int largeur_attendue(float D, float L) {
-	float theta_rad = 2 * atan(D / (2 * L)); // en radians
-	int theta_deg = theta_rad * 180.0 / 3.14159265; // conversion en degrés
+extern QueueHandle_t q_usart;
 
-	return theta_deg;
-}
+SemaphoreHandle_t cercle_mutex;
 
-typedef struct {
-	int debut;
-	int fin;
-} Cluster_point;
-
-typedef struct {
-	int angle;
-	float distance;
-} Cible_lidar;
-
-Cible_lidar *detecter_lidar(float *cercle)
+void task_lidar_parsing (void * unused)
 {
-
-	Cluster_point plage[100];	// TODO : ajuster taille
 	int index = 0;
 
-	static Cible_lidar cible;
-
-	plage[index].debut = 0;
-	float distance_prec = cercle[0];
-	int largeur;
-
-	for (int i = 1; i < 360; i++) {
-		if (fabs(cercle[i] - distance_prec) > 60) { // saut > 6cm
-			plage[index].fin = i - 1;
-			index++;
-			if (index >= 100) break; // éviter dépassement
-			plage[index].debut = i;
-		}
-		distance_prec = cercle[i];
-	}
-
-	// dernier bloc
-	plage[index].fin = 359;
-	index++;
-
-	for (int i = 0; i < index; i++)
-	{
-		// calcul moyenne distance
-		float mini=cercle[plage[i].debut];
-		for (int m=plage[i].debut+1; m<=plage[i].fin; m++)
-			if (cercle[m]<mini)
-				mini = cercle[m];
-
-		// calcul angle attendu pour distance
-		largeur = largeur_attendue(60, mini+30);
-
-		if (mini != 0.0)
-		{
-			printf("Plage %d: angle %d a %d avce minimum à %f et largeur attendu %d\r\n", i, plage[i].debut, plage[i].fin, mini, largeur);
-			if(abs(plage[i].fin - plage[i].debut - largeur) <=3)
-			{
-				printf("====> LIDAR detecte entre %d et %d degrés à %f\r\n", plage[i].debut, plage[i].fin, mini);
-
-				cible.angle = (plage[i].debut + plage[i].fin) / 2;
-				cible.distance = mini;
-				return &cible;
-			}
-		}
-	}
-	return NULL;
-}
-
-
-void task_uart_parsing (void * unused)
-{
-	Trame t;
-	HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, UART_RX_BUFFER_SIZE);
-
-	int index = 0;
-	int distance[4] = {200, 300, 500, 800};
-	int index_distance = 0;
 
 	for (;;)
 	{
-		xQueueReceive(q_usart, &t, portMAX_DELAY);
+		Parsed_data *data = lidar_parsing_data();
 
-		uint8_t *lidar_buffer = t.data;
+		xSemaphoreTake(cercle_mutex, portMAX_DELAY);
+		lidar_sampling(data, cercle, 300.0f);
+		xSemaphoreGive(cercle_mutex);
 
-		//		UBaseType_t freeSpace = uxQueueSpacesAvailable(q_usart);
-		//		printf("Places libres : %lu\r\n", freeSpace);
-
-		//		int taille = t.taille;
-		//		printf("taille de la trame : %d \r\n", taille);
-		//		for(int i = 0; i< taille; i++)
-		//			printf("%02x ", lidar_buffer[i]);
-
-		uint16_t PH = (uint16_t)(lidar_buffer[1] << 8 | lidar_buffer[0]);
-		uint8_t CT = lidar_buffer[2];
-		uint8_t LSN = lidar_buffer[3];
-
-		// printf("\n\r %d échantillons\r\n", LSN);
-
-		uint16_t FSA = (uint16_t)(lidar_buffer[5] << 8 | lidar_buffer[4]);
-		uint16_t LSA = (uint16_t)(lidar_buffer[7] << 8 | lidar_buffer[6]);
-		uint16_t CS = (uint16_t)(lidar_buffer[9] << 8 | lidar_buffer[8]);
-
-		uint16_t SI[LSN];
-		float distance_mm[LSN];
-		for (int i = 0; i < LSN; i++)
-			SI[i] = (uint16_t)(lidar_buffer[i*2+11] << 8 | lidar_buffer[i*2+10]);
-
-		/*
-				printf("PH %04x \r\n", PH);
-				printf("FSA %04x \r\n", FSA);
-				printf("LSA %04x \r\n", LSA);
-				printf("CS %04x \r\n", CS);
-
-				for (int i = 0; i<LSN; i++)
-					printf(" SI[i] %04x \r\n",  SI[i]);
-		 */
+//		if (index % 50 == 0)
+//		{
+//			lidar_detection_target(cercle);
+//			memset(cercle, 0, sizeof(cercle));
+//		}
+//		index++;
+	}
 
 
-		if (PH == 0x55AA)
+}
+
+void task_lidar_detection (void * unused)
+{
+
+	for (;;)
+	{
+		xSemaphoreTake(cercle_mutex, portMAX_DELAY);
+		for (int i=0; i<360; i++)
 		{
-			// printf("header pass\r\n");
-
-			uint16_t checksumcal = PH;
-			checksumcal ^= FSA;
-			checksumcal ^= (uint16_t)(LSN << 8 | CT);
-			checksumcal ^= LSA;
-			for (int i = 0; i<LSN; i++)
-				checksumcal ^= SI[i];
-
-			// printf("checksumcal %04x \r\n", checksumcal);
-
-
-			// si le checksum est verifié et on recoit des trames utiles, alors on calcul et corrige l'angle et la distance pour chaque trame
-			if (checksumcal == CS && (CT & 0x01) == 0x00)
-			{
-				// printf("CHECKSUM pass\r\n");
-
-				for (int i = 0; i < LSN; i++)
-					distance_mm[i] = SI[i] / 4.0f;
-
-				double Angle_FSA = (FSA >> 1) / 64.0;
-				double Angle_LSA = (LSA >> 1) / 64.0;
-				double Angle_diff = Angle_LSA - Angle_FSA;
-
-				if (Angle_diff < 0)
-					Angle_diff += 360.0;
-
-				double Angle[LSN];
-				for (int i = 0; i < LSN; i++)
-				{
-					if(LSN > 1)
-						Angle[i] = (i+1) * Angle_diff/(LSN-1) + Angle_FSA;
-					else
-						Angle[i] = Angle_FSA;
-
-					if(distance_mm[i] > 0)
-					{
-						double AngCorrect = atan(21.8 * (155.3 - distance_mm[i]) / (155.3 * distance_mm[i]));
-						Angle[i] += AngCorrect * 180.0 / M_PI;
-					}
-					if (Angle[i] >= 360)
-						Angle[i] -= 360.0;
-				}
-
-
-				for(int i = 0; i < LSN; i++)
-				{
-					//printf("angle: %f distance: %.2f mm \r\n", Angle[i], distance_mm[i]);
-					// si le point il est dans une certaine distance on l'ajoute au tableau cercle
-					// faire varier cette distance
-					if (distance_mm[i] > 0.0 && distance_mm[i] < distance[index_distance])
-					{
-						if (Angle[i]<=360 && Angle[i] >=0)
-							cercle[(int)Angle[i]] = distance_mm[i];
-					}
-				}
-			}
+			printf("%d: %f mm\r\n", i, cercle[i]);
 		}
-		index++;
-		// Traitement des données après 50 trames recues
-		// TODO : mettre ca dans une autre tache et le synchroniser avec une vrai
-		// frequence d'échantillonage
 
-		if (index%50 == 0)
-		{
-			// BOUCHE LES TROUS de 0 sur un degré alors que autour y'a pas de 0
-			for (int i = 1; i<360; i++)
-			{
-				if (cercle[i] == 0.0 && cercle[i-1] != 0.0 && cercle[i+1] != 0.0)
-				{
-					if (fabs(cercle[i-1]-cercle[i+1]) <= 30)
-						cercle[i] = (cercle[i-1] + cercle[i+1]) / 2.0;
-				}
-			}
+		lidar_detection_target(cercle);
+		//memset(cercle, 0, sizeof(cercle));
 
-			// Affichage du tableau cercle
-			//						for (int i = 0; i<360; i++)
-			//							printf("cercle[%d] %.2f \r\n", i, cercle[i]);
-			Cible_lidar * cible = detecter_lidar(cercle);
-			if (cible != NULL)
-			{
-				printf("Cible detectee à l'angle %d et distance %.2f mm\r\n", cible->angle, cible->distance);
-				if (distance[index_distance-1] > cible->distance && index_distance > 0)
-					index_distance--;
-			}
-			else
-			{
-				printf("Aucune cible detectee\r\n");
-				if ( index_distance < 3 )
-					index_distance++;
-			}
-			printf("distance valide %d\r\n", distance[index_distance]);
-			memset(cercle, 0, sizeof(cercle));
-		}
+		xSemaphoreGive(cercle_mutex);
+
+		vTaskDelay(2000/portTICK_PERIOD_MS);
 	}
 
 }
@@ -363,11 +172,17 @@ int main(void)
 
 	printf("\r\n==== PROJET ESE ROBOT CHAT YDLIDAR X2 NUCLEO ====\r\n");
 
-	q_usart = xQueueCreate(25, UART_RX_BUFFER_SIZE);
-
-	if (xTaskCreate(task_uart_parsing, "uart", 1024, NULL, 3, &h_task_uart) != pdPASS)
+	lidar_init();
+	cercle_mutex = xSemaphoreCreateMutex();
+	if (xTaskCreate(task_lidar_parsing, "lidar_parsing", 1024, NULL, 3, &h_task_uart) != pdPASS)
 	{
-		printf("Error creating task uart\r\n");
+		printf("Error creating task lidar parsing\r\n");
+		Error_Handler();
+	}
+
+	if (xTaskCreate(task_lidar_detection, "lidar_detection", 2048, NULL, 5, NULL) != pdPASS)
+	{
+		printf("Error creating task lidar detection\r\n");
 		Error_Handler();
 	}
 
