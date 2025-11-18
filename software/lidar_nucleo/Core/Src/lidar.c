@@ -13,6 +13,7 @@
 #include "cmsis_os.h"
 #include "usart.h"
 #include "lidar.h"
+#include "gpio.h"
 
 #define LIDAR_UART USART1
 #define LIDAR_QUEUE_LENGTH 25
@@ -41,6 +42,7 @@ void lidar_callback_from_isr(UART_HandleTypeDef *huart, uint16_t Size)
 {
 	BaseType_t hptw = pdFALSE;;
 	if (huart->Instance == LIDAR_UART) {
+		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 
 		Trame t;
 		t.taille = Size;
@@ -148,7 +150,6 @@ Parsed_data *lidar_parsing_data()
 				return data;
 			}
 		}
-
 	}
 
 }
@@ -259,7 +260,7 @@ Cible_lidar *detecter_lidar(float *cercle)
 
 		if (mini != 0.0)
 		{
-			printf("Plage %d: angle %d a %d avce minimum à %f et largeur attendu %d\r\n", i, plage[i].debut, plage[i].fin, mini, largeur);
+			//printf("Plage %d: angle %d a %d avce minimum à %f et largeur attendu %d\r\n", i, plage[i].debut, plage[i].fin, mini, largeur);
 			if(abs(plage[i].fin - plage[i].debut - largeur) <= LIDAR_DETECTION_TOLERANCE_DEG)
 			{
 				printf("====> LIDAR detecte entre %d et %d degrés à %f\r\n", plage[i].debut, plage[i].fin, mini);

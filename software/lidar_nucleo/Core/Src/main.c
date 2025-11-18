@@ -102,6 +102,8 @@ void task_lidar_parsing (void * unused)
 		lidar_sampling(data, cercle, 300.0f);
 		xSemaphoreGive(cercle_mutex);
 
+		free(data);
+
 //		if (index % 50 == 0)
 //		{
 //			lidar_detection_target(cercle);
@@ -110,7 +112,6 @@ void task_lidar_parsing (void * unused)
 //		index++;
 	}
 
-
 }
 
 void task_lidar_detection (void * unused)
@@ -118,20 +119,16 @@ void task_lidar_detection (void * unused)
 
 	for (;;)
 	{
+		vTaskDelay(500/portTICK_PERIOD_MS);
+
 		xSemaphoreTake(cercle_mutex, portMAX_DELAY);
-		for (int i=0; i<360; i++)
-		{
-			printf("%d: %f mm\r\n", i, cercle[i]);
-		}
 
 		lidar_detection_target(cercle);
-		//memset(cercle, 0, sizeof(cercle));
+		memset(cercle, 0, sizeof(cercle));
 
 		xSemaphoreGive(cercle_mutex);
 
-		vTaskDelay(2000/portTICK_PERIOD_MS);
 	}
-
 }
 
 /* USER CODE END 0 */
@@ -174,13 +171,13 @@ int main(void)
 
 	lidar_init();
 	cercle_mutex = xSemaphoreCreateMutex();
-	if (xTaskCreate(task_lidar_parsing, "lidar_parsing", 1024, NULL, 3, &h_task_uart) != pdPASS)
+	if (xTaskCreate(task_lidar_parsing, "lidar_parsing", 2048, NULL, 3, &h_task_uart) != pdPASS)
 	{
 		printf("Error creating task lidar parsing\r\n");
 		Error_Handler();
 	}
 
-	if (xTaskCreate(task_lidar_detection, "lidar_detection", 2048, NULL, 5, NULL) != pdPASS)
+	if (xTaskCreate(task_lidar_detection, "lidar_detection", 1024, NULL, 5, NULL) != pdPASS)
 	{
 		printf("Error creating task lidar detection\r\n");
 		Error_Handler();
