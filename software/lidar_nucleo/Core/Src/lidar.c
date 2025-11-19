@@ -23,6 +23,9 @@
 
 #define LIDAR_DETECTION_TOLERANCE_DEG 3
 
+// Utiliser 360 + 60 (pour couvrir le chevauchement)
+#define SEARCH_LENGTH 420
+#define WRAP(i) ((i) % 360)
 
 extern uint8_t UART1_RxBuffer[LIDAR_UART_RX_BUFFER_SIZE];
 
@@ -190,17 +193,20 @@ void lidar_detection_target(float *cercle)
 	// BOUCHE LES TROUS de 0 sur un degré alors que autour y'a pas de 0
 	for (int i = 1; i<360; i++)
 	{
-		if (cercle[i] == 0.0 && cercle[i-1] != 0.0 && cercle[i+1] != 0.0)
+		int prec = (i == 0) ? 359 : i - 1; // 0 -> 359, sinon i-1
+		int suiv = (i == 359) ? 0 : i + 1; // 359 -> 0, sinon i+1
+
+		if (cercle[i] == 0.0 && cercle[prec] != 0.0 && cercle[suiv] != 0.0)
 		{
-			if (fabs(cercle[i-1]-cercle[i+1]) <= 30)
-				cercle[i] = (cercle[i-1] + cercle[i+1]) / 2.0;
+			if (fabs(cercle[prec] - cercle[suiv]) <= 30)
+				cercle[i] = (cercle[prec] + cercle[suiv]) / 2.0;
 		}
 	}
 
-	Cible_lidar * cible = detecter_lidar(cercle);
-	if (cible != NULL)
+	Cible_lidar cible = detecter_lidar(cercle);
+	if (cible. distance != 0)
 	{
-		printf("Cible detectee à l'angle %d et distance %.2f mm\r\n", cible->angle, cible->distance);
+		printf("Cible detectee à l'angle %d et distance %.2f mm\r\n", cible.angle, cible.distance);
 	}
 	else
 	{
@@ -220,7 +226,7 @@ static int largeur_attendue(float D, float L) {
 }
 
 
-Cible_lidar *detecter_lidar(float *cercle)
+Cible_lidar detecter_lidar(float *cercle)
 {
 	Cluster_point plage[100];	// TODO : ajuster taille
 	int index = 0;
@@ -228,56 +234,88 @@ Cible_lidar *detecter_lidar(float *cercle)
 	static Cible_lidar cible;
 
 	plage[index].debut = 0;
-	float distance_prec = cercle[0];
+	float distance_prec = cercle[WRAP(0)];
 	int largeur;
 	Cible_lidar cible_valide[5];
 	int cible_index = 0;
 
-	for (int i = 1; i < 360; i++) {
-		if (fabs(cercle[i] - distance_prec) > 60) { // saut > 6cm
-			plage[index].fin = i - 1;
-			index++;
-			if (index >= 100) break; // éviter dépassement
-			plage[index].debut = i;
-		}
-		distance_prec = cercle[i];
-	}
-
-	// dernier bloc
-	plage[index].fin = 359;
-	index++;
-
-	for (int i = 0; i < index; i++)
+	for (int i = 1; i < SEARCH_LENGTH; i++)
 	{
-		// calcul moyenne distance
-		float mini=cercle[plage[i].debut];
-		for (int m=plage[i].debut+1; m<=plage[i].fin; m++)
-			if (cercle[m]<mini)
-				mini = cercle[m];
+		float distance_actuelle = cercle[WRAP(i)];
 
-		// calcul angle attendu pour distance
-		largeur = largeur_attendue(LIDAR_DIAMETER_MM, mini + LIDAR_RADIUS_MM);
-
-		if (mini != 0.0)
+		// s'il y a un saut important dans la distance (c'est-à-dire un bord d'objet), ici 6cm
+		if (fabs(distance_actuelle - distance_prec) > LIDAR_DIAMETER_MM)
 		{
-			//printf("Plage %d: angle %d a %d avce minimum à %f et largeur attendu %d\r\n", i, plage[i].debut, plage[i].fin, mini, largeur);
-			if(abs(plage[i].fin - plage[i].debut - largeur) <= LIDAR_DETECTION_TOLERANCE_DEG)
+			plage[index].fin = WRAP(i - 1);
+
+			int debut_reel = plage[index].debut;
+			int fin_reel = plage[index].fin;
+
+			// calcul largeur du cluster
+			int largeur_cluster;
+			if (fin_reel >= debut_reel)
 			{
-				printf("====> LIDAR detecte entre %d et %d degrés à %f\r\n", plage[i].debut, plage[i].fin, mini);
-				cible_valide[cible_index].angle = (plage[i].debut + plage[i].fin) / 2;
-				cible_valide[cible_index].distance = mini;
-				cible_index++;
+				largeur_cluster = fin_reel - debut_reel + 1;
 			}
+			else
+			{
+				largeur_cluster = (359 - debut_reel) + 1 + fin_reel + 1;
+			}
+
+			// si cluster valide
+			if (largeur_cluster > 0)
+			{
+				// calcul distance entre le lidar et l'objet (minimum dans le cluster)
+				float mini=cercle[debut_reel];
+				for (int m = 1; m < largeur_cluster; m++)
+				{
+					int idx = WRAP(debut_reel + m);
+					if (cercle[idx] < mini && cercle[idx] != 0.0)
+						mini = cercle[idx];
+				}
+
+				largeur = largeur_attendue(LIDAR_DIAMETER_MM, mini + LIDAR_RADIUS_MM);
+
+				// vérifier si la largeur mesurée correspond à la largeur attendue
+				if (mini != 0.0)
+				{
+					if(abs(largeur_cluster - largeur) <= LIDAR_DETECTION_TOLERANCE_DEG)
+					{
+						printf("====> LIDAR detecte entre %d et %d degrés (largeur %d) à %f (attendu %d)\r\n", debut_reel, fin_reel, largeur_cluster, mini, largeur);
+
+						// Calcul de l'angle central
+						int angle_centre;
+						if (fin_reel >= debut_reel)
+						{
+							angle_centre = (debut_reel + fin_reel) / 2;
+						}
+						else
+						{
+							angle_centre = WRAP((debut_reel + fin_reel + 360) / 2);
+						}
+
+						cible_valide[cible_index].angle = angle_centre;
+						cible_valide[cible_index].distance = mini;
+						cible_index++;
+						if (cible_index >= 5) break;
+					}
+				}
+			}
+			index++;
+			if (index >= 100) break;
+			plage[index].debut = WRAP(i);
 		}
+		distance_prec = distance_actuelle;
 	}
+
+	// Trouver la cible la plus proche parmi les cibles valides
 	int index_cible_proche = -1;
 	for (int i = 0; i < cible_index; i++)
 	{
-		// retourne la cible la plus proche
 		if (index_cible_proche == -1 || cible_valide[i].distance < cible_valide[index_cible_proche].distance)
 			index_cible_proche = i;
-
 	}
-	return (index_cible_proche != -1) ? &cible_valide[index_cible_proche] : NULL;
-	// return NULL;
+
+	return (index_cible_proche != -1) ? cible_valide[index_cible_proche] : (Cible_lidar){.angle = 0, .distance = 0.0};
+
 }
