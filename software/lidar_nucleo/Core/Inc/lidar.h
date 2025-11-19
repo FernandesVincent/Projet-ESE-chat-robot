@@ -44,4 +44,6 @@ void lidar_detection_target(float *cercle);
 
 Cible_lidar detecter_lidar(float *cercle);
 
+Cible_lidar detect_min_distance(float *cercle);
+
 #endif
