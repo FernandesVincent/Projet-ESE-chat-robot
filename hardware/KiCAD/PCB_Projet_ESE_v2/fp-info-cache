@@ -1,4 +1,4 @@
-24765688352412801
+24765693882290342
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -18948,6 +18948,13 @@ Sans titre_1
 0
 8
 7
+Connector_JST
+Sans titre_2
+
+
+0
+0
+0
 Connector_Molex
 Molex_CLIK-Mate_502382-0270_1x02-1MP_P1.25mm_Vertical
 Molex CLIK-Mate series connector, 502382-0270 (http://www.molex.com/pdm_docs/sd/5023820270_sd.pdf), generated with kicad-footprint-generator
@@ -99561,12 +99568,19 @@ Bobine fiack
 2
 2
 mylib
+JST_SH_4_Vertical
+
+
+0
+6
+6
+mylib
 JST_SH_6_Vertical
 
 
 0
 8
-7
+8
 mylib
 SSOP5_BUxxSD5
 
@@ -99602,20 +99616,6 @@ THT
 0
 5
 5
-mylib
-Sans titre
-
-
-0
-3
-3
-mylib
-Sans titre_1
-
-
-0
-0
-0
 mylib
 TSOT23-8
 TSOT, 8 Pin (https://www.jedec.org/sites/default/files/docs/MO-193D.pdf variant BA), generated with kicad-footprint-generator ipc_gullwing_generator.py
