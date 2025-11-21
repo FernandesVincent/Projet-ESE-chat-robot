@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "i2c.h"
 #include "tim.h"
 #include "gpio.h"
 
@@ -92,6 +93,7 @@ int main(void)
   MX_TIM4_Init();
   MX_TIM1_Init();
   MX_TIM3_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 	Motor_Init(&left_motor, &htim1, TIM_CHANNEL_1);
 	Motor_Init(&right_motor, &htim1, TIM_CHANNEL_2);
