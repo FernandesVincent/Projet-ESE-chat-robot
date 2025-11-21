@@ -22,7 +22,11 @@
 #define LIDAR_RADIUS_MM 30.0f
 
 #define LIDAR_DETECTION_TOLERANCE_DEG 3
+#define LIDAR_DETECTION_CLUSTER_MAX 100
+#define LIDAR_DETECTION_VALID_CLUSTER_MAX 5
 
+#define SEARCH_LENGTH 420	// Utiliser 360 + 60 (pour couvrir le chevauchement)
+#define WRAP(i) ((i) % 360)
 
 extern uint8_t UART1_RxBuffer[LIDAR_UART_RX_BUFFER_SIZE];
 
@@ -48,7 +52,16 @@ void lidar_callback_from_isr(UART_HandleTypeDef *huart, uint16_t Size)
 		t.taille = Size;
 		memcpy(t.data, UART1_RxBuffer, Size);
 
-		// TODO : Envoyer pointeur de pointeur pour pas recopier le data
+		/*
+		 * TODO : Peut etre ne pas mettre de queue et juste une notification
+		 * mais du coup on garantie pas une interruption arrive avant le traitement
+		 * de la trame pecedente
+		 * j'ai mis une queue parce que avant dans le traitement de la trame j'avais plein de print
+		 * et j'ai mis une queue pour voir si je perdait des trames
+		 * mais du coup là en soit, avec juste la lidar (donc ce code là),
+		 * la queue n'a jamais plus d'1 élément donc on pourrait l'enlever
+		 */
+
 		xQueueSendFromISR(q_usart, &t, &hptw);
 
 		HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, LIDAR_UART_RX_BUFFER_SIZE);
@@ -59,16 +72,25 @@ void lidar_callback_from_isr(UART_HandleTypeDef *huart, uint16_t Size)
 
 
 /*
- * Return processed lidar data
+ * Return processed LiDar data
  * To be run as a FreeRTOS task
- * Reads data from the lidar queue, process it and fill the cercle array
+ * Reads data from the LiDar queue, process it
+ * Return Parsed_data structure pointer
+ * Parsed_data contains :
+ * 		- integer sample_number : number of sample
+ * 		- double *angle : array of size sample_number, containing angles
+ * 		- float *distance_mm : array of size sample_number, containing distance in mm
+ * 		(the distance_mm[i] is measured at angle[i], with i in [0, sample_number])
+ *
+ * 	!!! the two arrays don't necessary covers all 360 degrees around the lidar
+ * 	!!! distance_mm can be 0.0 if radar didn't get a return signal
+ * 	!!! This function return pointer of Parsed_data structure which is malloc in the function,
+ * 	!!! ===> don't forget to free the structure
  */
 Parsed_data *lidar_parsing_data()
 {
 	Trame t;
 	HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, LIDAR_UART_RX_BUFFER_SIZE);
-
-	// TODO : gérer queue pleine et tous la
 
 	for (;;)
 	{
@@ -180,27 +202,28 @@ void lidar_sampling(Parsed_data *data, float *cercle, float distance_max_mm)
 	}
 }
 
+
+
 void lidar_detection_target(float *cercle)
 {
-
-	// Traitement des données après 50 trames recues
-	// TODO : mettre ca dans une autre tache et le synchroniser avec une vrai
-	// frequence d'échantillonage
 
 	// BOUCHE LES TROUS de 0 sur un degré alors que autour y'a pas de 0
 	for (int i = 1; i<360; i++)
 	{
-		if (cercle[i] == 0.0 && cercle[i-1] != 0.0 && cercle[i+1] != 0.0)
+		int prec = (i == 0) ? 359 : i - 1; // 0 -> 359, sinon i-1
+		int suiv = (i == 359) ? 0 : i + 1; // 359 -> 0, sinon i+1
+
+		if (cercle[i] == 0.0 && cercle[prec] != 0.0 && cercle[suiv] != 0.0)
 		{
-			if (fabs(cercle[i-1]-cercle[i+1]) <= 30)
-				cercle[i] = (cercle[i-1] + cercle[i+1]) / 2.0;
+			if (fabs(cercle[prec] - cercle[suiv]) <= 30)
+				cercle[i] = (cercle[prec] + cercle[suiv]) / 2.0;
 		}
 	}
 
-	Cible_lidar * cible = detecter_lidar(cercle);
-	if (cible != NULL)
+	Cible_lidar cible = detecter_lidar(cercle);
+	if (cible. distance != 0)
 	{
-		printf("Cible detectee à l'angle %d et distance %.2f mm\r\n", cible->angle, cible->distance);
+		printf("Cible detectee à l'angle %d et distance %.2f mm\r\n", cible.angle, cible.distance);
 	}
 	else
 	{
@@ -219,65 +242,131 @@ static int largeur_attendue(float D, float L) {
 	return theta_deg;
 }
 
-
-Cible_lidar *detecter_lidar(float *cercle)
+/*
+ * Parameters :
+ * 		- float *cercle (cercle remplit par la fonction lidar_sampling)
+ * Return :
+ * 		- une structure de type Cible_lidar, qui contient
+ * 			- l'angle où la cible est détecter
+ * 			- la distance où la cible est détecter
+ *
+ * Cette fonction essaye de détecter une lidar.
+ * Si elle renvoit (Cible_lidar){ .angle = 0, .distance = 0 }, alors elle n'a pas détecter de lidar
+ *
+ */
+Cible_lidar detecter_lidar(float *cercle)
 {
-	Cluster_point plage[100];	// TODO : ajuster taille
-	int index = 0;
+	Cluster_point clusters[LIDAR_DETECTION_CLUSTER_MAX];
+	int cluster_index = 0;
 
-	static Cible_lidar cible;
-
-	plage[index].debut = 0;
-	float distance_prec = cercle[0];
-	int largeur;
-	Cible_lidar cible_valide[5];
+	Cible_lidar cluster_valide[LIDAR_DETECTION_VALID_CLUSTER_MAX];
 	int cible_index = 0;
 
-	for (int i = 1; i < 360; i++) {
-		if (fabs(cercle[i] - distance_prec) > 60) { // saut > 6cm
-			plage[index].fin = i - 1;
-			index++;
-			if (index >= 100) break; // éviter dépassement
-			plage[index].debut = i;
-		}
-		distance_prec = cercle[i];
-	}
+	clusters[cluster_index].debut = 0;
+	float distance_prec = cercle[WRAP(0)];
+	int largeur;
 
-	// dernier bloc
-	plage[index].fin = 359;
-	index++;
 
-	for (int i = 0; i < index; i++)
+	for (int i = 1; i < SEARCH_LENGTH; i++)
 	{
-		// calcul moyenne distance
-		float mini=cercle[plage[i].debut];
-		for (int m=plage[i].debut+1; m<=plage[i].fin; m++)
-			if (cercle[m]<mini)
-				mini = cercle[m];
+		float distance_actuelle = cercle[WRAP(i)];
 
-		// calcul angle attendu pour distance
-		largeur = largeur_attendue(LIDAR_DIAMETER_MM, mini + LIDAR_RADIUS_MM);
-
-		if (mini != 0.0)
+		// s'il y a un saut important dans la distance (c'est-à-dire un bord d'objet), ici 6cm
+		if (fabs(distance_actuelle - distance_prec) > LIDAR_DIAMETER_MM)
 		{
-			//printf("Plage %d: angle %d a %d avce minimum à %f et largeur attendu %d\r\n", i, plage[i].debut, plage[i].fin, mini, largeur);
-			if(abs(plage[i].fin - plage[i].debut - largeur) <= LIDAR_DETECTION_TOLERANCE_DEG)
+			clusters[cluster_index].fin = WRAP(i - 1);
+
+			int debut_reel = clusters[cluster_index].debut;
+			int fin_reel = clusters[cluster_index].fin;
+
+			// calcul largeur du cluster
+			int largeur_cluster;
+			if (fin_reel >= debut_reel)
+				largeur_cluster = fin_reel - debut_reel + 1;
+			else
+				largeur_cluster = (359 - debut_reel) + 1 + fin_reel + 1;
+
+			// si cluster valide
+			if (largeur_cluster > 0)
 			{
-				printf("====> LIDAR detecte entre %d et %d degrés à %f\r\n", plage[i].debut, plage[i].fin, mini);
-				cible_valide[cible_index].angle = (plage[i].debut + plage[i].fin) / 2;
-				cible_valide[cible_index].distance = mini;
-				cible_index++;
+				// calcul distance entre le lidar et l'objet (minimum dans le cluster)
+				float mini=cercle[debut_reel];
+				for (int m = 1; m < largeur_cluster; m++)
+				{
+					int idx = WRAP(debut_reel + m);
+					if (cercle[idx] < mini && cercle[idx] != 0.0)
+						mini = cercle[idx];
+				}
+
+				largeur = largeur_attendue(LIDAR_DIAMETER_MM, mini + LIDAR_RADIUS_MM);
+
+				// vérifier si la largeur mesurée correspond à la largeur attendue
+				if (mini != 0.0)
+				{
+					if(abs(largeur_cluster - largeur) <= LIDAR_DETECTION_TOLERANCE_DEG)
+					{
+						printf("====> LIDAR detecte entre %d et %d degrés (largeur %d) à %f (attendu %d)\r\n", debut_reel, fin_reel, largeur_cluster, mini, largeur);
+
+						// Calcul de l'angle central
+						int angle_centre;
+						if (fin_reel >= debut_reel)
+							angle_centre = (debut_reel + fin_reel) / 2;
+						else
+							angle_centre = WRAP((debut_reel + fin_reel + 360) / 2);
+
+						cluster_valide[cible_index].angle = angle_centre;
+						cluster_valide[cible_index].distance = mini;
+						cible_index++;
+						if (cible_index >= 5) break;
+					}
+				}
 			}
+			cluster_index++;
+			if (cluster_index >= 100) break;
+			clusters[cluster_index].debut = WRAP(i);
 		}
+		distance_prec = distance_actuelle;
 	}
+
+	// Trouver la cible la plus proche parmi les cibles valides
 	int index_cible_proche = -1;
 	for (int i = 0; i < cible_index; i++)
 	{
-		// retourne la cible la plus proche
-		if (index_cible_proche == -1 || cible_valide[i].distance < cible_valide[index_cible_proche].distance)
+		if (index_cible_proche == -1 || cluster_valide[i].distance < cluster_valide[index_cible_proche].distance)
 			index_cible_proche = i;
+	}
+
+	return (index_cible_proche != -1) ? cluster_valide[index_cible_proche] : (Cible_lidar){.angle = 0, .distance = 0.0};
+
+}
+
+/*
+ * Parameters :
+ * 		- float *cercle (cercle remplit par la fonction lidar_sampling)
+ * Return :
+ * 		- une structure de type Cible_lidar, qui contient
+ * 			- l'angle où la cible est détecter
+ * 			- la distance où la cible est détecter
+ *
+ * Cette fonction renvoie la distance la plus proche détecter avec son angle
+ * Bien peut etre pour fuir
+ */
+Cible_lidar detect_min_distance(float *cercle)
+{
+	float distance_min = 8000;
+	int index_min = -1;
+	for (int i = 0; i<360; i++)
+	{
+		if (cercle[i] != 0.0 && cercle[i] < distance_min)
+		{
+			distance_min = cercle[i];
+			index_min = i;
+		}
 
 	}
-	return (index_cible_proche != -1) ? &cible_valide[index_cible_proche] : NULL;
-	// return NULL;
+	if (index_min != -1)
+		return (Cible_lidar){ .angle = index_min, .distance = distance_min };
+	else
+		return (Cible_lidar){ .angle = 0, .distance = 0 }; // valeur invalide
 }
+

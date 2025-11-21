@@ -91,9 +91,6 @@ SemaphoreHandle_t cercle_mutex;
 
 void task_lidar_parsing (void * unused)
 {
-	int index = 0;
-
-
 	for (;;)
 	{
 		Parsed_data *data = lidar_parsing_data();
@@ -104,12 +101,6 @@ void task_lidar_parsing (void * unused)
 
 		free(data);
 
-//		if (index % 50 == 0)
-//		{
-//			lidar_detection_target(cercle);
-//			memset(cercle, 0, sizeof(cercle));
-//		}
-//		index++;
 	}
 
 }
@@ -124,6 +115,12 @@ void task_lidar_detection (void * unused)
 		xSemaphoreTake(cercle_mutex, portMAX_DELAY);
 
 		lidar_detection_target(cercle);
+
+		Cible_lidar cible = detect_min_distance(cercle);
+
+		if (cible.distance != 0)
+			printf("objet le plus proche : angle %d, distance : %.2f \r\n", cible.angle, cible.distance);
+
 		memset(cercle, 0, sizeof(cercle));
 
 		xSemaphoreGive(cercle_mutex);
