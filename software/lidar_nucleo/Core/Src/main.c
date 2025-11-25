@@ -91,15 +91,17 @@ SemaphoreHandle_t cercle_mutex;
 
 void task_lidar_parsing (void * unused)
 {
+	Parsed_data parsed_data;
+
 	for (;;)
 	{
-		Parsed_data *data = lidar_parsing_data();
+
+		lidar_parsing_data(&parsed_data);
 
 		xSemaphoreTake(cercle_mutex, portMAX_DELAY);
-		lidar_sampling(data, cercle, 300.0f);
+		lidar_sampling(&parsed_data, cercle, 300.0f);
 		xSemaphoreGive(cercle_mutex);
 
-		free(data);
 
 	}
 
