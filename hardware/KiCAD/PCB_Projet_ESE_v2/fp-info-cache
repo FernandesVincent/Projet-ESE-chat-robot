@@ -1,4 +1,4 @@
-24765698931574154
+25185366933381694
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -3419,6 +3419,55 @@ Capacitor_SMD
 C_Trimmer_Voltronics_JZ
 trimmer capacitor SMD horizontal, http://www.knowlescapacitors.com/File%20Library/Voltronics/English/GlobalNavigation/Products/Trimmer%20Capacitors/CerChipTrimCap.pdf
  Voltronics JR
+0
+2
+2
+Capacitor_SMD_Wurth
+CP_Wurth_WCAP-ASLU-D3L5.5
+Aluminum Electrolytic Capacitors Low Leakage +85 °C, body x3x5.5mm, https://www.we-online.com/en/components/products/WCAP-ASLU#/articles/WCAP_ASLU_SIZE_3
+SMT
+0
+2
+2
+Capacitor_SMD_Wurth
+CP_Wurth_WCAP-ASLU-D4L5.5
+Aluminum Electrolytic Capacitors Low Leakage +85 °C, body x4x5.5mm, https://www.we-online.com/en/components/products/WCAP-ASLU#/articles/WCAP_ASLU_SIZE_4
+SMT
+0
+2
+2
+Capacitor_SMD_Wurth
+CP_Wurth_WCAP-ASLU-D5L5.5
+Aluminum Electrolytic Capacitors Low Leakage +85 °C, body x5x5.5mm, https://www.we-online.com/en/components/products/WCAP-ASLU#/articles/WCAP_ASLU_SIZE_5
+SMT
+0
+2
+2
+Capacitor_SMD_Wurth
+CP_Wurth_WCAP-ASLU-D6.3L5.5
+Aluminum Electrolytic Capacitors Low Leakage +85 °C, body x6.3x5.5mm, https://www.we-online.com/en/components/products/WCAP-ASLU#/articles/WCAP_ASLU_SIZE_6_3
+SMT
+0
+2
+2
+Capacitor_SMD_Wurth
+CP_Wurth_WCAP-ASLU-D6.3L7.7
+Aluminum Electrolytic Capacitors Low Leakage +85 °C, body x6.3x7.7mm, https://www.we-online.com/en/components/products/WCAP-ASLU#/articles/WCAP_ASLU_SIZE_6_3
+SMT
+0
+2
+2
+Capacitor_SMD_Wurth
+CP_Wurth_WCAP-ASLU-D8L6.5
+Aluminum Electrolytic Capacitors Low Leakage +85 °C, body x8x6.5mm, https://www.we-online.com/en/components/products/WCAP-ASLU#/articles/WCAP_ASLU_SIZE_8
+SMT
+0
+2
+2
+Capacitor_SMD_Wurth
+CP_Wurth_WCAP-ASLU-D12.5L16
+Aluminum Electrolytic Capacitors Low Leakage +85 °C, body x12.5x16mm, https://www.we-online.com/en/components/products/WCAP-ASLU#/articles/WCAP_ASLU_SIZE_8
+SMT
 0
 2
 2
@@ -44106,6 +44155,552 @@ SATA
 0
 24
 23
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665102131822
+1.00 mm SMT Male Horizontal Shrouded, body 4x4.95x2.9mm, https://www.we-online.com/en/components/products/datasheet/665102131822?ki
+SMT
+0
+4
+4
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665103131822
+1.00 mm SMT Male Horizontal Shrouded, body 5x4.95x2.9mm, https://www.we-online.com/en/components/products/datasheet/665103131822?ki
+SMT
+0
+5
+5
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665104131822
+1.00 mm SMT Male Horizontal Shrouded, body 6x4.95x2.9mm, https://www.we-online.com/en/components/products/datasheet/665104131822?ki
+SMT
+0
+6
+6
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665105131822
+1.00 mm SMT Male Horizontal Shrouded, body 7x4.95x2.9mm, https://www.we-online.com/en/components/products/datasheet/665105131822?ki
+SMT
+0
+7
+7
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665106131822
+1.00 mm SMT Male Horizontal Shrouded, body 8x4.95x2.9mm, https://www.we-online.com/en/components/products/datasheet/665106131822?ki
+SMT
+0
+8
+8
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665108131822
+1.00 mm SMT Male Horizontal Shrouded, body 10x4.95x2.9mm, https://www.we-online.com/en/components/products/datasheet/665108131822?ki
+SMT
+0
+10
+10
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665110131822
+1.00 mm SMT Male Horizontal Shrouded, body 12x4.95x2.9mm, https://www.we-online.com/en/components/products/datasheet/665110131822?ki
+SMT
+0
+12
+12
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_648102131822
+1.50 mm SMT Male Horizontal Shrouded Header, body 6x6.47x3.83mm, https://www.we-online.com/en/components/products/datasheet/648102131822?ki
+SMT
+0
+4
+4
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_648103131822
+1.50 mm SMT Male Horizontal Shrouded Header, body 7.5x6.47x3.83mm, https://www.we-online.com/en/components/products/datasheet/648103131822?ki
+SMT
+0
+5
+5
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_648104131822
+1.50 mm SMT Male Horizontal Shrouded Header, body 9x6.47x3.83mm, https://www.we-online.com/en/components/products/datasheet/648104131822?ki
+SMT
+0
+6
+6
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_648105131822
+1.50 mm SMT Male Horizontal Shrouded Header, body 10.5x6.47x3.83mm, https://www.we-online.com/en/components/products/datasheet/648105131822?ki
+SMT
+0
+7
+7
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_648106131822
+1.50 mm SMT Male Horizontal Shrouded Header, body 12x6.47x3.83mm, https://www.we-online.com/en/components/products/datasheet/648106131822?ki
+SMT
+0
+8
+8
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_648107131822
+1.50 mm SMT Male Horizontal Shrouded Header, body 13.5x6.47x3.83mm, https://www.we-online.com/en/components/products/datasheet/648107131822?ki
+SMT
+0
+9
+9
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_648108131822
+1.50 mm SMT Male Horizontal Shrouded Header, body 15x6.47x3.83mm, https://www.we-online.com/en/components/products/datasheet/648108131822?ki
+SMT
+0
+10
+10
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_648109131822
+1.50 mm SMT Male Horizontal Shrouded Header, body 16.5x6.47x3.83mm, https://www.we-online.com/en/components/products/datasheet/648109131822?ki
+SMT
+0
+11
+11
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_648110131822
+1.50 mm SMT Male Horizontal Shrouded Header, body 18x6.47x3.83mm, https://www.we-online.com/en/components/products/datasheet/648110131822?ki
+SMT
+0
+12
+12
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665302124022
+1.00 mm SMT Male Vertical Shrouded Header, body 4x3.55x4.25mm, https://www.we-online.com/en/components/products/datasheet/665302124022?ki
+SMT
+0
+4
+4
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665303124022
+1.00 mm SMT Male Vertical Shrouded Header, body 5x3.55x4.25mm, https://www.we-online.com/en/components/products/datasheet/665303124022?ki
+SMT
+0
+5
+5
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665304124022
+1.00 mm SMT Male Vertical Shrouded Header, body 6x3.55x4.25mm, https://www.we-online.com/en/components/products/datasheet/665304124022?ki
+SMT
+0
+6
+6
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665305124022
+1.00 mm SMT Male Vertical Shrouded Header, body 7x3.55x4.25mm, https://www.we-online.com/en/components/products/datasheet/665305124022?ki
+SMT
+0
+7
+7
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665306124022
+1.00 mm SMT Male Vertical Shrouded Header, body 8x3.55x4.25mm, https://www.we-online.com/en/components/products/datasheet/665306124022?ki
+SMT
+0
+8
+8
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665308124022
+1.00 mm SMT Male Vertical Shrouded Header, body 10x3.55x4.25mm, https://www.we-online.com/en/components/products/datasheet/665308124022?ki
+SMT
+0
+10
+10
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_665310124022
+1.00 mm SMT Male Vertical Shrouded Header, body 12x3.55x4.25mm, https://www.we-online.com/en/components/products/datasheet/665310124022?ki
+SMT
+0
+12
+12
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653102124022
+1.25 mm SMT Male Vertical Shrouded Header, body 7.25x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653102124022?ki
+SMT
+0
+4
+4
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653102131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 7.25x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653102131822?ki
+SMT
+0
+4
+4
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653103124022
+1.25 mm SMT Male Vertical Shrouded Header, body 8.5x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653103124022?ki
+SMT
+0
+5
+5
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653103131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 8.5x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653103131822?ki
+SMT
+0
+5
+5
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653104124022
+1.25 mm SMT Male Vertical Shrouded Header, body 9.75x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653104124022?ki
+SMT
+0
+6
+6
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653104131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 9.75x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653104131822?ki
+SMT
+0
+6
+6
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653105124022
+1.25 mm SMT Male Vertical Shrouded Header, body 11x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653105124022?ki
+SMT
+0
+7
+7
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653105131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 11x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653105131822?ki
+SMT
+0
+7
+7
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653106124022
+1.25 mm SMT Male Vertical Shrouded Header, body 12.25x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653106124022?ki
+SMT
+0
+8
+8
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653106131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 12.25x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653106131822?ki
+SMT
+0
+8
+8
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653107124022
+1.25 mm SMT Male Vertical Shrouded Header, body 13.5x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653107124022?ki
+SMT
+0
+9
+9
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653107131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 13.5x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653107131822?ki
+SMT
+0
+9
+9
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653108124022
+1.25 mm SMT Male Vertical Shrouded Header, body 14.75x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653108124022?ki
+SMT
+0
+10
+10
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653108131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 14.75x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653108131822?ki
+SMT
+0
+10
+10
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653109124022
+1.25 mm SMT Male Vertical Shrouded Header, body 16x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653109124022?ki
+SMT
+0
+11
+11
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653109131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 16x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653109131822?ki
+SMT
+0
+11
+11
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653110124022
+1.25 mm SMT Male Vertical Shrouded Header, body 17.25x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653110124022?ki
+SMT
+0
+12
+12
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653110131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 17.25x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653110131822?ki
+SMT
+0
+12
+12
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653111124022
+1.25 mm SMT Male Vertical Shrouded Header, body 18.5x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653111124022?ki
+SMT
+0
+13
+13
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653111131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 18.5x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653111131822?ki
+SMT
+0
+13
+13
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653112124022
+1.25 mm SMT Male Vertical Shrouded Header, body 19.75x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653112124022?ki
+SMT
+0
+14
+14
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653112131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 19.75x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653112131822?ki
+SMT
+0
+14
+14
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653113124022
+1.25 mm SMT Male Vertical Shrouded Header, body 21x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653113124022?ki
+SMT
+0
+15
+15
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653113131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 21x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653113131822?ki
+SMT
+0
+15
+15
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653114124022
+1.25 mm SMT Male Vertical Shrouded Header, body 22.25x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653114124022?ki
+SMT
+0
+16
+16
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653114131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 22.25x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653114131822?ki
+SMT
+0
+16
+16
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653115124022
+1.25 mm SMT Male Vertical Shrouded Header, body 23.5x4.2x4.75mm, https://www.we-online.com/en/components/products/datasheet/653115124022?ki
+SMT
+0
+17
+17
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_653115131822
+1.25 mm SMT Male Horizontal Shrouded Header, body 23.5x5.4x3.4mm, https://www.we-online.com/en/components/products/datasheet/653115131822?ki
+SMT
+0
+17
+17
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_679302124022
+1.50 mm SMT Male Vertical Shrouded Header, body 7.5x5.2x5.53mm, https://www.we-online.com/en/components/products/datasheet/679302124022?ki
+SMT
+0
+4
+4
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_679303124022
+1.50 mm SMT Male Vertical Shrouded Header, body 7.5x5.2x5.53mm, https://www.we-online.com/en/components/products/datasheet/679303124022?ki
+SMT
+0
+5
+5
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_679304124022
+1.50 mm SMT Male Vertical Shrouded Header, body 9x5.2x5.53mm, https://www.we-online.com/en/components/products/datasheet/679304124022?ki
+SMT
+0
+6
+6
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_679305124022
+1.50 mm SMT Male Vertical Shrouded Header, body 10.5x5.2x5.53mm, https://www.we-online.com/en/components/products/datasheet/679305124022?ki
+SMT
+0
+7
+7
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_679306124022
+1.50 mm SMT Male Vertical Shrouded Header, body 12x5.2x5.53mm, https://www.we-online.com/en/components/products/datasheet/679306124022?ki
+SMT
+0
+8
+8
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_679307124022
+1.50 mm SMT Male Vertical Shrouded Header, body 13.5x5.2x5.53mm, https://www.we-online.com/en/components/products/datasheet/679307124022?ki
+SMT
+0
+9
+9
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_679308124022
+1.50 mm SMT Male Vertical Shrouded Header, body 15x5.2x5.53mm, https://www.we-online.com/en/components/products/datasheet/679308124022?ki
+SMT
+0
+10
+10
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_679309124022
+1.50 mm SMT Male Vertical Shrouded Header, body 16.5x5.2x5.53mm, https://www.we-online.com/en/components/products/datasheet/679309124022?ki
+SMT
+0
+11
+11
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_679310124022
+1.50 mm SMT Male Vertical Shrouded Header, body 18x5.2x5.53mm, https://www.we-online.com/en/components/products/datasheet/679310124022?ki
+SMT
+0
+12
+12
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620102131822
+2.00 mm SMT Male Horizontal Shrouded Header, body 8x8.6x5.5mm, https://www.we-online.com/en/components/products/datasheet/620102131822?ki
+SMT
+0
+4
+4
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620103131822
+2.00 mm SMT Male Horizontal Shrouded Header, body 10x8.6x5.5mm, https://www.we-online.com/en/components/products/datasheet/620103131822?ki
+SMT
+0
+5
+5
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620104131822
+2.00 mm SMT Male Horizontal Shrouded Header, body 12x8.6x5.5mm, https://www.we-online.com/en/components/products/datasheet/620104131822?ki
+SMT
+0
+6
+6
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620105131822
+2.00 mm SMT Male Horizontal Shrouded Header, body 14x8.6x5.5mm, https://www.we-online.com/en/components/products/datasheet/620105131822?ki
+SMT
+0
+7
+7
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620106131822
+2.00 mm SMT Male Horizontal Shrouded Header, body 16x8.6x5.5mm, https://www.we-online.com/en/components/products/datasheet/620106131822?ki
+SMT
+0
+8
+8
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620107131822
+2.00 mm SMT Male Horizontal Shrouded Header, body 18x8.6x5.5mm, https://www.we-online.com/en/components/products/datasheet/620107131822?ki
+SMT
+0
+9
+9
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620108131822
+2.00 mm SMT Male Horizontal Shrouded Header, body 20x8.6x5.5mm, https://www.we-online.com/en/components/products/datasheet/620108131822?ki
+SMT
+0
+10
+10
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620109131822
+2.00 mm SMT Male Horizontal Shrouded Header, body 22x8.6x5.5mm, https://www.we-online.com/en/components/products/datasheet/620109131822?ki
+SMT
+0
+11
+11
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620110131822
+2.00 mm SMT Male Horizontal Shrouded Header, body 24x8.6x5.5mm, https://www.we-online.com/en/components/products/datasheet/620110131822?ki
+SMT
+0
+12
+12
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620302124022
+2.00 mm SMT Male Vertical Shrouded Header, body 8x7x6.68mm, https://www.we-online.com/en/components/products/datasheet/620302124022?ki
+SMT
+0
+4
+4
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620303124022
+2.00 mm SMT Male Vertical Shrouded Header, body 10x7x6.68mm, https://www.we-online.com/en/components/products/datasheet/620303124022?ki
+SMT
+0
+5
+5
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620304124022
+2.00 mm SMT Male Vertical Shrouded Header, body 12x7x6.68mm, https://www.we-online.com/en/components/products/datasheet/620304124022?ki
+SMT
+0
+6
+6
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620305124022
+2.00 mm SMT Male Vertical Shrouded Header, body 14x7x6.68mm, https://www.we-online.com/en/components/products/datasheet/620305124022?ki
+SMT
+0
+7
+7
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620306124022
+2.00 mm SMT Male Vertical Shrouded Header, body 16x7x6.68mm, https://www.we-online.com/en/components/products/datasheet/620306124022?ki
+SMT
+0
+8
+8
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620307124022
+2.00 mm SMT Male Vertical Shrouded Header, body 18x7x6.68mm, https://www.we-online.com/en/components/products/datasheet/620307124022?ki
+SMT
+0
+9
+9
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620308124022
+2.00 mm SMT Male Vertical Shrouded Header, body 20x7x6.68mm, https://www.we-online.com/en/components/products/datasheet/620308124022?ki
+SMT
+0
+10
+10
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620309124022
+2.00 mm SMT Male Vertical Shrouded Header, body 22x7x6.68mm, https://www.we-online.com/en/components/products/datasheet/620309124022?ki
+SMT
+0
+11
+11
+Connector_SMD_Wurth
+J_Wurth_WR-WTB_620310124022
+2.00 mm SMT Male Vertical Shrouded Header, body 22x7x6.68mm, https://www.we-online.com/en/components/products/datasheet/620309124022?ki
+SMT
+0
+12
+12
 Connector_Samtec
 Samtec_FMC_ASP-134486-01_10x40_P1.27mm_Vertical
 http://suddendocs.samtec.com/prints/asp-134486-01-mkt.pdf
@@ -49804,6 +50399,1070 @@ four-pin M8
 0
 6
 5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62400821622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 11.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62400821622?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62400821722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 11.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62400821722?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62401021622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 13.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62401021622?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62401021722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 13.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62401021722?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62401221622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 15.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62401221622?ki
+THT
+0
+12
+12
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62401221722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 15.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62401221722?ki
+THT
+0
+12
+12
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62401421622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 17.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62401421622?ki
+THT
+0
+14
+14
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62401421722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 17.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62401421722?ki
+THT
+0
+14
+14
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62401621622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 19.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62401621622?ki
+THT
+0
+16
+16
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62401621722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 19.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62401621722?ki
+THT
+0
+16
+16
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62401821622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 21.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62401821622?ki
+THT
+0
+18
+18
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62401821722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 21.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62401821722?ki
+THT
+0
+18
+18
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62402021622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 23.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62402021622?ki
+THT
+0
+20
+20
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62402021722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 23.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62402021722?ki
+THT
+0
+20
+20
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62402221622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 25.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62402221622?ki
+THT
+0
+22
+22
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62402221722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 25.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62402221722?ki
+THT
+0
+22
+22
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62402421622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 27.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62402421622?ki
+THT
+0
+24
+24
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62402421722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 27.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62402421722?ki
+THT
+0
+24
+24
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62402621622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 29.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62402621622?ki
+THT
+0
+26
+26
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62402621722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 29.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62402621722?ki
+THT
+0
+26
+26
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62402821622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 31.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62402821622?ki
+THT
+0
+28
+28
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62402821722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 31.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62402821722?ki
+THT
+0
+28
+28
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62403021622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 33.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62403021622?ki
+THT
+0
+30
+30
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62403021722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 33.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62403021722?ki
+THT
+0
+30
+30
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62403221622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 35.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62403221622?ki
+THT
+0
+32
+32
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62403221722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 35.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62403221722?ki
+THT
+0
+32
+32
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62403421622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 37.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62403421622?ki
+THT
+0
+34
+34
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62403421722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 37.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62403421722?ki
+THT
+0
+34
+34
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62403621622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 39.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62403621622?ki
+THT
+0
+36
+36
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62403621722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 39.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62403621722?ki
+THT
+0
+36
+36
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62403821622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 41.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62403821622?ki
+THT
+0
+38
+38
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62403821722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 41.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62403821722?ki
+THT
+0
+38
+38
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62404021622
+2.00 mm Male Dual Row Vertical Shrouded Header w. positive locking, body 43.4x11.5x12.95mm, https://www.we-online.com/en/components/products/datasheet/62404021622?ki
+THT
+0
+40
+40
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62404021722
+2.00 mm Male Dual Row Horizontal Shrouded Header w. positive locking, body 43.4x14.5x14.9mm, https://www.we-online.com/en/components/products/datasheet/62404021722?ki
+THT
+0
+40
+40
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800211622
+2.50 mm “J” Type Vertical Male Shrouded Header, body 7.5x3.8x9.2mm, https://www.we-online.com/en/components/products/datasheet/68800211622?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800211722
+2.50 mm “J” Type Male Horizontal Shrouded Header, body 7.5x8.3x7.5mm, https://www.we-online.com/en/components/products/datasheet/68800211722?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800311622
+2.50 mm “J” Type Vertical Male Shrouded Header, body 10x3.8x9.2mm, https://www.we-online.com/en/components/products/datasheet/68800311622?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800311722
+2.50 mm “J” Type Male Horizontal Shrouded Header, body 10x8.3x7.5mm, https://www.we-online.com/en/components/products/datasheet/68800311722?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800411622
+2.50 mm “J” Type Vertical Male Shrouded Header, body 12.5x3.8x9.2mm, https://www.we-online.com/en/components/products/datasheet/68800411622?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800411722
+2.50 mm “J” Type Male Horizontal Shrouded Header, body 12.5x8.3x7.5mm, https://www.we-online.com/en/components/products/datasheet/68800411722?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800511622
+2.50 mm “J” Type Vertical Male Shrouded Header, body 15x3.8x9.2mm, https://www.we-online.com/en/components/products/datasheet/68800511622?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800511722
+2.50 mm “J” Type Male Horizontal Shrouded Header, body 15x8.3x7.5mm, https://www.we-online.com/en/components/products/datasheet/68800511722?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800611622
+2.50 mm “J” Type Vertical Male Shrouded Header, body 17.5x3.8x9.2mm, https://www.we-online.com/en/components/products/datasheet/68800611622?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800611722
+2.50 mm “J” Type Male Horizontal Shrouded Header, body 17.5x8.3x7.5mm, https://www.we-online.com/en/components/products/datasheet/68800611722?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800711622
+2.50 mm “J” Type Vertical Male Shrouded Header, body 20x3.8x9.2mm, https://www.we-online.com/en/components/products/datasheet/68800711622?ki
+THT
+0
+7
+7
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800711722
+2.50 mm “J” Type Male Horizontal Shrouded Header, body 20x8.3x7.5mm, https://www.we-online.com/en/components/products/datasheet/68800711722?ki
+THT
+0
+7
+7
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800811622
+2.50 mm “J” Type Vertical Male Shrouded Header, body 22.5x3.8x9.2mm, https://www.we-online.com/en/components/products/datasheet/68800811622?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800811722
+2.50 mm “J” Type Male Horizontal Shrouded Header, body 22.5x8.3x7.5mm, https://www.we-online.com/en/components/products/datasheet/68800811722?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800911622
+2.50 mm “J” Type Vertical Male Shrouded Header, body 25x3.8x9.2mm, https://www.we-online.com/en/components/products/datasheet/68800911622?ki
+THT
+0
+9
+9
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68800911722
+2.50 mm “J” Type Male Horizontal Shrouded Header, body 25x8.3x7.5mm, https://www.we-online.com/en/components/products/datasheet/68800911722?ki
+THT
+0
+9
+9
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68801011622
+2.50 mm “J” Type Vertical Male Shrouded Header, body 27.5x3.8x9.2mm, https://www.we-online.com/en/components/products/datasheet/68801011622?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_68801011722
+2.50 mm “J” Type Male Horizontal Shrouded Header, body 27.5x8.3x7.5mm, https://www.we-online.com/en/components/products/datasheet/68801011722?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653002114822
+1.25 mm Male Vertical Shrouded Header, body 4.25x3.2x6.5mm, https://www.we-online.com/en/components/products/datasheet/653002114822?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653002117322
+1.25 mm Male Horizontal Shrouded Header, body 4.25x4.7x5.8mm, https://www.we-online.com/en/components/products/datasheet/653002117322?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653003114822
+1.25 mm Male Vertical Shrouded Header, body 5.5x3.2x6.5mm, https://www.we-online.com/en/components/products/datasheet/653003114822?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653003117322
+1.25 mm Male Horizontal Shrouded Header, body 5.5x4.7x5.8mm, https://www.we-online.com/en/components/products/datasheet/653003117322?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653004114822
+1.25 mm Male Vertical Shrouded Header, body 6.75x3.2x6.5mm, https://www.we-online.com/en/components/products/datasheet/653004114822?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653004117322
+1.25 mm Male Horizontal Shrouded Header, body 6.75x4.7x5.8mm, https://www.we-online.com/en/components/products/datasheet/653004117322?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653005114822
+1.25 mm Male Vertical Shrouded Header, body 8x3.2x6.5mm, https://www.we-online.com/en/components/products/datasheet/653005114822?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653005117322
+1.25 mm Male Horizontal Shrouded Header, body 8x4.7x5.8mm, https://www.we-online.com/en/components/products/datasheet/653005117322?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653006114822
+1.25 mm Male Vertical Shrouded Header, body 5.5x3.2x6.5mm, https://www.we-online.com/en/components/products/datasheet/653003114822?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653006117322
+1.25 mm Male Horizontal Shrouded Header, body 9.25x4.7x5.8mm, https://www.we-online.com/en/components/products/datasheet/653006117322?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653007114822
+1.25 mm Male Vertical Shrouded Header, body 10.5x3.2x6.5mm, https://www.we-online.com/en/components/products/datasheet/653007114822?ki
+THT
+0
+7
+7
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653007117322
+1.25 mm Male Horizontal Shrouded Header, body 10.5x4.7x5.8mm, https://www.we-online.com/en/components/products/datasheet/653007117322?ki
+THT
+0
+7
+7
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653008114822
+1.25 mm Male Vertical Shrouded Header, body 11.75x3.2x6.5mm, https://www.we-online.com/en/components/products/datasheet/653008114822?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653008117322
+1.25 mm Male Horizontal Shrouded Header, body 11.75x4.7x5.8mm, https://www.we-online.com/en/components/products/datasheet/653008117322?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653009114822
+1.25 mm Male Vertical Shrouded Header, body 13x3.2x6.5mm, https://www.we-online.com/en/components/products/datasheet/653009114822?ki
+THT
+0
+9
+9
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653009117322
+1.25 mm Male Horizontal Shrouded Header, body 13x4.7x5.8mm, https://www.we-online.com/en/components/products/datasheet/653009117322?ki
+THT
+0
+9
+9
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653010114822
+1.25 mm Male Vertical Shrouded Header, body 14.25x3.2x6.5mm, https://www.we-online.com/en/components/products/datasheet/653010114822?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_653010117322
+1.25 mm Male Horizontal Shrouded Header, body 14.25x4.7x5.8mm, https://www.we-online.com/en/components/products/datasheet/653010117322?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64600211622
+2.50 mm Male Shrouded Header, body 7.5x4.9x9.4mm, https://www.we-online.com/en/components/products/datasheet/64600211622?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64600311622
+2.50 mm Male Shrouded Header, body 10x4.9x9.4mm, https://www.we-online.com/en/components/products/datasheet/64600311622?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64600411622
+2.50 mm Male Shrouded Header, body 12.5x4.9x9.4mm, https://www.we-online.com/en/components/products/datasheet/64600411622?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64600511622
+2.50 mm Male Shrouded Header, body 15x4.9x9.4mm, https://www.we-online.com/en/components/products/datasheet/64600511622?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64600711622
+2.50 mm Male Shrouded Header, body 20x4.9x9.4mm, https://www.we-online.com/en/components/products/datasheet/64600711622?ki
+THT
+0
+7
+7
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64601011622
+2.50 mm Male Shrouded Header, body 27.5x4.9x9.4mm, https://www.we-online.com/en/components/products/datasheet/64601011622?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64800211622
+1.50 mm Male Vertical Shrouded Header, body 4.5x3.5x7.2mm, https://www.we-online.com/en/components/products/datasheet/64800211622?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64800311622
+1.50 mm Male Vertical Shrouded Header, body 6x3.5x7.2mm, https://www.we-online.com/en/components/products/datasheet/64800311622?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64800411622
+1.50 mm Male Vertical Shrouded Header, body 7.5x3.5x7.2mm, https://www.we-online.com/en/components/products/datasheet/64800411622?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64800511622
+1.50 mm Male Vertical Shrouded Header, body 9x3.5x7.2mm, https://www.we-online.com/en/components/products/datasheet/64800511622?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64800611622
+1.50 mm Male Vertical Shrouded Header, body 10.5x3.5x7.2mm, https://www.we-online.com/en/components/products/datasheet/64800611622?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64800711622
+1.50 mm Male Vertical Shrouded Header, body 12x3.5x7.2mm, https://www.we-online.com/en/components/products/datasheet/64800711622?ki
+THT
+0
+7
+7
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64800811622
+1.50 mm Male Vertical Shrouded Header, body 13.5x3.5x7.2mm, https://www.we-online.com/en/components/products/datasheet/64800811622?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64800911622
+1.50 mm Male Vertical Shrouded Header, body 15x3.5x7.2mm, https://www.we-online.com/en/components/products/datasheet/64800911622?ki
+THT
+0
+9
+9
+Connector_THT_Wurth
+J_Wurth_WR-WTB_64801011622
+1.50 mm Male Vertical Shrouded Header, body 16.5x3.5x7.2mm, https://www.we-online.com/en/components/products/datasheet/64801011622?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645002114822
+3.96 mm Male Vertical Locking Header, body 7.92x10.75x17.45mm, https://www.we-online.com/en/components/products/datasheet/645002114822?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645002117322
+3.96 mm Male Right Angled Locking Header, body 7.92x19.4x13.8mm, https://www.we-online.com/en/components/products/datasheet/645002117322?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645003114822
+3.96 mm Male Vertical Locking Header, body 11.88x10.75x17.45mm, https://www.we-online.com/en/components/products/datasheet/645003114822?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645003117322
+3.96 mm Male Right Angled Locking Header, body 11.88x19.4x13.8mm, https://www.we-online.com/en/components/products/datasheet/645003117322?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645004114822
+3.96 mm Male Vertical Locking Header, body 15.84x10.75x17.45mm, https://www.we-online.com/en/components/products/datasheet/645004114822?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645004117322
+3.96 mm Male Right Angled Locking Header, body 15.84x19.4x13.8mm, https://www.we-online.com/en/components/products/datasheet/645004117322?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645005114822
+3.96 mm Male Vertical Locking Header, body 19.8x10.75x17.45mm, https://www.we-online.com/en/components/products/datasheet/645005114822?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645005117322
+3.96 mm Male Right Angled Locking Header, body 19.8x19.4x13.8mm, https://www.we-online.com/en/components/products/datasheet/645005117322?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645006114822
+3.96 mm Male Vertical Locking Header, body 23.76x10.75x17.45mm, https://www.we-online.com/en/components/products/datasheet/645006114822?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645008114822
+3.96 mm Male Vertical Locking Header, body 31.68x10.75x17.45mm, https://www.we-online.com/en/components/products/datasheet/645008114822?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645008117322
+3.96 mm Male Right Angled Locking Header, body 31.68x19.4x13.8mm, https://www.we-online.com/en/components/products/datasheet/645008117322?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645010114822
+3.96 mm Male Vertical Locking Header, body 39.6x10.75x17.45mm, https://www.we-online.com/en/components/products/datasheet/645010114822?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_645010117322
+3.96 mm Male Right Angled Locking Header, body 39.6x19.4x13.8mm, https://www.we-online.com/en/components/products/datasheet/645010117322?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100211622
+2.54 mm Male Vertical Shrouded Header, body 4.78x5x14.3mm, https://www.we-online.com/en/components/products/datasheet/66100211622?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100211722
+2.54 mm Male Right Angled Shrouded Header, body 4.78x12.92x7.9mm, https://www.we-online.com/en/components/products/datasheet/66100211722?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100311622
+2.54 mm Male Vertical Shrouded Header, body 7.32x5x14.3mm, https://www.we-online.com/en/components/products/datasheet/66100311622?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100311722
+2.54 mm Male Right Angled Shrouded Header, body 7.32x12.92x7.9mm, https://www.we-online.com/en/components/products/datasheet/66100311722?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100411622
+2.54 mm Male Vertical Shrouded Header, body 9.86x5x14.3mm, https://www.we-online.com/en/components/products/datasheet/66100411622?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100411722
+2.54 mm Male Right Angled Shrouded Header, body 9.86x12.92x7.9mm, https://www.we-online.com/en/components/products/datasheet/66100411722?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100511622
+2.54 mm Male Vertical Shrouded Header, body 12.4x5x14.3mm, https://www.we-online.com/en/components/products/datasheet/66100511622?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100511722
+2.54 mm Male Right Angled Shrouded Header, body 12.4x12.92x7.9mm, https://www.we-online.com/en/components/products/datasheet/66100511722?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100611622
+2.54 mm Male Vertical Shrouded Header, body 14.94x5x14.3mm, https://www.we-online.com/en/components/products/datasheet/66100611622?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100611722
+2.54 mm Male Right Angled Shrouded Header, body 14.94x12.92x7.9mm, https://www.we-online.com/en/components/products/datasheet/66100611722?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100811622
+2.54 mm Male Vertical Shrouded Header, body 20.02x5x14.3mm, https://www.we-online.com/en/components/products/datasheet/66100811622?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66100811722
+2.54 mm Male Right Angled Shrouded Header, body 20.02x12.92x7.9mm, https://www.we-online.com/en/components/products/datasheet/66100811722?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66101011622
+2.54 mm Male Vertical Shrouded Header, body 25.1x5x14.3mm, https://www.we-online.com/en/components/products/datasheet/66101011622?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_66101011722
+2.54 mm Male Right Angled Shrouded Header, body 25.1x12.92x7.9mm, https://www.we-online.com/en/components/products/datasheet/66101011722?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900211021
+2.54 mm Male Right Angled Locking Header Bottom Locking, body 5.08x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900211021?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900211121
+2.54 mm Male Locking Header, body 5.08x5.8x14.9mm, https://www.we-online.com/en/components/products/datasheet/61900211121?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900219521
+2.54 mm Male Right Angled Locking Header Top Locking, body 5.08x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900219521?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900311021
+2.54 mm Male Right Angled Locking Header Bottom Locking, body 7.62x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900311021?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900311121
+2.54 mm Male Locking Header, body 7.62x5.8x14.9mm, https://www.we-online.com/en/components/products/datasheet/61900311121?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900319521
+2.54 mm Male Right Angled Locking Header Top Locking, body 7.62x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900319521?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900411021
+2.54 mm Male Right Angled Locking Header Bottom Locking, body 10.16x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900411021?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900411121
+2.54 mm Male Locking Header, body 10.16x5.8x14.9mm, https://www.we-online.com/en/components/products/datasheet/61900411121?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900419521
+2.54 mm Male Right Angled Locking Header Top Locking, body 10.16x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900419521?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900511021
+2.54 mm Male Right Angled Locking Header Bottom Locking, body 12.7x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900511021?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900511121
+2.54 mm Male Locking Header, body 12.7x5.8x14.9mm, https://www.we-online.com/en/components/products/datasheet/61900511121?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900519521
+2.54 mm Male Right Angled Locking Header Top Locking, body 12.7x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900519521?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900611021
+2.54 mm Male Right Angled Locking Header Bottom Locking, body 15.24x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900611021?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900611121
+2.54 mm Male Locking Header, body 15.24x5.8x14.9mm, https://www.we-online.com/en/components/products/datasheet/61900611121?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900619521
+2.54 mm Male Right Angled Locking Header Top Locking, body 15.24x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900619521?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900711121
+2.54 mm Male Locking Header, body 17.78x5.8x14.9mm, https://www.we-online.com/en/components/products/datasheet/61900711121?ki
+THT
+0
+7
+7
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900811021
+2.54 mm Male Right Angled Locking Header Bottom Locking, body 20.32x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900811021?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900811121
+2.54 mm Male Locking Header, body 20.32x5.8x14.9mm, https://www.we-online.com/en/components/products/datasheet/61900811121?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61900819521
+2.54 mm Male Right Angled Locking Header Top Locking, body 20.32x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61900819521?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61901011021
+2.54 mm Male Right Angled Locking Header Bottom Locking, body 25.4x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61901011021?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61901011121
+2.54 mm Male Locking Header, body 25.4x5.8x14.9mm, https://www.we-online.com/en/components/products/datasheet/61901011121?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_61901019521
+2.54 mm Male Right Angled Locking Header Top Locking, body 25.4x13.5x9.8mm, https://www.we-online.com/en/components/products/datasheet/61901019521?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000211622
+2.00 mm Male Vertical Shrouded Header, body 6x4.7x9.5mm, https://www.we-online.com/en/components/products/datasheet/62000211622?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000211722
+2.00 mm Male Horizontal Shrouded Header, body 6x7.6x7.8mm, https://www.we-online.com/en/components/products/datasheet/62000211722?ki
+THT
+0
+2
+2
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000311622
+2.00 mm Male Vertical Shrouded Header, body 8x4.7x9.5mm, https://www.we-online.com/en/components/products/datasheet/62000311622?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000311722
+2.00 mm Male Horizontal Shrouded Header, body 8x7.6x7.8mm, https://www.we-online.com/en/components/products/datasheet/62000311722?ki
+THT
+0
+3
+3
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000411622
+2.00 mm Male Vertical Shrouded Header, body 10x4.7x9.5mm, https://www.we-online.com/en/components/products/datasheet/62000411622?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000411722
+2.00 mm Male Horizontal Shrouded Header, body 10x7.6x7.8mm, https://www.we-online.com/en/components/products/datasheet/62000411722?ki
+THT
+0
+4
+4
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000511622
+2.00 mm Male Vertical Shrouded Header, body 12x4.7x9.5mm, https://www.we-online.com/en/components/products/datasheet/62000511622?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000511722
+2.00 mm Male Horizontal Shrouded Header, body 12x7.6x7.8mm, https://www.we-online.com/en/components/products/datasheet/62000511722?ki
+THT
+0
+5
+5
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000611622
+2.00 mm Male Vertical Shrouded Header, body 14x4.7x9.5mm, https://www.we-online.com/en/components/products/datasheet/62000611622?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000611722
+2.00 mm Male Horizontal Shrouded Header, body 14x7.6x7.8mm, https://www.we-online.com/en/components/products/datasheet/62000611722?ki
+THT
+0
+6
+6
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000711622
+2.00 mm Male Vertical Shrouded Header, body 16x4.7x9.5mm, https://www.we-online.com/en/components/products/datasheet/62000711622?ki
+THT
+0
+7
+7
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000711722
+2.00 mm Male Horizontal Shrouded Header, body 16x7.6x7.8mm, https://www.we-online.com/en/components/products/datasheet/62000711722?ki
+THT
+0
+7
+7
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000811622
+2.00 mm Male Vertical Shrouded Header, body 18x4.7x9.5mm, https://www.we-online.com/en/components/products/datasheet/62000811622?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000811722
+2.00 mm Male Horizontal Shrouded Header, body 18x7.6x7.8mm, https://www.we-online.com/en/components/products/datasheet/62000811722?ki
+THT
+0
+8
+8
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000911622
+2.00 mm Male Vertical Shrouded Header, body 20x4.7x9.5mm, https://www.we-online.com/en/components/products/datasheet/62000911622?ki
+THT
+0
+9
+9
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62000911722
+2.00 mm Male Horizontal Shrouded Header, body 20x7.6x7.8mm, https://www.we-online.com/en/components/products/datasheet/62000911722?ki
+THT
+0
+9
+9
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62001011622
+2.00 mm Male Vertical Shrouded Header, body 22x4.7x9.5mm, https://www.we-online.com/en/components/products/datasheet/62001011622?ki
+THT
+0
+10
+10
+Connector_THT_Wurth
+J_Wurth_WR-WTB_62001011722
+2.00 mm Male Horizontal Shrouded Header, body 22x7.6x7.8mm, https://www.we-online.com/en/components/products/datasheet/62001011722?ki
+THT
+0
+10
+10
 Connector_USB
 USB3_A_Molex_48393-001
 USB 3.0, type A, right angle, http://www.molex.com/pdm_docs/sd/483930003_sd.pdf
@@ -99617,6 +101276,13 @@ THT
 5
 5
 mylib
+Sans titre
+
+
+0
+0
+0
+mylib
 TSOT23-8
 TSOT, 8 Pin (https://www.jedec.org/sites/default/files/docs/MO-193D.pdf variant BA), generated with kicad-footprint-generator ipc_gullwing_generator.py
 TSOT TO_SOT_SMD
@@ -99624,9 +101290,23 @@ TSOT TO_SOT_SMD
 8
 8
 mylib
+WE-TPC-744028004
+
+
+0
+2
+2
+mylib
 boutton6x5mm_H9.5mm
 
 
 0
 4
+2
+mylib
+wurth_155060YS75300
+
+
+0
+2
 2
