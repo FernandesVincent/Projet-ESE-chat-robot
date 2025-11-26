@@ -7228,20 +7228,6 @@
 		)
 		(uuid "a295621c-d7a0-43e7-ba32-19bb4607bda4")
 	)
-	(text "A CHANGER SCHELATIC DIODE TVS ONE SIDED"
-		(exclude_from_sim no)
-		(at 95.758 187.706 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-				(italic yes)
-				(color 0 255 0 1)
-			)
-		)
-		(uuid "af019167-3ca9-4250-8409-8308dda0c6fc")
-	)
 	(text "1.65V"
 		(exclude_from_sim no)
 		(at 240.792 147.066 0)
@@ -15207,7 +15193,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/82554/vlmo1500.pdf"
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/155060YS75300.pdf"
 			(at 156.21 5.08 0)
 			(effects
 				(font
@@ -15234,7 +15220,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "VLMB1501-GS08 "
+		(property "MPN" "155060YS75300"
 			(at 156.21 5.08 0)
 			(effects
 				(font
@@ -19887,7 +19873,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.vishay.com/docs/30108/wsk2512.pdf"
 			(at 73.66 78.74 0)
 			(effects
 				(font
@@ -19897,6 +19883,15 @@
 			)
 		)
 		(property "Description" "Shunt resistor"
+			(at 73.66 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "WSK25123L000DEA "
 			(at 73.66 78.74 0)
 			(effects
 				(font
@@ -20485,7 +20480,7 @@
 				)
 			)
 		)
-		(property "Value" "300"
+		(property "Value" "1k"
 			(at 147.32 17.78 90)
 			(effects
 				(font
@@ -21046,7 +21041,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.vishay.com/docs/30108/wsk2512.pdf"
 			(at 78.74 35.56 0)
 			(effects
 				(font
@@ -21056,6 +21051,15 @@
 			)
 		)
 		(property "Description" "Shunt resistor"
+			(at 78.74 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "WSK25123L000DEA "
 			(at 78.74 35.56 0)
 			(effects
 				(font
@@ -22881,7 +22885,7 @@
 				)
 			)
 		)
-		(property "Value" "300"
+		(property "Value" "1k"
 			(at 149.86 2.54 90)
 			(effects
 				(font
@@ -25904,7 +25908,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/82554/vlmo1500.pdf"
+		(property "Datasheet" "http://we-online.com/components/products/datasheet/155060YS75300.pdf"
 			(at 153.67 20.32 0)
 			(effects
 				(font
@@ -25931,7 +25935,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "VLMB1501-GS08 "
+		(property "MPN" "155060YS75300"
 			(at 153.67 20.32 0)
 			(effects
 				(font
