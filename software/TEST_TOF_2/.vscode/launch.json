@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug STM32",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "stlink",
+      "device": "STM32L476RG",
+      "executable": "build/Debug/Test_TOF_2_2.elf",
+      "runToEntryPoint": "main"
+    }
+  ]
+}

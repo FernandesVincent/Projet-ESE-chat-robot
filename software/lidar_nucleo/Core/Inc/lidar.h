@@ -11,6 +11,7 @@
 #include "main.h"
 
 #define LIDAR_UART_RX_BUFFER_SIZE 256
+#define LIDAR_MAX_SAMPLE_LSN 50
 
 typedef struct {
 	uint16_t taille;
@@ -29,15 +30,15 @@ typedef struct {
 
 typedef struct {
 	int sample_number;
-	double *angle;
-	float *distance_mm;
+	float angle[LIDAR_MAX_SAMPLE_LSN];
+	float distance_mm[LIDAR_MAX_SAMPLE_LSN];
 } Parsed_data;
 
 
 void lidar_init();
 
 void lidar_callback_from_isr(UART_HandleTypeDef *huart, uint16_t Size);
-Parsed_data *lidar_parsing_data();
+void lidar_parsing_data(Parsed_data *parsed_data);
 void lidar_sampling(Parsed_data *data, float *cercle, float distance_max_mm);
 
 void lidar_detection_target(float *cercle);

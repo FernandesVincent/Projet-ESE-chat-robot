@@ -16,7 +16,7 @@
 #include "gpio.h"
 
 #define LIDAR_UART USART1
-#define LIDAR_QUEUE_LENGTH 25
+#define LIDAR_QUEUE_LENGTH 10
 
 #define LIDAR_DIAMETER_MM 60.0f
 #define LIDAR_RADIUS_MM 30.0f
@@ -72,107 +72,101 @@ void lidar_callback_from_isr(UART_HandleTypeDef *huart, uint16_t Size)
 
 
 /*
- * Return processed LiDar data
+ * Process LiDar data
  * To be run as a FreeRTOS task
  * Reads data from the LiDar queue, process it
- * Return Parsed_data structure pointer
+ * Update Parsed_data structure pointer passed in argument
  * Parsed_data contains :
  * 		- integer sample_number : number of sample
- * 		- double *angle : array of size sample_number, containing angles
+ * 		- float *angle : array of size sample_number, containing angles
  * 		- float *distance_mm : array of size sample_number, containing distance in mm
  * 		(the distance_mm[i] is measured at angle[i], with i in [0, sample_number])
  *
  * 	!!! the two arrays don't necessary covers all 360 degrees around the lidar
  * 	!!! distance_mm can be 0.0 if radar didn't get a return signal
- * 	!!! This function return pointer of Parsed_data structure which is malloc in the function,
- * 	!!! ===> don't forget to free the structure
  */
-Parsed_data *lidar_parsing_data()
+void lidar_parsing_data(Parsed_data *parsed_data)
 {
 	Trame t;
 	HAL_UARTEx_ReceiveToIdle_IT(&huart1, UART1_RxBuffer, LIDAR_UART_RX_BUFFER_SIZE);
 
-	for (;;)
+	xQueueReceive(q_usart, &t, portMAX_DELAY);
+
+	uint8_t *lidar_buffer = t.data;
+
+	uint16_t PH = (uint16_t)(lidar_buffer[1] << 8 | lidar_buffer[0]);
+	uint8_t CT = lidar_buffer[2];
+	uint8_t LSN = lidar_buffer[3];
+
+	uint16_t FSA = (uint16_t)(lidar_buffer[5] << 8 | lidar_buffer[4]);
+	uint16_t LSA = (uint16_t)(lidar_buffer[7] << 8 | lidar_buffer[6]);
+	uint16_t CS = (uint16_t)(lidar_buffer[9] << 8 | lidar_buffer[8]);
+
+	uint16_t SI[LSN];
+
+	parsed_data->sample_number = LSN;
+
+	float distance_mm[LSN];
+	for (int i = 0; i < LSN; i++)
+		SI[i] = (uint16_t)(lidar_buffer[i*2+11] << 8 | lidar_buffer[i*2+10]);
+
+
+	// HEADER verification
+	if (PH == 0x55AA)
 	{
-		xQueueReceive(q_usart, &t, portMAX_DELAY);
+		uint16_t checksumcal = PH;
+		checksumcal ^= FSA;
+		checksumcal ^= (uint16_t)(LSN << 8 | CT);
+		checksumcal ^= LSA;
+		for (int i = 0; i<LSN; i++)
+			checksumcal ^= SI[i];
 
-		uint8_t *lidar_buffer = t.data;
-
-		uint16_t PH = (uint16_t)(lidar_buffer[1] << 8 | lidar_buffer[0]);
-		uint8_t CT = lidar_buffer[2];
-		uint8_t LSN = lidar_buffer[3];
-
-		uint16_t FSA = (uint16_t)(lidar_buffer[5] << 8 | lidar_buffer[4]);
-		uint16_t LSA = (uint16_t)(lidar_buffer[7] << 8 | lidar_buffer[6]);
-		uint16_t CS = (uint16_t)(lidar_buffer[9] << 8 | lidar_buffer[8]);
-
-		uint16_t SI[LSN];
-
-		float distance_mm[LSN];
-		for (int i = 0; i < LSN; i++)
-			SI[i] = (uint16_t)(lidar_buffer[i*2+11] << 8 | lidar_buffer[i*2+10]);
-
-
-		// HEADER verification
-		if (PH == 0x55AA)
+		// CHECKSUM verification
+		if (checksumcal == CS && (CT & 0x01) == 0x00)
 		{
-			uint16_t checksumcal = PH;
-			checksumcal ^= FSA;
-			checksumcal ^= (uint16_t)(LSN << 8 | CT);
-			checksumcal ^= LSA;
-			for (int i = 0; i<LSN; i++)
-				checksumcal ^= SI[i];
 
-			// CHECKSUM verification
-			if (checksumcal == CS && (CT & 0x01) == 0x00)
+			// PARSING DATA
+			for (int i = 0; i < LSN; i++)
+				distance_mm[i] = SI[i] / 4.0f;
+
+			float angle_FSA = (FSA >> 1) / 64.0f;
+			float angle_LSA = (LSA >> 1) / 64.0f;
+			float angle_diff = angle_LSA - angle_FSA;
+
+			if (angle_diff < 0)
+				angle_diff += 360.0f;
+
+			float angle[LSN];
+			for (int i = 0; i < LSN; i++)
 			{
+				if(LSN > 1)
+					angle[i] = (i+1) * angle_diff/(LSN-1) + angle_FSA;
+				else
+					angle[i] = angle_FSA;
 
-				// PARSING DATA
-				for (int i = 0; i < LSN; i++)
-					distance_mm[i] = SI[i] / 4.0f;
-
-				double angle_FSA = (FSA >> 1) / 64.0;
-				double angle_LSA = (LSA >> 1) / 64.0;
-				double angle_diff = angle_LSA - angle_FSA;
-
-				if (angle_diff < 0)
-					angle_diff += 360.0;
-
-				double angle[LSN];
-				for (int i = 0; i < LSN; i++)
+				if(distance_mm[i] > 0)
 				{
-					if(LSN > 1)
-						angle[i] = (i+1) * angle_diff/(LSN-1) + angle_FSA;
-					else
-						angle[i] = angle_FSA;
-
-					if(distance_mm[i] > 0)
-					{
-						double angCorrect = atan(21.8 * (155.3 - distance_mm[i]) / (155.3 * distance_mm[i]));
-						angle[i] += angCorrect * 180.0 / M_PI;
-					}
-					if (angle[i] >= 360)
-						angle[i] -= 360.0;
+					float angCorrect = atan(21.8f * (155.3f - distance_mm[i]) / (155.3f * distance_mm[i]));
+					angle[i] += angCorrect * 180.0f / M_PI;
 				}
+				if (angle[i] >= 360)
+					angle[i] -= 360.0f;
 
-				/*
-				 * We extract two arrays from the LIDAR data frame
-				 * double angle[LSN] : angles in degrees
-				 * float distance_mm[LSN] : distances in mm
-				 *
-				 * !!!! : distance_mm can be 0.0 if radar didn't get a return signal
-				 */
-
-				Parsed_data *data = malloc(sizeof(Parsed_data));
-
-				data->sample_number = LSN;
-				data->angle = angle;
-				data->distance_mm = distance_mm;
-
-				return data;
+				// Store angle and distance in stucture
+				parsed_data->angle[i] = angle[i];
+				parsed_data->distance_mm[i] = distance_mm[i];
 			}
+
+			/*
+			 * We extract two arrays from the LIDAR data frame
+			 * float angle[LSN] : angles in degrees
+			 * float distance_mm[LSN] : distances in mm
+			 *
+			 * !!!! : distance_mm can be 0.0 if radar didn't get a return signal
+			 */
 		}
 	}
+
 
 }
 
@@ -194,9 +188,9 @@ void lidar_sampling(Parsed_data *data, float *cercle, float distance_max_mm)
 {
 	for(int i = 0; i < data->sample_number; i++)
 	{
-		if (data->distance_mm[i] > 0.0 && data->distance_mm[i] < distance_max_mm)
+		if (data->distance_mm[i] > 0.0f && data->distance_mm[i] < distance_max_mm)
 		{
-			if (data->angle[i]<=360 && data->angle[i] >=0)
+			if (data->angle[i] <= 360.0f && data->angle[i] >= 0.0f)
 				cercle[(int)data->angle[i]] = data->distance_mm[i];
 		}
 	}
@@ -236,8 +230,8 @@ void lidar_detection_target(float *cercle)
  * 	pour un objet de diamètre D en mm à une distance L en mm
  */
 static int largeur_attendue(float D, float L) {
-	float theta_rad = 2 * atan(D / (2 * L)); // en radians
-	int theta_deg = theta_rad * 180.0 / 3.14159265; // conversion en degrés
+	float theta_rad = 2.0 * atan(D / (2 * L)); // en radians
+	int theta_deg = theta_rad * 180.0 / M_PI; // conversion en degrés
 
 	return theta_deg;
 }
@@ -355,9 +349,9 @@ Cible_lidar detect_min_distance(float *cercle)
 {
 	float distance_min = 8000;
 	int index_min = -1;
-	for (int i = 0; i<360; i++)
+	for (int i = 0; i < 360; i++)
 	{
-		if (cercle[i] != 0.0 && cercle[i] < distance_min)
+		if (cercle[i] != 0 && cercle[i] < distance_min)
 		{
 			distance_min = cercle[i];
 			index_min = i;
@@ -367,6 +361,9 @@ Cible_lidar detect_min_distance(float *cercle)
 	if (index_min != -1)
 		return (Cible_lidar){ .angle = index_min, .distance = distance_min };
 	else
-		return (Cible_lidar){ .angle = 0, .distance = 0 }; // valeur invalide
+		return (Cible_lidar){ .angle = 0, .distance = 0.0 }; // valeur invalide
 }
+
+
+
 
