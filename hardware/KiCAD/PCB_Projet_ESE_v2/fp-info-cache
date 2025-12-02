@@ -1,4 +1,4 @@
-25185366933381694
+25192430695394635
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -101241,6 +101241,20 @@ JST_SH_6_Vertical
 8
 8
 mylib
+Pad_traversant_M1
+
+
+0
+1
+1
+mylib
+Pad_traversant_M2
+
+
+0
+1
+1
+mylib
 SSOP5_BUxxSD5
 
 
@@ -101276,12 +101290,12 @@ THT
 5
 5
 mylib
-Sans titre
+Sans titre_1
 
 
 0
-0
-0
+1
+1
 mylib
 TSOT23-8
 TSOT, 8 Pin (https://www.jedec.org/sites/default/files/docs/MO-193D.pdf variant BA), generated with kicad-footprint-generator ipc_gullwing_generator.py
@@ -101297,12 +101311,26 @@ WE-TPC-744028004
 2
 2
 mylib
-boutton6x5mm_H9.5mm
+WS-TASV SMT Tact Switch 3.0 x 2.6 mm
 
 
 0
-4
-2
+6
+6
+mylib
+Wurth_Vertical_4_pos_0.8mm
+
+
+0
+6
+6
+mylib
+Wurth_Vertical_6_pos_0.8mm
+
+
+0
+8
+8
 mylib
 wurth_155060YS75300
 

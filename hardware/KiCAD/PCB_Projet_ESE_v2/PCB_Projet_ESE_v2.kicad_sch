@@ -5816,142 +5816,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Switch:SW_SPST"
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SW_SPST"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Single Pole Single Throw (SPST) switch"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "switch lever"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_SPST_0_0"
-				(circle
-					(center -2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 0.254) (xy 1.524 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_SPST_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "my_lib:JST_SH_4_Vertical"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -6282,6 +6146,178 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "my_lib:WS-TASV_SMT_Tact_Switch_3.0_x_2.6_mm"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 0 2.794 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "WS-TASV_SMT_Tact_Switch_3.0_x_2.6_mm_1_1"
+				(rectangle
+					(start -2.54 1.778)
+					(end 2.54 -1.524)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 1.27 0)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 1.27 0)
+					(length 2.54)
+					(hide yes)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 1.27 180)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 1.27 180)
+					(length 2.54)
+					(hide yes)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7279,6 +7315,12 @@
 		(uuid "eea599cb-d804-4098-9b27-75e61b66b736")
 	)
 	(junction
+		(at 179.07 25.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0086edb4-ebe9-4a12-ac3f-f834e21a2dd6")
+	)
+	(junction
 		(at 45.72 68.58)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7295,6 +7337,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0ea46d99-0041-45e4-a0ff-cb9e9a40b594")
+	)
+	(junction
+		(at 135.89 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1198c1c8-c617-4010-81ca-82e3cdccfada")
 	)
 	(junction
 		(at 49.53 152.4)
@@ -7373,6 +7421,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3ee53666-ba65-4dd6-b6e6-e94e11e2a1d8")
+	)
+	(junction
+		(at 139.7 76.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "408fb30d-4ea0-46fb-a3e2-3da37ffeffef")
 	)
 	(junction
 		(at 138.43 69.85)
@@ -7585,18 +7639,6 @@
 		(uuid "9058c68f-3b01-4711-b743-7962b7c1ca47")
 	)
 	(junction
-		(at 135.89 76.2)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "935107b9-1ff4-47a4-a0e8-184bf3c6f4bc")
-	)
-	(junction
-		(at 135.89 86.36)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9405b6e8-81c1-4d68-ae1d-5284cf84c5a3")
-	)
-	(junction
 		(at 240.03 22.86)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7745,6 +7787,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c8a65f2c-94de-4044-ba2f-306bd987aeb0")
+	)
+	(junction
+		(at 139.7 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cb906e6b-1d94-4891-9113-20ed266a962f")
 	)
 	(junction
 		(at 127 148.59)
@@ -7946,7 +7994,7 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 87.63) (xy 135.89 86.36)
+			(xy 139.7 87.63) (xy 139.7 86.36)
 		)
 		(stroke
 			(width 0)
@@ -8263,6 +8311,16 @@
 			(type default)
 		)
 		(uuid "277f45e2-bbd4-405b-937a-6658e13af0f6")
+	)
+	(wire
+		(pts
+			(xy 173.99 25.4) (xy 179.07 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2799e954-767d-4758-9f9f-b0e0758c86a1")
 	)
 	(wire
 		(pts
@@ -8626,6 +8684,16 @@
 	)
 	(wire
 		(pts
+			(xy 139.7 74.93) (xy 139.7 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49ad48f0-bdb1-432b-a4a0-a0236da6a535")
+	)
+	(wire
+		(pts
 			(xy 171.45 63.5) (xy 173.99 63.5)
 		)
 		(stroke
@@ -8893,6 +8961,16 @@
 			(type default)
 		)
 		(uuid "660ac7ab-3ee7-4249-9e08-b3e0d0d7fbfa")
+	)
+	(wire
+		(pts
+			(xy 173.99 25.4) (xy 173.99 22.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "67b82da1-6fb3-41e5-bf87-8ed6ff64b9d3")
 	)
 	(wire
 		(pts
@@ -9166,7 +9244,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 86.36) (xy 135.89 86.36)
+			(xy 148.59 86.36) (xy 139.7 86.36)
 		)
 		(stroke
 			(width 0)
@@ -9226,6 +9304,16 @@
 	)
 	(wire
 		(pts
+			(xy 139.7 76.2) (xy 148.59 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a8e0529-b503-45fb-8247-e30d68033549")
+	)
+	(wire
+		(pts
 			(xy 184.15 55.88) (xy 184.15 63.5)
 		)
 		(stroke
@@ -9236,7 +9324,7 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 76.2) (xy 148.59 76.2)
+			(xy 135.89 74.93) (xy 139.7 74.93)
 		)
 		(stroke
 			(width 0)
@@ -9506,6 +9594,16 @@
 	)
 	(wire
 		(pts
+			(xy 135.89 76.2) (xy 138.43 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a160d482-b820-4f57-a15b-23b88982346d")
+	)
+	(wire
+		(pts
 			(xy 226.06 158.75) (xy 226.06 157.48)
 		)
 		(stroke
@@ -9583,6 +9681,16 @@
 			(type default)
 		)
 		(uuid "ab78be5e-5bf1-42fd-a560-06401f0322c8")
+	)
+	(wire
+		(pts
+			(xy 184.15 21.59) (xy 187.96 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad7613a1-0b5c-4e7a-87cf-3d295a5445d0")
 	)
 	(wire
 		(pts
@@ -9816,6 +9924,16 @@
 	)
 	(wire
 		(pts
+			(xy 135.89 76.2) (xy 135.89 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c015f1be-c586-4c51-8b57-dc5681c52039")
+	)
+	(wire
+		(pts
 			(xy 275.59 157.48) (xy 265.43 157.48)
 		)
 		(stroke
@@ -10006,6 +10124,16 @@
 	)
 	(wire
 		(pts
+			(xy 179.07 25.4) (xy 184.15 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3f179c8-1ae3-40e4-90e1-6886e5a85220")
+	)
+	(wire
+		(pts
 			(xy 203.2 39.37) (xy 205.74 39.37)
 		)
 		(stroke
@@ -10013,6 +10141,16 @@
 			(type default)
 		)
 		(uuid "d5eb9890-a683-4ee2-9a7f-3fd6482f3da8")
+	)
+	(wire
+		(pts
+			(xy 184.15 25.4) (xy 184.15 22.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d6127345-5466-43ed-bf6d-0e3f6f83bc18")
 	)
 	(wire
 		(pts
@@ -10143,16 +10281,6 @@
 			(type default)
 		)
 		(uuid "e0d10bdc-2503-4a5e-9c2d-71db63bc78e7")
-	)
-	(wire
-		(pts
-			(xy 130.81 76.2) (xy 135.89 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e0ee75d1-4b47-4444-b2a2-70eddca9643f")
 	)
 	(wire
 		(pts
@@ -10403,6 +10531,16 @@
 			(type default)
 		)
 		(uuid "f7fb215c-5ce5-4d3e-96bb-f3b81753b9ff")
+	)
+	(wire
+		(pts
+			(xy 135.89 86.36) (xy 138.43 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f85e325b-89f1-41f4-88f6-f1789bc18813")
 	)
 	(wire
 		(pts
@@ -11885,7 +12023,7 @@
 	)
 	(global_label "NRST"
 		(shape input)
-		(at 130.81 76.2 180)
+		(at 135.89 74.93 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11895,7 +12033,7 @@
 		)
 		(uuid "79b05303-5bd8-40ce-9585-6b153944ec91")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 123.0472 76.2 0)
+			(at 128.1272 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13079,13 +13217,79 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 135.89 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "03260033-549a-4fe2-9322-2134943618ea")
+		(property "Reference" "#PWR0162"
+			(at 135.89 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 135.89 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 135.89 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 135.89 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 135.89 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "019814d0-1a37-41d0-bdcd-9793626c5c15")
+		)
+		(instances
+			(project "PCB_Projet_ESE_v2"
+				(path "/e93b439b-eb98-463a-8161-b748b1434139"
+					(reference "#PWR0162")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
 		(at 273.05 30.48 270)
 		(mirror x)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
-		(on_board no)
+		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "033963c8-4fd0-4a16-b11f-b45fb2094ac3")
@@ -13105,7 +13309,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "mylib:Pad_traversant_M1"
 			(at 273.05 30.48 0)
 			(effects
 				(font
@@ -13379,7 +13583,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 217.17 109.22 0)
 			(effects
 				(font
@@ -13952,7 +14156,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 135.89 87.63 0)
+		(at 139.7 87.63 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13961,7 +14165,7 @@
 		(fields_autoplaced yes)
 		(uuid "117ad676-89de-4fb9-ba5c-e9261b9318c5")
 		(property "Reference" "#PWR042"
-			(at 135.89 93.98 0)
+			(at 139.7 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13970,7 +14174,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 135.89 92.71 0)
+			(at 139.7 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13978,7 +14182,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 135.89 87.63 0)
+			(at 139.7 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13987,7 +14191,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 135.89 87.63 0)
+			(at 139.7 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13996,7 +14200,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 135.89 87.63 0)
+			(at 139.7 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14389,7 +14593,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "mylib:JST_SH_4_Vertical"
+		(property "Footprint" "mylib:Wurth_Vertical_4_pos_0.8mm"
 			(at 80.01 142.24 0)
 			(effects
 				(font
@@ -14575,6 +14779,72 @@
 			(project ""
 				(path "/e93b439b-eb98-463a-8161-b748b1434139"
 					(reference "#PWR055")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 179.07 25.4 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1f726c2d-3049-4149-bffb-ba25c71c5a27")
+		(property "Reference" "#PWR0160"
+			(at 179.07 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 179.07 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 179.07 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 179.07 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 179.07 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0cc5e90c-26e0-40b4-870c-cc208667f938")
+		)
+		(instances
+			(project "PCB_Projet_ESE_v2"
+				(path "/e93b439b-eb98-463a-8161-b748b1434139"
+					(reference "#PWR0160")
 					(unit 1)
 				)
 			)
@@ -15451,82 +15721,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_SPST")
-		(at 179.07 21.59 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2891e568-fc65-48a5-9a42-784b5b9c20a5")
-		(property "Reference" "SW3"
-			(at 179.07 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_SPST"
-			(at 179.07 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "mylib:SW_SPST"
-			(at 179.07 21.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 179.07 21.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Single Pole Single Throw (SPST) switch"
-			(at 179.07 21.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "430182070816"
-			(at 179.07 21.59 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f326daa3-0985-4523-a90e-d6aebbd1f65a")
-		)
-		(pin "2"
-			(uuid "a8784f57-e852-431f-93e9-8e1fcb0de59c")
-		)
-		(instances
-			(project "PCB_Projet_ESE_v2"
-				(path "/e93b439b-eb98-463a-8161-b748b1434139"
-					(reference "SW3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 78.74 67.31 0)
 		(unit 1)
@@ -15911,16 +16105,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 184.15 21.59 0)
+		(at 187.96 21.59 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "31ccd7ae-e38c-4702-8b72-6653d32c715b")
 		(property "Reference" "#PWR049"
-			(at 184.15 27.94 0)
+			(at 187.96 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15929,7 +16123,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 184.15 26.67 0)
+			(at 187.96 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15937,7 +16131,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 184.15 21.59 0)
+			(at 187.96 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15946,7 +16140,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 184.15 21.59 0)
+			(at 187.96 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15955,7 +16149,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 184.15 21.59 0)
+			(at 187.96 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16664,7 +16858,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 215.9 116.84 0)
 			(effects
 				(font
@@ -16797,7 +16991,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 205.74 147.32 0)
 			(effects
 				(font
@@ -17066,7 +17260,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "mylib:JST_SH_4_Vertical"
+		(property "Footprint" "mylib:Wurth_Vertical_4_pos_0.8mm"
 			(at 48.26 139.7 0)
 			(effects
 				(font
@@ -17618,6 +17812,88 @@
 			(project "PCB_Projet_ESE_v2"
 				(path "/e93b439b-eb98-463a-8161-b748b1434139"
 					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "my_lib:WS-TASV_SMT_Tact_Switch_3.0_x_2.6_mm")
+		(at 138.43 81.28 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "57038694-a0b5-4533-9eb6-b4d6098a2b74")
+		(property "Reference" "SW1"
+			(at 140.97 80.6449 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 140.97 82.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "mylib:WS-TASV SMT Tact Switch 3.0 x 2.6 mm"
+			(at 138.43 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 138.43 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 138.43 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "f4950aee-0009-468b-b1ef-4df5f4e5b448")
+		)
+		(pin "5"
+			(uuid "e8f6a162-6749-444c-9b54-fe8b53eb2de1")
+		)
+		(pin "2"
+			(uuid "2fc750ea-fe50-4469-a35a-a4a2b088efc7")
+		)
+		(pin "1"
+			(uuid "6630d76f-cc9d-4d05-80a8-6e80d50aa7ad")
+		)
+		(pin "3"
+			(uuid "31445ca4-d47a-4fce-a7c9-253adaa3ed55")
+		)
+		(pin "6"
+			(uuid "2fafe89f-397a-4d0b-920b-c564bc68630b")
+		)
+		(instances
+			(project ""
+				(path "/e93b439b-eb98-463a-8161-b748b1434139"
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -18183,85 +18459,6 @@
 			(project "PCB_Projet_ESE_v2"
 				(path "/e93b439b-eb98-463a-8161-b748b1434139"
 					(reference "#PWR051")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_SPST")
-		(at 135.89 81.28 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6a1490c6-f8e1-400d-9c64-311b527b9293")
-		(property "Reference" "SW1"
-			(at 138.43 80.0099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SW_SPST"
-			(at 138.43 82.5499 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "mylib:SW_SPST"
-			(at 135.89 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 135.89 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Single Pole Single Throw (SPST) switch"
-			(at 135.89 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "430182070816"
-			(at 135.89 81.28 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "64032730-0f15-4776-8135-0ef4a5a1f9bc")
-		)
-		(pin "2"
-			(uuid "87538a86-7a11-4898-ad98-6d1df191c6c5")
-		)
-		(instances
-			(project "PCB_Projet_ESE_v2"
-				(path "/e93b439b-eb98-463a-8161-b748b1434139"
-					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -18925,7 +19122,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 205.74 119.38 0)
 			(effects
 				(font
@@ -18992,7 +19189,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 135.89 96.52 0)
 			(effects
 				(font
@@ -19389,7 +19586,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 203.2 144.78 0)
 			(effects
 				(font
@@ -20656,6 +20853,86 @@
 			(project "PCB_Projet_ESE_v2"
 				(path "/e93b439b-eb98-463a-8161-b748b1434139"
 					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "my_lib:WS-TASV_SMT_Tact_Switch_3.0_x_2.6_mm")
+		(at 179.07 22.86 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9304daf0-98db-48cc-a090-d46f9fe7058c")
+		(property "Reference" "SW2"
+			(at 179.197 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 179.197 19.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "mylib:WS-TASV SMT Tact Switch 3.0 x 2.6 mm"
+			(at 179.07 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 179.07 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 179.07 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "f2cd00b5-1503-4ef6-a23e-c7451ee335e9")
+		)
+		(pin "1"
+			(uuid "56bedbf7-9730-462b-8546-a5bfeb0228ea")
+		)
+		(pin "5"
+			(uuid "5b001f40-aadf-4201-b9ba-5df41768b526")
+		)
+		(pin "6"
+			(uuid "a53494d6-aee3-4e27-b3f3-fa3af352a456")
+		)
+		(pin "4"
+			(uuid "ca0d3133-691c-44de-a06e-27eec4100faa")
+		)
+		(pin "2"
+			(uuid "0a0fe510-fe92-4fcd-b946-94d8dee1e7e9")
+		)
+		(instances
+			(project ""
+				(path "/e93b439b-eb98-463a-8161-b748b1434139"
+					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -22740,9 +23017,9 @@
 		(at 273.05 40.64 270)
 		(mirror x)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
-		(on_board no)
+		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "affef9ed-2771-491d-a5c1-a0f5d06dc594")
@@ -22762,7 +23039,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "mylib:Pad_traversant_M1"
 			(at 273.05 40.64 0)
 			(effects
 				(font
@@ -22806,9 +23083,9 @@
 		(at 273.05 50.8 270)
 		(mirror x)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
-		(on_board no)
+		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b073eade-c3e0-49b7-ae46-a03eb3350d79")
@@ -22828,7 +23105,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "mylib:Pad_traversant_M1"
 			(at 273.05 50.8 0)
 			(effects
 				(font
@@ -23028,7 +23305,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 135.89 127 0)
 			(effects
 				(font
@@ -23623,7 +23900,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "mylib:JST_SH_4_Vertical"
+		(property "Footprint" "mylib:Wurth_Vertical_4_pos_0.8mm"
 			(at 66.04 162.56 0)
 			(effects
 				(font
@@ -23845,7 +24122,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 214.63 93.98 0)
 			(effects
 				(font
@@ -25074,7 +25351,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 220.98 73.66 0)
 			(effects
 				(font
@@ -25337,7 +25614,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
+		(property "Footprint" "mylib:Pad_traversant_M1"
 			(at 273.05 20.32 0)
 			(effects
 				(font
@@ -25404,7 +25681,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 224.79 91.44 0)
 			(effects
 				(font
@@ -25834,7 +26111,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 204.47 121.92 0)
 			(effects
 				(font

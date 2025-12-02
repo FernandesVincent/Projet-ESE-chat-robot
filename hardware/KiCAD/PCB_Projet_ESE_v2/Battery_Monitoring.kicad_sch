@@ -1734,7 +1734,7 @@
 	)
 	(text "CRCW0201100KJNED 0201"
 		(exclude_from_sim no)
-		(at 40.386 71.628 0)
+		(at 36.322 78.994 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1754,9 +1754,20 @@
 		)
 		(uuid "29eac177-f730-49f3-8d32-ce9642b1b4ce")
 	)
+	(text "CRCW0201100KJNED 0201"
+		(exclude_from_sim no)
+		(at 81.026 171.196 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 255 0 0 1)
+			)
+		)
+		(uuid "38d972c6-7c9d-403b-8fb1-f06efb256730")
+	)
 	(text "CRCW020146K4FNED 0201"
 		(exclude_from_sim no)
-		(at 35.56 153.924 0)
+		(at 35.56 155.194 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1776,9 +1787,9 @@
 		)
 		(uuid "3c03cb78-7df8-450e-8af1-f3062dda0c2b")
 	)
-	(text "TNPW040279K6BEED\n"
+	(text "CRCW020178K7FNED 0201"
 		(exclude_from_sim no)
-		(at 33.274 128.27 0)
+		(at 35.306 130.556 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1797,17 +1808,6 @@
 			)
 		)
 		(uuid "4b5ece46-bb67-443b-b906-b0ac0aafb597")
-	)
-	(text "0201\n"
-		(exclude_from_sim no)
-		(at 50.546 64.008 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 0 255 0 1)
-			)
-		)
-		(uuid "4c72a340-84cd-43cd-a6e9-c1873984ca16")
 	)
 	(text "CRCW020147K0JNED\n0201"
 		(exclude_from_sim no)
@@ -1851,9 +1851,9 @@
 		)
 		(uuid "7e77d180-fd2f-4c64-95bf-e9f6f79eb193")
 	)
-	(text "CRCW02015K23FNED"
+	(text "CRCW02015K23FNED 0201"
 		(exclude_from_sim no)
-		(at 103.124 72.898 0)
+		(at 102.87 77.978 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1926,7 +1926,7 @@
 	)
 	(text "CRCW020130K0JNED 0201"
 		(exclude_from_sim no)
-		(at 37.338 179.578 0)
+		(at 33.782 180.848 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1944,6 +1944,17 @@
 			)
 		)
 		(uuid "c272c6b9-5d86-475e-be3a-021faf1e6602")
+	)
+	(text "CRCW0201100KJNED 0201"
+		(exclude_from_sim no)
+		(at 35.814 102.616 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 255 0 0 1)
+			)
+		)
+		(uuid "c5a8714d-8eda-4a2e-a715-87642afcf75f")
 	)
 	(text "CRCW020120K0JNED 0201"
 		(exclude_from_sim no)
@@ -1967,17 +1978,6 @@
 		)
 		(uuid "cf70b90c-cfe7-4650-b3a2-8ac7019f2562")
 	)
-	(text "TNPW060398K8BEEA"
-		(exclude_from_sim no)
-		(at 33.02 102.87 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 255 0 0 1)
-			)
-		)
-		(uuid "d3a7b48d-0f80-4029-bdd0-0cc68825a7e0")
-	)
 	(text "LM339LVRTER\n"
 		(exclude_from_sim no)
 		(at 131.064 16.51 0)
@@ -1992,9 +1992,9 @@
 		)
 		(uuid "d41e93cd-9513-44c2-b9d2-8e4a951419c9")
 	)
-	(text "CRCW02015K23FNED"
+	(text "CRCW02015K23FNED 0201"
 		(exclude_from_sim no)
-		(at 38.1 64.008 0)
+		(at 37.338 59.944 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2003,20 +2003,9 @@
 		)
 		(uuid "d5948ccf-9ffb-4ebf-8597-b989a6a5d18d")
 	)
-	(text "0201\n"
-		(exclude_from_sim no)
-		(at 115.57 72.898 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 0 255 0 1)
-			)
-		)
-		(uuid "d8e3c9dd-8cec-46db-bd02-f0f51941bc64")
-	)
 	(text "CRCW020120K0JNED 0201"
 		(exclude_from_sim no)
-		(at 40.386 165.1 0)
+		(at 33.528 164.846 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2035,6 +2024,17 @@
 		)
 		(uuid "d98d8ac8-b57d-4f91-ab1a-0af6d5bb7af9")
 	)
+	(text "CRCW020178K7FNED 0201"
+		(exclude_from_sim no)
+		(at 77.47 144.272 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 255 0 0 1)
+			)
+		)
+		(uuid "db6d49e5-bf12-43ed-a2a5-6eaf8378b5ef")
+	)
 	(text "0.9V/300mA"
 		(exclude_from_sim no)
 		(at 175.768 141.224 0)
@@ -2047,7 +2047,7 @@
 	)
 	(text "CRCW020120K0JNED 0201"
 		(exclude_from_sim no)
-		(at 79.502 153.416 0)
+		(at 76.2 156.972 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6746,7 +6746,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "98k8"
+		(property "Value" "100k"
 			(at 60.96 171.4499 0)
 			(effects
 				(font
@@ -6755,7 +6755,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
 			(at 58.42 170.18 0)
 			(effects
 				(font
@@ -8272,7 +8272,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "79k6"
+		(property "Value" "78k7"
 			(at 22.86 125.7299 0)
 			(effects
 				(font
@@ -8281,7 +8281,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
 			(at 20.32 124.46 0)
 			(effects
 				(font
@@ -9595,7 +9595,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 85.09 72.39 0)
 			(effects
 				(font
@@ -12100,7 +12100,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "98k8"
+		(property "Value" "100k"
 			(at 22.86 100.3299 0)
 			(effects
 				(font
@@ -12109,7 +12109,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
 			(at 20.32 99.06 0)
 			(effects
 				(font
@@ -12742,7 +12742,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "79k6"
+		(property "Value" "78k7"
 			(at 60.96 146.0499 0)
 			(effects
 				(font
@@ -12751,7 +12751,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
 			(at 58.42 144.78 0)
 			(effects
 				(font
