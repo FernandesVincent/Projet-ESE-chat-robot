@@ -1712,7 +1712,7 @@
 		)
 		(uuid "0d7faa5e-ff07-459d-a0e7-f31cade4328a")
 	)
-	(text "vert\njaune \norange TMO1100\nambre \nrouge\nsuper rouge"
+	(text "vert\njaune \norange TLMO1100\nambre \nrouge\nsuper rouge"
 		(exclude_from_sim no)
 		(at 99.06 27.94 0)
 		(effects
