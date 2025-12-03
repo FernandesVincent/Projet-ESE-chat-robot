@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include "i2c.h"
 
-#define ADXL_address (0x53 << 1)		//adxl343 has i2c on 7 bits so need to put it on 8 bits
+#define ADXL_ADRESS (0x53 << 1)		//adxl343 has i2c on 7 bits so need to put it on 8 bits
 #define ADXL_DEVID (0xe5)				//The DEVID register holds a fixed device ID code of 0xE5 (345 octal) (datasheet)
 
 #define ADXL_REG_DEVID 				(0x00) 			//REG is for register def (datasheet p.23)
@@ -43,6 +43,7 @@ typedef struct ADXL{
 	float accelx;
 	float accely;
 	float accelz;
+	uint16_t devAD;	//device adress
 	uint8_t devID;
 	uint8_t range;
 	uint8_t rate;
@@ -77,5 +78,6 @@ typedef enum{
 
 
 void ADXL_Init(ADXL343_STRUCT *accel, I2C_HandleTypeDef *hi2c);
+
 
 #endif /* INC_ACCEL_H_ */

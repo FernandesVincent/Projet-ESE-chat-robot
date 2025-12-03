@@ -99,6 +99,19 @@ int main(void)
 	Motor_Init(&right_motor, &htim1, TIM_CHANNEL_2);
 	Robot_Init(&robot, &right_motor, &left_motor);
 
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+
+	__HAL_TIM_MOE_ENABLE(&htim1);
+
+	Motor_SetSpeed(&right_motor, 60);
+	Motor_SetSpeed(&left_motor, 60);
+	HAL_Delay(3000);
+	Motor_SetSpeed(&right_motor, 0);
+	Motor_SetSpeed(&left_motor, 0);
+
 
 	//Motor_Forward(&left_motor);
 

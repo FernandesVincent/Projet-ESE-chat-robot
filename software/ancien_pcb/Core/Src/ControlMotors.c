@@ -79,8 +79,8 @@ void Robot_Init(Robot_struct* robot, Motor_HandleTypeDef* motor_R, Motor_HandleT
 }
 
 void Robot_Forward(Robot_struct* robot){
-	Motor_SetSpeed(robot->Right_Motor, 40);		//speed est à definir entre +ou- SPEED_MAX
-	Motor_SetSpeed(robot->Left_Motor, 40);		//il peut aussi y avoir un delta entre les deux car moteurs pas formement 100% identiques
+	Motor_SetSpeed(robot->Right_Motor, 70);		//speed est à definir entre +ou- SPEED_MAX
+	Motor_SetSpeed(robot->Left_Motor, 70);		//il peut aussi y avoir un delta entre les deux car moteurs pas formement 100% identiques
 	robot->direction = 'F';
 }
 
