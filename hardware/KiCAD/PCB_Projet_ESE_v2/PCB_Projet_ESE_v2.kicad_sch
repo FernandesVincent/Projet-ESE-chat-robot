@@ -7264,6 +7264,20 @@
 		)
 		(uuid "a295621c-d7a0-43e7-ba32-19bb4607bda4")
 	)
+	(text "///////////////////"
+		(exclude_from_sim no)
+		(at 235.204 127.254 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 255 0 255 1)
+			)
+		)
+		(uuid "bb451d6e-c7ed-4cfc-a0c8-fd29b3d91434")
+	)
 	(text "1.65V"
 		(exclude_from_sim no)
 		(at 240.792 147.066 0)
@@ -7313,6 +7327,16 @@
 			)
 		)
 		(uuid "eea599cb-d804-4098-9b27-75e61b66b736")
+	)
+	(text "150060BS75003	"
+		(exclude_from_sim no)
+		(at 235.204 129.794 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "f18a1436-8a63-4a19-aa34-21bfbbc963ce")
 	)
 	(junction
 		(at 179.07 25.4)
@@ -20206,7 +20230,7 @@
 				)
 			)
 		)
-		(property "Value" "39"
+		(property "Value" "620"
 			(at 234.95 120.65 90)
 			(effects
 				(font
