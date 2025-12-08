@@ -8,8 +8,10 @@
 #include <stdint.h>
 #include "stm32g4xx_hal.h"
 #include "main.h"
-
+#include <stdio.h>
 extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim3;
+extern TIM_HandleTypeDef htim4;
 
 typedef struct {
   TIM_HandleTypeDef* timer;
@@ -26,8 +28,9 @@ typedef struct{
   int Kp;
   int Ki;
   int error;
-  int integral_error;
-  int derivate_error;
+  int prev_error;
+  int sum_error;
+  int diff_error;
 }PID;
 
 extern PID right_pid;
