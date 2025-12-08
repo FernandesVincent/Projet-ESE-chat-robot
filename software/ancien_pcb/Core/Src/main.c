@@ -98,7 +98,7 @@ int main(void)
 	Motor_Init(&left_motor, &htim1, TIM_CHANNEL_1);
 	Motor_Init(&right_motor, &htim1, TIM_CHANNEL_2);
 	Robot_Init(&robot, &right_motor, &left_motor);
-
+  
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
 	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
