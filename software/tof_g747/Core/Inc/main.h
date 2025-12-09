@@ -62,6 +62,16 @@ void Error_Handler(void);
 #define TOF6_INT_EXTI_IRQn EXTI4_IRQn
 #define TOF6_XSHUT_Pin GPIO_PIN_5
 #define TOF6_XSHUT_GPIO_Port GPIOA
+#define TOF4_XSHUT_Pin GPIO_PIN_2
+#define TOF4_XSHUT_GPIO_Port GPIOB
+#define TOF4_INT_Pin GPIO_PIN_10
+#define TOF4_INT_GPIO_Port GPIOB
+#define TOF4_INT_EXTI_IRQn EXTI15_10_IRQn
+#define TOF5_XSHUT_Pin GPIO_PIN_11
+#define TOF5_XSHUT_GPIO_Port GPIOB
+#define TOF5_INT_Pin GPIO_PIN_12
+#define TOF5_INT_GPIO_Port GPIOB
+#define TOF5_INT_EXTI_IRQn EXTI15_10_IRQn
 
 /* USER CODE BEGIN Private defines */
 

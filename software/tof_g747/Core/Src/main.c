@@ -18,7 +18,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "cmsis_os.h"
 #include "i2c.h"
 #include "usart.h"
 #include "gpio.h"
@@ -53,7 +52,6 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -72,6 +70,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	printf("oui \r\n");
 	tof_thresholded(GPIO_Pin);
 }
+
+
 
 /* USER CODE END 0 */
 
@@ -111,22 +111,16 @@ int main(void)
   printf("============ TOF sur mcu g747 !!!  ==========\r\n");
 
   HAL_NVIC_DisableIRQ(EXTI4_IRQn);
+  HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
 
   tof_init_all();
   printf("tof init done !\r\n");
 
   HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 
   /* USER CODE END 2 */
-
-  /* Call init function for freertos objects (in cmsis_os2.c) */
-  MX_FREERTOS_Init();
-
-  /* Start scheduler */
-  osKernelStart();
-
-  /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
