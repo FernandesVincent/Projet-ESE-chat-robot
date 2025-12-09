@@ -73,6 +73,9 @@ void motor_left_stop_rev(void){
       HAL_TIMEx_PWMN_Stop(robot.left_motor->timer, robot.left_motor->channel);
 }
 
+// TODO : Change parameters in motors movements in order to use speed in "m/s, motor_id, time" as parameters
+// TODO : Make some others functions like ramp up or ramp down to accelerate and decelerate.
+// TODO : maybe put PID structures inside motors instead of robot 
 void motors_init(void){
 
   motor_right_start_fwd();
@@ -86,6 +89,17 @@ void motors_init(void){
 	__HAL_TIM_SET_COMPARE(robot.right_motor->timer, robot.right_motor->channel, 0);
 	__HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel, 0);
 }
+
+void motors_stop_all(){
+  __HAL_TIM_SET_COMPARE(robot.right_motor->timer, robot.right_motor->channel, 0);
+	__HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel, 0);
+
+  motor_right_stop_fwd();
+  motor_right_stop_rev();
+  motor_left_stop_fwd();
+  motor_left_stop_rev();
+}
+
 
 void motor_forward(uint8_t speed_percent, char motor_id){
     uint32_t duty  = motor_set_speed(speed_percent, motor_id);
@@ -154,6 +168,8 @@ uint32_t motor_set_speed(uint8_t speed_percent, char motor_id){
 //////////////////////////////////////////////////////////////////////////////////////
 /*Encoder Part*/
 //////////////////////////////////////////////////////////////////////////////////////
+/*TODO : Test PID to have values for Kd, Kp, Ki. Probably using a PI instead of a PID
+make a table to register all real speed values for a given time to check how the PID is working*/
 
 void start_encoder(){
   HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);

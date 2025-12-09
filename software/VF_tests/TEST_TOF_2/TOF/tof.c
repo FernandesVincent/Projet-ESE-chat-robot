@@ -19,10 +19,12 @@ void VL53L0X_InitSensor() {
     dev.I2cDevAddr = 0x52;
     dev.I2cHandle = &hi2c1;
     
-    if(HAL_I2C_Mem_Read(&hi2c1, 0x52, 0xC0, 1, &data, 1, 100) == HAL_OK)
+    if(HAL_I2C_Mem_Read(&hi2c1, 0x52, 0xC0, 1, &data, 1, 100) == HAL_OK){
         printf("Read ID = 0x%X\n", data);
-    else
+    }
+    else{
         printf("Read failed\n");
+    }
 
     int init = VL53L0X_DataInit(&dev);
     if(init != VL53L0X_ERROR_NONE) printf("DataInit ERROR\n");
@@ -30,7 +32,6 @@ void VL53L0X_InitSensor() {
     if(stat != VL53L0X_ERROR_NONE) printf("StaticInit ERROR\n");
 
     VL53L0X_PerformRefCalibration(&dev, &VHV, &Phase);
-
     VL53L0X_PerformRefSpadManagement(&dev, &refSpadCount, &isAperture);
     int set = VL53L0X_SetMeasurementTimingBudgetMicroSeconds(&dev, 33000);
     if(set != VL53L0X_ERROR_NONE) printf("SetM ERROR\n");

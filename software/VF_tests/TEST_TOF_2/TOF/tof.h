@@ -18,6 +18,12 @@ extern uint32_t refSpadCount;
 extern uint8_t isAperture;
 extern uint8_t dataReady;
 
+
+typedef struct{
+  VL53L0X_Dev_t dev;
+
+}TOF;
+
 void VL53L0X_InitSensor();
 void VL53L0X_ReadDistance();
 
