@@ -14,28 +14,31 @@
 #define ADXL_ADRESS (0x53 << 1)		//adxl343 has i2c on 7 bits so need to put it on 8 bits
 #define ADXL_DEVID (0xe5)				//The DEVID register holds a fixed device ID code of 0xE5 (345 octal) (datasheet)
 
-#define ADXL_REG_DEVID 				(0x00) 			//REG is for register def (datasheet p.23)
-#define ADXL_REG_THRESH_TAP 		(0x1d)
-#define ADXL_REG_OFSX 				(0x1e)
-#define ADXL_REG_OFSY 				(0x1f)
-#define ADXL_REG_OFSZ 				(0x20)
-#define ADXL_REG_DUR 				(0x21)
-#define ADXL_REG_ACT_INAT_CTL 		(0x27)
-#define ADXL_REG_TAP_AXES 			(0x2a)
-#define ADXL_REG_ACT_TAP_STATUS 	(0x2b)
-#define ADXL_REG_BW_RATE 			(0x2c)
-#define ADXL_REG_POWER_CTL 			(0x2d)
-#define ADXL_REG_INT_ENABLE 		(0x2e)
-#define ADXL_REG_INT_MAP 			(0x2f)
-#define ADXL_REG_INT_SOURCE 		(0x30)
-#define ADXL_REG_DATA_FORMAT 		(0x31)
-#define ADXL_REG_DATAX0				(0x32)
-#define ADXL_REG_DATAX1				(0x33)
-#define ADXL_REG_DATAY0				(0x34)
-#define ADXL_REG_DATAY1				(0x35)
-#define ADXL_REG_DATAZ0				(0x36)
-#define ADXL_REG_DATAZ1				(0x37)
-#define ADXL_REG_FIFO_CTL 			(0x38)
+
+typedef enum Registers{
+	ADXL_REG_DEVID 				= 0x00, 			//REG is for register def (datasheet p.23)
+	ADXL_REG_THRESH_TAP 		= 0x1d,
+	ADXL_REG_OFSX 				= 0x1e,
+	ADXL_REG_OFSY 				= 0x1f,
+	ADXL_REG_OFSZ 				= 0x20,
+	ADXL_REG_DUR 				= 0x21,
+	ADXL_REG_ACT_INAT_CTL 		= 0x27,
+	ADXL_REG_TAP_AXES 			= 0x2a,
+	ADXL_REG_ACT_TAP_STATUS 	= 0x2b,
+	ADXL_REG_BW_RATE 			= 0x2c,
+	ADXL_REG_POWER_CTL 			= 0x2d,
+	ADXL_REG_INT_ENABLE 		= 0x2e,
+	ADXL_REG_INT_MAP 			= 0x2f,
+	ADXL_REG_INT_SOURCE 		= 0x30,
+	ADXL_REG_DATA_FORMAT 		= 0x31,
+	ADXL_REG_DATAX0				= 0x32,
+	ADXL_REG_DATAX1				= 0x33,
+	ADXL_REG_DATAY0				= 0x34,
+	ADXL_REG_DATAY1				= 0x35,
+	ADXL_REG_DATAZ0				= 0x36,
+	ADXL_REG_DATAZ1				= 0x37,
+	ADXL_REG_FIFO_CTL 			= 0x38
+};
 
 #define ADXL_I2C hi2c
 
