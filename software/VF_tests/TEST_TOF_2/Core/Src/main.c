@@ -66,6 +66,7 @@ int __io_putchar(int ch) {
 }
 
 
+
 /* USER CODE END 0 */
 
 /**
@@ -100,17 +101,19 @@ int main(void)
   MX_USART2_UART_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  VL53L0X_InitSensor();
-  printf("VL53L0X Initialized.\n");
+
+
+  VL53L0X_InitAllSensor();
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    VL53L0X_ReadDistance();
-    // VL53L0X_ClearInterruptMask(VL53L0X_DEV Dev, uint32_t InterruptMask)
-    HAL_Delay(1000);
+    VL53L0X_Callback(0);
+    HAL_Delay(500);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

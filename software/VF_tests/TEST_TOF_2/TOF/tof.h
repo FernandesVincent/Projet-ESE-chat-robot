@@ -12,9 +12,11 @@
 #include <stdbool.h>
 
 
-#define TOF_DEFAULT_DEV_ADDR 0x52
+#define TOF_DEFAULT_DEV_ADDR 0x29<<1
 #define TOF_I2C hi2c1
-#define NUMBER_OF_TOFS 6
+#define NUMBER_OF_TOFS 1
+#define TIMING_BUDGET_US 200000
+
 typedef struct{
   GPIO_TypeDef* Port;
   uint16_t Pin;
@@ -23,22 +25,24 @@ typedef struct{
 typedef struct{
   VL53L0X_Dev_t* dev;
   uint8_t new_adress;
-  bool isenable;
-  bool isready;
   TOF_PinPort* xshut;
   TOF_PinPort* gpio;
 }TOF;
 
+extern bool isStarted; 
 
 
 
 void VL53L0X_InitSingleSensor(int index);
 int VL53L0X_ReadDistance(int index);
+
 void VL53L0X_Calibration(TOF *t);
 void VL53L0X_EnableSingleSensor(int index);
 void VL53L0X_ChangeDeviceAddress(TOF *t);
 void VL53L0X_EnableAllSensors(void);
+void VL53L0X_InitAllSensor(void);
 void VL53L0X_Init(TOF *t);
 void VL53L0X_Param(TOF *t, uint32_t timing_budget_us, VL53L0X_DeviceModes mode);
-void VL53L0X_StartMeasure(TOF *t);
+void VL53L0X_StartMeasure(int index);
+bool VL53L0X_IsAboveThreshold(int index);
 #endif /* __TOF_H__ */
