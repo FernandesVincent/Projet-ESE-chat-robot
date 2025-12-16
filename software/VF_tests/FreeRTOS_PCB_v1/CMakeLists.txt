@@ -44,11 +44,20 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/main.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/TOF/tof.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x/vl53l0x_api.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x/vl53l0x_api_calibration.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x/vl53l0x_api_core.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x/vl53l0x_api_ranging.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x/vl53l0x_platform.c
     # Add user sources here
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/TOF
+    ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x
     # Add user defined include paths
 )
 
