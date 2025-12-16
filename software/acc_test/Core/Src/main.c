@@ -25,6 +25,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include "ADXL343.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,22 +36,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define ADXL343_ADDR        (0x53 << 1)   // Adresse I2C 7 bits : 0x53
-#define REG_DEVID           0x00
-#define REG_POWER_CTL       0x2D
-#define REG_DATA_FORMAT     0x31
-#define REG_BW_RATE         0x2C
-#define REG_INT_ENABLE      0x2E
-#define REG_INT_MAP         0x2F
-#define REG_INT_SOURCE      0x30
-#define REG_DATAX0          0x32
-
-// Bits
-#define MEASURE_BIT         3
-#define FULL_RES_BIT        (1 << 3)
-#define RANGE_16G           0x03
-#define DATA_READY_BIT     	(1 << 7)
-#define SINGLE_TAP     	(1 << 6)
 
 
 /* USER CODE END PD */
@@ -82,106 +67,17 @@ int __io_putchar(int chr)
 }
 
 
-void ADXL343_Write(uint8_t reg, uint8_t value)
-{
-	uint8_t val;
-
-	HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, reg, 1, &value, 1, HAL_MAX_DELAY);
-	HAL_I2C_Master_Receive(&hi2c1, ADXL343_ADDR, &val, 1, HAL_MAX_DELAY);
-	if (val != value)
-		printf("ADXL343 error writing in register 0x%02X, value returned :  0x%02X\r\n", reg, val);
-
-}
-
-
-void ADXL343_Read(uint8_t reg, uint8_t *buffer, uint8_t len)
-{
-	HAL_I2C_Mem_Read(&hi2c1, ADXL343_ADDR, reg, 1, buffer, len, HAL_MAX_DELAY);
-}
-
-void ADXL343_ReadXY(int16_t *x, int16_t *y)
-{
-	uint8_t raw[4];
-
-	// Lecture : X0, X1, Y0, Y1
-	ADXL343_Read(REG_DATAX0, raw, 4);
-
-	*x = (int16_t)((raw[1] << 8) | raw[0]);
-	*y = (int16_t)((raw[3] << 8) | raw[2]);
-}
-
-void ADXL343_Init(void)
-{
-	uint8_t devid = 0;
-	uint8_t val = 0;
-
-	ADXL343_Read(REG_DEVID, &devid, 1);
-
-	printf("ADXL343 Device ID: 0x%02X\r\n", devid);
-	if (devid != 0xE5) {
-		Error_Handler();
-	}
-
-	ADXL343_Write(REG_POWER_CTL, (1<<3));
-
-
-
-	ADXL343_Write(REG_INT_ENABLE, 0);
-
-	ADXL343_Write(REG_DATA_FORMAT, FULL_RES_BIT | RANGE_16G);	// full resolution et +/-16g
-
-
-	ADXL343_Write(REG_INT_ENABLE, 0);
-
-	// Sensibilité très élevée (~0.5g)
-	ADXL343_Write(0x1D, 70);  // THRESH_TAP = 0.5 g
-	// Durée max d’un tap :  ms
-	ADXL343_Write(0x21, 90);  // DUR = 50ms / 0.625ms ≈ 80 → 0x50
-	//LATENT
-	ADXL343_Write(0x22, 0x0);
-	//WINDOW
-	ADXL343_Write(0x23, 0x0);
-	// Axes participants : X, Y, Z
-	ADXL343_Write(0x2A, 0x06);  // TAP_AXES = 0b00000111
-
-	ADXL343_Write(REG_BW_RATE, 0x0B);		// 200 Hz
-
-
-
-	ADXL343_Write(REG_INT_MAP, (1<<6));		// on utilise INT2
-	ADXL343_Write(REG_INT_ENABLE, SINGLE_TAP);
-
-
-	ADXL343_Read(0x2b, &val, 1);
-	printf("ADXL343 ACT TAP source : 0x%02X\r\n", val);
-
-	ADXL343_Read(REG_INT_SOURCE, &val, 1);	// lecture pour reset des interruptions
-	printf("ADXL343 int source : 0x%02X\r\n", val);
-
-	int16_t x, y;
-
-	ADXL343_Read(REG_INT_SOURCE, &val, 1);
-	ADXL343_ReadXY(&x, &y);
-
-}
-
+h_ADXL343_t h_ADXL343 = {
+		.hi2c = &hi2c1,
+		.int_pin = GPIO_PIN_9
+};
 
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-
-	if (GPIO_Pin == GPIO_PIN_9)
-	{
-		printf("okkk TAP DETECTED\r\n");
-
-		uint8_t val;
-
-//		ADXL343_Read(0x2b, &val, 1);
-		ADXL343_Read(REG_INT_SOURCE, &val, 1);
-		printf("ADXL343 int source : 0x%02X\r\n", val);
-
-	}
+	ADXL343_IntCallback(&h_ADXL343, GPIO_Pin);
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -220,7 +116,7 @@ int main(void)
 	printf("\r\n======== Starting ADXL343 example ========= \r\n");
 
 	HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
-	ADXL343_Init();
+	ADXL343_Init(&h_ADXL343);
 	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
   /* USER CODE END 2 */
