@@ -124,13 +124,36 @@ void ADXL343_Init(void)
 
 	ADXL343_Write(REG_POWER_CTL, (1<<3));
 
+
+
+	ADXL343_Write(REG_INT_ENABLE, 0);
+
 	ADXL343_Write(REG_DATA_FORMAT, FULL_RES_BIT | RANGE_16G);	// full resolution et +/-16g
 
-	ADXL343_Write(REG_BW_RATE, 0x0A);		// 100 Hz
 
-	ADXL343_Write(REG_INT_MAP, 0xff);		// on utilise INT2
+	ADXL343_Write(REG_INT_ENABLE, 0);
 
-	ADXL343_Write(REG_INT_ENABLE, DATA_READY_BIT);		// activer interruption data ready
+	// Sensibilité très élevée (~0.5g)
+	ADXL343_Write(0x1D, 70);  // THRESH_TAP = 0.5 g
+	// Durée max d’un tap :  ms
+	ADXL343_Write(0x21, 90);  // DUR = 50ms / 0.625ms ≈ 80 → 0x50
+	//LATENT
+	ADXL343_Write(0x22, 0x0);
+	//WINDOW
+	ADXL343_Write(0x23, 0x0);
+	// Axes participants : X, Y, Z
+	ADXL343_Write(0x2A, 0x06);  // TAP_AXES = 0b00000111
+
+	ADXL343_Write(REG_BW_RATE, 0x0B);		// 200 Hz
+
+
+
+	ADXL343_Write(REG_INT_MAP, (1<<6));		// on utilise INT2
+	ADXL343_Write(REG_INT_ENABLE, SINGLE_TAP);
+
+
+	ADXL343_Read(0x2b, &val, 1);
+	printf("ADXL343 ACT TAP source : 0x%02X\r\n", val);
 
 	ADXL343_Read(REG_INT_SOURCE, &val, 1);	// lecture pour reset des interruptions
 	printf("ADXL343 int source : 0x%02X\r\n", val);
@@ -146,67 +169,78 @@ void ADXL343_Init(void)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
+
 	if (GPIO_Pin == GPIO_PIN_9)
 	{
-		printf("ok\r\n");
+		printf("okkk TAP DETECTED\r\n");
 
 		uint8_t val;
 
-		int16_t x, y;
-
+//		ADXL343_Read(0x2b, &val, 1);
 		ADXL343_Read(REG_INT_SOURCE, &val, 1);
-		ADXL343_ReadXY(&x, &y);
+		printf("ADXL343 int source : 0x%02X\r\n", val);
 
-		printf("ACC x: %d, y: %d\r\n", x, y);
 	}
 }
 /* USER CODE END 0 */
 
 /**
- * @brief  The application entry point.
- * @retval int
- */
+  * @brief  The application entry point.
+  * @retval int
+  */
 int main(void)
 {
 
-	/* USER CODE BEGIN 1 */
+  /* USER CODE BEGIN 1 */
 
-	/* USER CODE END 1 */
+  /* USER CODE END 1 */
 
-	/* MCU Configuration--------------------------------------------------------*/
+  /* MCU Configuration--------------------------------------------------------*/
 
-	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-	HAL_Init();
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
 
-	/* USER CODE BEGIN Init */
+  /* USER CODE BEGIN Init */
 
-	/* USER CODE END Init */
+  /* USER CODE END Init */
 
-	/* Configure the system clock */
-	SystemClock_Config();
+  /* Configure the system clock */
+  SystemClock_Config();
 
-	/* USER CODE BEGIN SysInit */
+  /* USER CODE BEGIN SysInit */
 
-	/* USER CODE END SysInit */
+  /* USER CODE END SysInit */
 
-	/* Initialize all configured peripherals */
-	MX_GPIO_Init();
-	MX_I2C1_Init();
-	MX_USART3_UART_Init();
-	/* USER CODE BEGIN 2 */
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_I2C1_Init();
+  MX_USART3_UART_Init();
+  /* USER CODE BEGIN 2 */
 
-	printf("======== Starting ADXL343 example ========= \r\n");
+	printf("\r\n======== Starting ADXL343 example ========= \r\n");
 
 	HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 	ADXL343_Init();
 	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
-	/* USER CODE END 2 */
+  /* USER CODE END 2 */
 
-	/* Infinite loop */
-	/* USER CODE BEGIN WHILE */
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
 	while (1)
 	{
+//		uint8_t val;
+//		int16_t x, y;
+//
+//		ADXL343_Read(0x2b, &val, 1);
+//		printf("ADXL343 tap source : 0x%02X\r\n", val);
+//
+//		ADXL343_Read(REG_INT_SOURCE, &val, 1);
+//		printf("ADXL343 int source : 0x%02X\r\n", val);
+//
+//		HAL_Delay(500);
+
+
 		//		uint8_t val;
 		//		ADXL343_Read(REG_INT_SOURCE, &val, 1);	// lecture pour reset des interruptions
 		//		printf("ADXL343 int source : 0x%02X\r\n", val);
@@ -222,51 +256,51 @@ int main(void)
 		//			printf("ACC x: %d, y: %d\r\n", x, y);
 		//
 		//		}
-		/* USER CODE END WHILE */
+    /* USER CODE END WHILE */
 
-		/* USER CODE BEGIN 3 */
+    /* USER CODE BEGIN 3 */
 	}
-	/* USER CODE END 3 */
+  /* USER CODE END 3 */
 }
 
 /**
- * @brief System Clock Configuration
- * @retval None
- */
+  * @brief System Clock Configuration
+  * @retval None
+  */
 void SystemClock_Config(void)
 {
-	RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-	RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-	/** Configure the main internal regulator output voltage
-	 */
-	HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1);
+  /** Configure the main internal regulator output voltage
+  */
+  HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1);
 
-	/** Initializes the RCC Oscillators according to the specified parameters
-	 * in the RCC_OscInitTypeDef structure.
-	 */
-	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-	RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-	RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
-	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-	{
-		Error_Handler();
-	}
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	/** Initializes the CPU, AHB and APB buses clocks
-	 */
-	RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-			|RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
-	RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
-	{
-		Error_Handler();
-	}
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  {
+    Error_Handler();
+  }
 }
 
 /* USER CODE BEGIN 4 */
@@ -274,32 +308,32 @@ void SystemClock_Config(void)
 /* USER CODE END 4 */
 
 /**
- * @brief  This function is executed in case of error occurrence.
- * @retval None
- */
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
 void Error_Handler(void)
 {
-	/* USER CODE BEGIN Error_Handler_Debug */
+  /* USER CODE BEGIN Error_Handler_Debug */
 	/* User can add his own implementation to report the HAL error return state */
 	__disable_irq();
 	while (1)
 	{
 	}
-	/* USER CODE END Error_Handler_Debug */
+  /* USER CODE END Error_Handler_Debug */
 }
 #ifdef USE_FULL_ASSERT
 /**
- * @brief  Reports the name of the source file and the source line number
- *         where the assert_param error has occurred.
- * @param  file: pointer to the source file name
- * @param  line: assert_param error line source number
- * @retval None
- */
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
 void assert_failed(uint8_t *file, uint32_t line)
 {
-	/* USER CODE BEGIN 6 */
+  /* USER CODE BEGIN 6 */
 	/* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-	/* USER CODE END 6 */
+  /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
