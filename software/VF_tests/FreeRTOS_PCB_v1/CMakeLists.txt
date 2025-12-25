@@ -51,6 +51,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x/vl53l0x_api_core.c
     ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x/vl53l0x_api_ranging.c
     ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x/vl53l0x_platform.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Motors/motors.c
     # Add user sources here
 )
 
@@ -58,6 +59,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/TOF
     ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x
+    ${CMAKE_CURRENT_SOURCE_DIR}/Motors
     # Add user defined include paths
 )
 

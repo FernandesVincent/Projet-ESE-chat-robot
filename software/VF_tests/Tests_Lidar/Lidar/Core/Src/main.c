@@ -50,7 +50,6 @@
 /* USER CODE BEGIN PV */
 uint8_t lidar_buffer[UART_RX_BUFFER_SIZE];
 uint8_t UART1_RxBuffer[UART_RX_BUFFER_SIZE];
-uint16_t taille = 0;
 int lidar_flag = 0;
 
 uint8_t rxByte;
@@ -73,12 +72,11 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size){
   if (huart->Instance == UART4){
     HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 
-    taille = Size;
-    lidar_flag = 1;
     for (int i = 0; i<Size; i++){
       lidar_buffer[i] = UART1_RxBuffer[i];
     }
     HAL_UARTEx_ReceiveToIdle_DMA(&huart4, UART1_RxBuffer, UART_RX_BUFFER_SIZE);
+    lidar_flag = 1;    
   }
 }
 
@@ -158,20 +156,20 @@ int main(void)
     // HAL_Delay(5000);
 
     // if (lidar_flag == 1){
-    //   lidar_check_frames();
+    //   lidar_parse_frames();
     //   lidar_checksum_test();
     //   lidar_get_angle_and_distance();
     //   lidar_flag = 0;
     // }
 
-    HAL_Delay(1500);
-    mp3_selectStorageDevice();
-    HAL_Delay(500);
-    mp3_setVolume(20);
-    HAL_Delay(500);
-    mp3_playWithIndex(1);
-    HAL_Delay(50000); 
-    mp3_stopPlay();
+    // HAL_Delay(1500);
+    // mp3_selectStorageDevice();
+    // HAL_Delay(500);
+    // mp3_setVolume(20);
+    // HAL_Delay(500);
+    // mp3_playWithIndex(1);
+    // HAL_Delay(50000); 
+    // mp3_stopPlay();
 
     /* USER CODE END WHILE */
 

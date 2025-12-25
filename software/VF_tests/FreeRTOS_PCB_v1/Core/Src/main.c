@@ -109,23 +109,24 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 	printf("TEST\r\n");
-	VL53L0X_InitAllSensor();
+	// VL53L0X_InitAllSensor();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1)
 	{
-		VL53L0X_IsAboveThreshold(0);
-    HAL_Delay(3000);
-    VL53L0X_IsAboveThreshold(1);
-    HAL_Delay(3000);
-    VL53L0X_IsAboveThreshold(2);
-    HAL_Delay(3000);
-    VL53L0X_IsAboveThreshold(3);
-    HAL_Delay(3000);
-    VL53L0X_IsAboveThreshold(4);
-    HAL_Delay(3000);
+		// VL53L0X_IsAboveThreshold(0);
+    // HAL_Delay(3000);
+    // VL53L0X_IsAboveThreshold(1);
+    // HAL_Delay(3000);
+    // VL53L0X_IsAboveThreshold(2);
+    // HAL_Delay(3000);
+    // VL53L0X_IsAboveThreshold(3);
+    // HAL_Delay(3000);
+    // VL53L0X_IsAboveThreshold(4);
+    // HAL_Delay(3000);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
