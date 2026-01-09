@@ -138,13 +138,46 @@ uint8_t ADXL_Set_Tap_Dur(ADXL343_STRUCT* Accel, uint8_t duration){
 	return 0;
 }
 
-uint8_t ADXL_Get_Offset_Values(ADXL343_STRUCT* Accel, uint8_t offsetX, uint8_t offsetY, uint8_t offsetZ){
-	;
+uint8_t ADXL_Get_Offset_Values(ADXL343_STRUCT* Accel, uint8_t* offsetX, uint8_t* offsetY, uint8_t* offsetZ){
+	uint8_t offsetData[3];
+
+	if (ADXL_I2C_Read(Accel, ADXL_REG_OFSX, &offsetData, 3) != 0){
+		return 1;
+	}
+	*offsetX = offsetData[0];
+	*offsetY = offsetData[1];
+	*offsetZ = offsetData[2];
+	return 0;
 }
 
+uint8_t ADXL_Clear_Interupt(void){
+	uint8_t interruptMem = 0;
+	if (HAL_I2C_Mem_Read(&ADXL_I2C, ADXL_ADRESS, ADXL_REG_INT_SOURCE, I2C_MEMADD_SIZE_8BIT, &interruptMem, 1, HAL_MAX_DELAY) != 0){
+		return 1;
+	}
+	return 0;
+}
 
+uint8_t ADXL_Read_Accel(ADXL343_STRUCT* Accel){
+	uint8_t data[6];
 
+	if (Accel == NULL){
+		return 1;
+	}
+	if (ADXL_I2C_Read(Accel, ADXL_REG_DATAX0, data, 6) != 0){
+		return 2;
+	}
+	//mesure raw
+	uint16_t mesX = (uint16_t)((data[1] << 8) | data[0]);
+	uint16_t mesY = (uint16_t)((data[3] << 8) | data[2]);
+	uint16_t mesZ = (uint16_t)((data[5] << 8) | data[4]);
+	//mes to mg (float)
+	Accel->accelx = (mesX)/32.0;
+	Accel->accely = (mesY)/32.0;
+	Accel->accelz = (mesZ)/32.0;
 
+	return 0;
+}
 
 
 
