@@ -73,6 +73,12 @@ void Error_Handler(void);
 #define Phase_A2_GPIO_Port GPIOA
 #define Phase_B1_Pin GPIO_PIN_5
 #define Phase_B1_GPIO_Port GPIOB
+#define INT1_Accel_Pin GPIO_PIN_6
+#define INT1_Accel_GPIO_Port GPIOB
+#define INT1_Accel_EXTI_IRQn EXTI9_5_IRQn
+#define INT2_Accel_Pin GPIO_PIN_9
+#define INT2_Accel_GPIO_Port GPIOB
+#define INT2_Accel_EXTI_IRQn EXTI9_5_IRQn
 
 /* USER CODE BEGIN Private defines */
 

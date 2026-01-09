@@ -51,6 +51,9 @@ void lidar_frame_checksum_test(Frame *lidar_frame){
 void lidar_frame_get_distance(Frame *lidar_frame){
 	for (int i = 0; i < lidar_frame->LSN; i++){
 		frame_points[i].distance = (int32_t)(lidar_frame->SI[i] * CALCULUS_RESOLUTION / 4);
+		if (frame_points[i].distance > 2000 * CALCULUS_RESOLUTION){
+			frame_points[i].distance = 2000 * CALCULUS_RESOLUTION;
+		}
 	}
 }
 
@@ -121,69 +124,72 @@ void lidar_print_lap_points(){
     }
 }
 
-Object detected_objects[NUMBER_OF_OBJECTS];
-static inline int32_t abs_int32(int32_t x){ return (x < 0) ? -x : x; }
 
-void lidar_object_detection(Object *detected_objects)
-{
+void lidar_object_detection(Object *objects){
 	int object_count = 0;
-	bool in_object = false;
-  for (int i = 0; i < NUMBER_OF_POINTS_PER_LAP; i++){
-		int next = (i + 1) % NUMBER_OF_POINTS_PER_LAP;
-
-		if (lap_points[i].distance <= THRESHOLD_DISTANCE_OBJECT_DETECTION){
-			int32_t delta = lap_points[next].distance - lap_points[i].distance;
-			// Début d'objet (distance chute)
-			if (!in_object && abs_int32(delta) > DELTA_OBJECT_DETECTION && delta < 0){
-				if (object_count < NUMBER_OF_OBJECTS)
-				{
-						detected_objects[object_count].angle[0] = lap_points[next].angle;
-						detected_objects[object_count].distance[0] = lap_points[next].distance;
-						in_object = true;
-				}
-			}
-			// Fin d'objet (distance remonte)
-			else if (in_object && abs_int32(delta) > DELTA_OBJECT_DETECTION && delta > 0){
-				detected_objects[object_count].angle[1] = lap_points[i].angle;
-				detected_objects[object_count].distance[1] = lap_points[i].distance;
-				object_count++;
-				in_object = false;
-			}
+	int max_distance = 0;
+	
+	for (int i = 0; i < NUMBER_OF_POINTS_PER_LAP; i++) {
+		if (lap_points[i].distance > max_distance) {
+			max_distance = lap_points[i].distance;
 		}
 	}
-	// Si on termine la boucle en étant dans un objet, on le clôture avec le dernier point
-	if (in_object && object_count < NUMBER_OF_OBJECTS) {
-	detected_objects[object_count].angle[1] = lap_points[NUMBER_OF_POINTS_PER_LAP-1].angle;
-	detected_objects[object_count].distance[1] = lap_points[NUMBER_OF_POINTS_PER_LAP-1].distance;
-	object_count++;
+
+	int j = 1; 
+	while (j < NUMBER_OF_POINTS_PER_LAP - 1) {
+		int delta = max_distance - lap_points[j].distance;
+		if (delta >= DELTA_OBJECT_DETECTION && object_count < NUMBER_OF_OBJECTS){
+			objects[object_count].distance[0] = lap_points[j].distance;
+			objects[object_count].angle[0] = lap_points[j].angle;
+
+			while (j < NUMBER_OF_POINTS_PER_LAP - 1 && (max_distance - lap_points[j].distance) >= DELTA_OBJECT_DETECTION){
+				j++;
+			}
+			objects[object_count].distance[1] = lap_points[j-1].distance;
+			objects[object_count].angle[1] = lap_points[j-1].angle;
+			object_count++;
+		}
+		j++;
 	}
 }
 
-void lidar_object_calculate_size(Object *detected_objects, int object_count)
-{
+void lidar_object_calculate_size(Object *detected_objects, int object_count){
 	for (int i = 0; i < object_count; i++){
 		int32_t angle_start = detected_objects[i].angle[0];
 		int32_t angle_end = detected_objects[i].angle[1];
-		int32_t distance_start = detected_objects[i].distance[0];
-		int32_t distance_end = detected_objects[i].distance[1];
+		int32_t d1 = detected_objects[i].distance[0];
+		int32_t d2 = detected_objects[i].distance[1];
 
-		//Al-Kashi theorem to calculate object size
 		int32_t angle_diff = angle_end - angle_start;
-		if (angle_diff < 0){
-			angle_diff += 360 * CALCULUS_RESOLUTION;
+		if (angle_diff < 0) {
+				angle_diff += 360 * CALCULUS_RESOLUTION;
 		}
-		int32_t size = (int32_t)sqrt((distance_start * distance_start) + (distance_end * distance_end) - (2 * distance_start * distance_end * cos((double)angle_diff / CALCULUS_RESOLUTION)));
 
-		if (size <= OBJECT_SIZE_LIMIT){
-
+		double angle_rad = ((double)angle_diff / CALCULUS_RESOLUTION) * (M_PI / 180.0);
+		double size = sqrt((double)d1 * d1 + (double)d2 * d2 - 2.0 * d1 * d2 * cos(angle_rad));
+		if(size >= OBJECT_SIZE_LIMIT_MIN && size <= OBJECT_SIZE_LIMIT_MAX){
+			detected_objects[i].valid = true;
 		}
 		else{
-			// Object too large
+			detected_objects[i].valid = false;
 		}
-
 	}
 }
+int32_t distance_to_object;
+int32_t angle_to_object;
 
-void lidar_object_get_distance(){
-	
+void lidar_object_get_distance(Object *detected_objects, int object_count){
+	int j;
+	int min_distance = THRESHOLD_DISTANCE_OBJECT_DETECTION + 1;
+	for(int i = 0; i < object_count; i++){
+		if(detected_objects[i].valid){
+			for (j = 0; j < NUMBER_OF_POINTS_PER_LAP; j++) {
+				if (lap_points[j].distance < min_distance) {
+					min_distance = lap_points[j].distance;
+				}
+			}
+			distance_to_object = min_distance;
+			angle_to_object = lap_points[j].angle;
+		}
+	}
 } 

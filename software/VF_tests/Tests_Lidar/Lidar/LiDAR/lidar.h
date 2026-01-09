@@ -20,11 +20,13 @@
 #define MAX_LSN 255 // Maximum number of sampling points
 #define ANGLE_RESOLUTION_NUM 6   // 0.6°
 #define ANGLE_RESOLUTION_DEN 10
+#define MAX_DISTANCE_MM 2000 // 2000 mm
 #define NUMBER_OF_POINTS_PER_LAP ((360 * ANGLE_RESOLUTION_DEN / ANGLE_RESOLUTION_NUM) * 12 / 10)
 #define CALCULUS_RESOLUTION 10 // number of digits after the decimal point for angle and distance calculations
 #define THRESHOLD_DISTANCE_OBJECT_DETECTION (1000 * CALCULUS_RESOLUTION) // 1000 mm with calculus resolution
 #define DELTA_OBJECT_DETECTION (300 * CALCULUS_RESOLUTION) // 300 mm with calculus resolution
-#define OBJECT_SIZE_LIMIT (200 * CALCULUS_RESOLUTION) // 200 mm with calculus resolution
+#define OBJECT_SIZE_LIMIT_MAX (200 * CALCULUS_RESOLUTION) // 200 mm with calculus resolution
+#define OBJECT_SIZE_LIMIT_MIN (20 * CALCULUS_RESOLUTION) // 20 mm with calculus resolution
 #define NUMBER_OF_OBJECTS 10
 
 typedef struct {
@@ -51,7 +53,9 @@ typedef struct{
 typedef struct{
 	int32_t distance[2]; // in mm * CALCULUS_RESOLUTION
 	int32_t angle[2]; // in degree * CALCULUS_RESOLUTION
+	bool valid;
 } Object;
+
 void lidar_frame_parse(Frame *lidar_frame);
 void lidar_frame_checksum_test(Frame *lidar_frame);
 void lidar_frame_get_distance(Frame *lidar_frame);

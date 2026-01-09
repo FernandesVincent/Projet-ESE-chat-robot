@@ -46,12 +46,14 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
     ${CMAKE_SOURCE_DIR}/Motors/motors.c
+    ${CMAKE_SOURCE_DIR}/Accel/ADXL343.c
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
     ${CMAKE_SOURCE_DIR}/Motors
+    ${CMAKE_SOURCE_DIR}/Accel
 )
 
 # Add project symbols (macros)
