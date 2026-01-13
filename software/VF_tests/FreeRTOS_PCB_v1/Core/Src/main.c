@@ -20,6 +20,7 @@
 #include "main.h"
 #include "adc.h"
 #include "i2c.h"
+#include "stm32g4xx_hal.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -30,6 +31,7 @@
 #include "vl53l0x_api.h"
 #include "vl53l0x_device.h"
 #include <stdio.h>
+#include "motors.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -108,30 +110,69 @@ int main(void)
   MX_UART5_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-	printf("TEST\r\n");
+	// printf("TEST TOFs\r\n");
 	// VL53L0X_InitAllSensor();
+  printf("TEST MOTORS left 47\r\n");
+  motors_init();
+  printf("MOTORS INITIALIZED\r\n");
+  // HAL_Delay(5000);
+  // motor_forward(70, 'L', 1000);
+  // HAL_Delay(5000);
+  
+  test_motor_left();
+  printf("LEFT MOTOR TESTED\r\n");
   /* USER CODE END 2 */
+
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	while (1)
+	while (1) 
 	{
+
+    // motor_forward(40, 'R');
+    // HAL_Delay(5000);
+    // motor_stop_right();
+    // HAL_Delay(5000);
+
+// #################################### TOF
 		// VL53L0X_IsAboveThreshold(0);
-    // HAL_Delay(3000);
+    // HAL_Delay(1000);
     // VL53L0X_IsAboveThreshold(1);
-    // HAL_Delay(3000);
+    // HAL_Delay(1000);
     // VL53L0X_IsAboveThreshold(2);
-    // HAL_Delay(3000);
+    // HAL_Delay(1000);
     // VL53L0X_IsAboveThreshold(3);
-    // HAL_Delay(3000);
+    // HAL_Delay(1000);
     // VL53L0X_IsAboveThreshold(4);
+    // HAL_Delay(1000);
+    // VL53L0X_IsAboveThreshold(5);
+    // HAL_Delay(1000);
+// #################################### TOF
+
+// #################################### MOTORS
+
+    
+
+
+
+
+
+
+    // motor_forward(60, 'R');
+    // // motor_forward(20, 'L');
+    // HAL_Delay(5000);
+    // motor_backward(40, 'R');
+    // // motor_backward(80,'L');
     // HAL_Delay(3000);
+// #################################### MOTORS
+
+
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 	}
-  /* USER CODE END 3 */
+  /* USER CODE END 3 */ 
 }
 
 /**

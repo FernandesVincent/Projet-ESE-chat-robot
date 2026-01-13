@@ -14,7 +14,7 @@
 
 #define TOF_DEFAULT_DEV_ADDR 0x29<<1
 #define TOF_I2C hi2c3
-#define NUMBER_OF_TOFS 5
+#define NUMBER_OF_TOFS 6
 #define TIMING_BUDGET_US 200000
 
 typedef struct{

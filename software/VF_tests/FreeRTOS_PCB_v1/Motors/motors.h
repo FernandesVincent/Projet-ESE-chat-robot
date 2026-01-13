@@ -9,6 +9,7 @@
 #include "stm32g4xx_hal.h"
 #include "main.h"
 #include <stdio.h>
+
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
@@ -20,6 +21,14 @@ typedef struct {
   uint8_t speed;
   char direction;
 }Motors;
+
+typedef struct {
+  TIM_HandleTypeDef *timer;
+  uint32_t channel_fwd;
+  uint32_t channel_rev;
+  uint32_t speed;
+  char direction;
+} Motors_pcb_v1;
 
 extern Motors right_motor;
 extern Motors left_motor;
@@ -45,6 +54,12 @@ typedef struct {
 }Robot;
 
 
+typedef struct {
+  Motors_pcb_v1 *right_motor;
+  Motors_pcb_v1 *left_motor;
+  PID *right_pid;
+  PID *left_pid;
+}Robot_pcb_v1;
 
 
 void motor_right_start_fwd(void);
@@ -57,8 +72,14 @@ void motor_left_stop_fwd(void);
 void motor_left_stop_rev(void);
 
 void motors_init(void);
-void motor_forward(uint8_t speed_percent, char motor_id);
-void motor_backward(uint8_t speed_percent, char motor_id);
+void motor_forward(uint8_t speed_percent, char motor_id, int duration_ms);
+void motor_backward(uint8_t speed_percent, char motor_id, int duration_ms);
+void motors_stop_all();
+void motor_stop_right();
+void motor_stop_left();
 
+void test_motor_right(void);
+void test_motor_left(void);
+void motor_speed_ramp_up(uint32_t objective, char motor_id);
 uint32_t motor_set_speed(uint8_t speed_percent, char motor_id);
 #endif // MOTORS_H //

@@ -35,5 +35,5 @@ void ADXL343_enable_standby_mode(void){
 }
 
 void ADXL343_enable_interrupts(void){
-  uint8_t int_enable_value = 0x80; // Enable Data Ready interrupt (D7)
+  // uint8_t int_enable_value = 0x80; // Enable Data Ready interrupt (D7)
 }

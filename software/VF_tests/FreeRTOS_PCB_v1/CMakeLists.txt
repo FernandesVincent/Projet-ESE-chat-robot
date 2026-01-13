@@ -52,6 +52,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x/vl53l0x_api_ranging.c
     ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x/vl53l0x_platform.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Motors/motors.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Motors/motors_pcb_v1.c
     # Add user sources here
 )
 
