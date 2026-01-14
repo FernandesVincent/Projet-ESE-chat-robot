@@ -1,9 +1,4 @@
 #include "tof.h"
-#include "main.h"
-#include "stm32g4xx_hal.h"
-#include "vl53l0x_api.h"
-#include "vl53l0x_def.h"
-#include "vl53l0x_platform.h"
 
 VL53L0X_RangingMeasurementData_t measure;
 uint8_t data;
@@ -13,7 +8,6 @@ uint32_t refSpadCount;
 uint8_t isAperture;
 uint8_t dataReady = 0;
 
-// Une instance de VL53L0X_Dev_t par capteur
 VL53L0X_Dev_t tof_dev[NUMBER_OF_TOFS] = {
     { .I2cDevAddr = TOF_DEFAULT_DEV_ADDR, .I2cHandle = &TOF_I2C },
     { .I2cDevAddr = TOF_DEFAULT_DEV_ADDR, .I2cHandle = &TOF_I2C },
@@ -23,7 +17,6 @@ VL53L0X_Dev_t tof_dev[NUMBER_OF_TOFS] = {
     { .I2cDevAddr = TOF_DEFAULT_DEV_ADDR, .I2cHandle = &TOF_I2C }
 };
 
-// Pins XSHUT pour chaque capteur
 TOF_PinPort xshut_pins[NUMBER_OF_TOFS] = {
     { .Pin = XSHUT0_Pin, .Port = XSHUT0_GPIO_Port },
     { .Pin = XSHUT1_Pin, .Port = XSHUT1_GPIO_Port },
@@ -33,7 +26,6 @@ TOF_PinPort xshut_pins[NUMBER_OF_TOFS] = {
     { .Pin = XSHUT5_Pin, .Port = XSHUT5_GPIO_Port }
 };
 
-// Pins GPIO (interrupt) pour chaque capteur
 TOF_PinPort gpio_pins[NUMBER_OF_TOFS] = {
     { .Pin = INT0_Pin, .Port = INT0_GPIO_Port },
     { .Pin = INT1_Pin, .Port = INT1_GPIO_Port },
@@ -43,7 +35,6 @@ TOF_PinPort gpio_pins[NUMBER_OF_TOFS] = {
     { .Pin = INT5_Pin, .Port = INT5_GPIO_Port }
 };
 
-// Tableau des TOF avec adresse unique
 TOF tof[NUMBER_OF_TOFS] = {
     {.dev = &tof_dev[0], .new_adress = 0x54, .xshut = &xshut_pins[0], .gpio = &gpio_pins[0]},
     {.dev = &tof_dev[1], .new_adress = 0x56, .xshut = &xshut_pins[1], .gpio = &gpio_pins[1]},
@@ -55,7 +46,6 @@ TOF tof[NUMBER_OF_TOFS] = {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-// Initialise un capteur individuel
 void VL53L0X_InitSingleSensor(int index) {
     TOF *t = &tof[index];
     VL53L0X_Init(t);
@@ -64,14 +54,12 @@ void VL53L0X_InitSingleSensor(int index) {
     VL53L0X_StartMeasure(index);
 }
 
-// Change l'adresse I2C du capteur
 void VL53L0X_ChangeDeviceAddress(TOF *t){
     if(VL53L0X_SetDeviceAddress(t->dev, t->new_adress) != VL53L0X_ERROR_NONE)
         printf("SetDeviceAddress ERROR\n");
     t->dev->I2cDevAddr = t->new_adress;
 }
 
-// Initialisation basique
 void VL53L0X_Init(TOF *t){
     if(VL53L0X_DataInit(t->dev) != VL53L0X_ERROR_NONE)
         printf("DataInit ERROR\n");
@@ -79,7 +67,6 @@ void VL53L0X_Init(TOF *t){
         printf("StaticInit ERROR\n");
 }
 
-// Paramètres
 void VL53L0X_Param(TOF *t, uint32_t timing_budget_us, VL53L0X_DeviceModes mode){
     if(VL53L0X_SetMeasurementTimingBudgetMicroSeconds(t->dev, timing_budget_us) != VL53L0X_ERROR_NONE)
         printf("SetTimingBudget ERROR\n");
@@ -87,7 +74,6 @@ void VL53L0X_Param(TOF *t, uint32_t timing_budget_us, VL53L0X_DeviceModes mode){
         printf("SetDeviceMode ERROR\r\n");
 }
 
-// Calibration
 void VL53L0X_Calibration(TOF *t){
     if(VL53L0X_PerformRefCalibration(t->dev, &VHV, &Phase) != VL53L0X_ERROR_NONE)
         printf("PerformCalibration ERROR\r\n");
@@ -95,7 +81,6 @@ void VL53L0X_Calibration(TOF *t){
         printf("PerformRefSpadManagement ERROR\r\n");
 }
 
-// Démarre la mesure
 void VL53L0X_StartMeasure(int index){
     TOF *t = &tof[index];
     if(VL53L0X_StartMeasurement(t->dev) != VL53L0X_ERROR_NONE)
@@ -104,18 +89,15 @@ void VL53L0X_StartMeasure(int index){
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-// Initialisation de tous les capteurs correctement
 void VL53L0X_InitAllSensor() {
-    // 1. Éteindre tous les capteurs
     for(int i = 0; i < NUMBER_OF_TOFS; i++)
         HAL_GPIO_WritePin(tof[i].xshut->Port, tof[i].xshut->Pin, GPIO_PIN_RESET);
 
     HAL_Delay(100);
 
-    // 2. Allumer et configurer chaque capteur un par un
     for(int i = 0; i < NUMBER_OF_TOFS; i++){
         HAL_GPIO_WritePin(tof[i].xshut->Port, tof[i].xshut->Pin, GPIO_PIN_SET);
-        HAL_Delay(100); // temps pour que le capteur démarre
+        HAL_Delay(100); 
         VL53L0X_ChangeDeviceAddress(&tof[i]);
         VL53L0X_InitSingleSensor(i);
     }
@@ -123,7 +105,6 @@ void VL53L0X_InitAllSensor() {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-// Lecture de la distance
 int VL53L0X_ReadDistance(int index) {
     TOF *t = &tof[index];
     uint8_t dataReady = 0;
@@ -144,17 +125,18 @@ int VL53L0X_ReadDistance(int index) {
     }
 }
 
-// Comparaison seuil
 int VL53L0X_CompareThreshold(int index, int distance_mm, int threshold_mm){
     return (distance_mm > threshold_mm) ? 1 : 0;
 }
 
-// Seuil booléen
+extern bool motors_enabled;
+
 bool VL53L0X_IsAboveThreshold(int index){
     int distance = VL53L0X_ReadDistance(index);
-    int result = VL53L0X_CompareThreshold(index, distance, 200);
+    int result = VL53L0X_CompareThreshold(index, distance, THRESHOLD);
     if(result == 1){
         printf("TOF %d Above Threshold !\r\n", index);
+        motors_enabled = false;
         return true;
     } else {
         printf("TOF %d Below Threshold !\r\n", index);

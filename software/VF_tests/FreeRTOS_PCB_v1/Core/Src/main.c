@@ -18,9 +18,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 #include "adc.h"
 #include "i2c.h"
-#include "stm32g4xx_hal.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -57,6 +57,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -68,6 +69,43 @@ int __io_putchar(int ch) {
 	return ch;
 }
 
+static TaskHandle_t MotorTaskHandle;
+static TaskHandle_t TOFTaskHandle;
+
+bool motors_enabled = true;
+
+void task_motors(void * unused){
+  while(1){
+    if(motors_enabled ==true){
+      motor_forward(80, 'R', 0);
+      motor_forward(65, 'L', 0);
+    }
+    else{
+      motor_backward(80, 'R', 0);
+      motor_backward(65, 'L', 0);
+      vTaskDelay(pdMS_TO_TICKS(3000));
+      motors_stop_all();
+      motor_turn(30, 65, 'F', 0);
+      vTaskDelay(pdMS_TO_TICKS(2000));
+    }
+    vTaskDelay(pdMS_TO_TICKS(50)); 
+  }
+}
+bool turn[6] = {false, false, false, false, false, false};
+
+void test_tofs(void * unused){
+  while(1){
+  for(uint8_t i = 0; i < 6; i++){
+    turn[i] = VL53L0X_IsAboveThreshold(i);
+    vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+    bool allFalse = !(turn[0] || turn[1] || turn[2] || turn[3] || turn[4] || turn[5]);
+    if(allFalse){
+      motors_enabled = true;
+    }
+  vTaskDelay(pdMS_TO_TICKS(100));
+  }
+}
 /* USER CODE END 0 */
 
 /**
@@ -110,19 +148,46 @@ int main(void)
   MX_UART5_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-	// printf("TEST TOFs\r\n");
-	// VL53L0X_InitAllSensor();
+	printf("TEST TOFs\r\n");
+	VL53L0X_InitAllSensor();
   printf("TEST MOTORS left 47\r\n");
   motors_init();
   printf("MOTORS INITIALIZED\r\n");
-  // HAL_Delay(5000);
-  // motor_forward(70, 'L', 1000);
-  // HAL_Delay(5000);
   
-  test_motor_left();
-  printf("LEFT MOTOR TESTED\r\n");
+  // test_motor_left();
+  // printf("LEFT MOTOR TESTED\r\n");
+  // HAL_Delay(2000);
+  // test_motor_right();
+  // printf("RIGHT MOTOR TESTED\r\n");
+
+  if (xTaskCreate(task_motors, "MOTORS", 256, NULL, 3, &MotorTaskHandle) != pdPASS){
+		printf("Error creating task b1");
+		Error_Handler();
+	}
+  else{
+    printf("Motor task created\r\n");
+  }
+
+  if(xTaskCreate(test_tofs, "TOFS", 512, NULL, 2, &TOFTaskHandle) != pdPASS){
+    printf("Error creating task test tofs");
+    Error_Handler();
+  }
+  else{
+    printf("TOF task created\r\n");
+  }
+
+
+  vTaskStartScheduler();
+
   /* USER CODE END 2 */
 
+  /* Call init function for freertos objects (in cmsis_os2.c) */
+  MX_FREERTOS_Init();
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -172,7 +237,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	}
-  /* USER CODE END 3 */ 
+  /* USER CODE END 3 */
 }
 
 /**

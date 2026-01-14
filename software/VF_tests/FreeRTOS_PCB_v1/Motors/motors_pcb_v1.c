@@ -4,16 +4,16 @@
 
 Motors_pcb_v1 right_motor_v1 ={
   .timer = &htim8,
-  .channel_fwd = TIM_CHANNEL_3,
-  .channel_rev = TIM_CHANNEL_2,
+  .channel_fwd = TIM_CHANNEL_2,
+  .channel_rev = TIM_CHANNEL_3,
   .speed = 0,
   .direction = 'F'
 };
 
 Motors_pcb_v1 left_motor_v1 ={
   .timer = &htim4,
-  .channel_fwd = TIM_CHANNEL_2,
-  .channel_rev = TIM_CHANNEL_1,
+  .channel_fwd = TIM_CHANNEL_1,
+  .channel_rev = TIM_CHANNEL_2,
   .speed = 0,
   .direction = 'F'
 };
@@ -108,16 +108,8 @@ void motors_init(void){
 
 void motors_stop_all(){
 
-  __HAL_TIM_SET_COMPARE(robot.right_motor->timer, robot.right_motor->channel_fwd, 0);
-  __HAL_TIM_SET_COMPARE(robot.right_motor->timer, robot.right_motor->channel_rev, 0);
-
-  __HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel_fwd, 0);
-  __HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel_rev, 0);
-
-  motor_right_stop_fwd();
-  motor_right_stop_rev();
-  motor_left_stop_fwd();
-  motor_left_stop_rev();
+  motor_stop_right();
+  motor_stop_left();
 }
 
 void motor_stop_right(){
@@ -147,16 +139,16 @@ void motor_forward(uint8_t speed_percent, char motor_id, int duration_ms){
     motor_right_start_fwd();
     motor_right_stop_rev();
     // __HAL_TIM_SET_COMPARE(robot.right_motor->timer, robot.right_motor->channel_fwd, duty);
-    motor_speed_ramp_up(duty, 'R');
+    motor_speed_ramp_up(duty, 'R', "FWD");
   }
   else if(motor_id == 'L'){
     motor_left_start_fwd();
     motor_left_stop_rev();
     // __HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel_fwd, duty);
-    motor_speed_ramp_up(duty, 'L');
+    motor_speed_ramp_up(duty, 'L', "FWD");
   }
   if(duration_ms > 0){
-    HAL_Delay(duration_ms);
+    vTaskDelay(duration_ms / portTICK_PERIOD_MS);
     if(motor_id == 'R'){
       motor_stop_right();
     }
@@ -173,17 +165,17 @@ void motor_backward(uint8_t speed_percent, char motor_id, int duration_ms){
     motor_right_start_rev();
     motor_right_stop_fwd();
     // __HAL_TIM_SET_COMPARE(robot.right_motor->timer, robot.right_motor->channel_rev, duty);
-    motor_speed_ramp_up(duty, 'R');
+    motor_speed_ramp_up(duty, 'R', "REV");
   }
   else if(motor_id == 'L'){
     motor_left_start_rev();
     motor_left_stop_fwd();
     // __HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel_rev, duty);
-    motor_speed_ramp_up(duty, 'L');
+    motor_speed_ramp_up(duty, 'L', "REV");
 
   }
   if(duration_ms > 0){
-    HAL_Delay(duration_ms);
+    vTaskDelay(duration_ms / portTICK_PERIOD_MS);
     if(motor_id == 'R'){
       motor_stop_right();
     }
@@ -229,8 +221,8 @@ uint32_t motor_set_speed(uint8_t speed_percent, char motor_id){
   return 0;
 }
 
-void motor_speed_ramp_up(uint32_t objective, char motor_id){
-  uint32_t duty_step = objective / 5;
+void motor_speed_ramp_up(uint32_t objective, char motor_id, char *direction){
+  uint32_t duty_step = objective / 10;
   if (duty_step == 0) {
     duty_step = 1;
   }
@@ -238,13 +230,23 @@ void motor_speed_ramp_up(uint32_t objective, char motor_id){
   for (uint32_t duty = 0; duty <= objective; duty += duty_step)
   {
     if (motor_id == 'R') {
-      __HAL_TIM_SET_COMPARE(robot.right_motor->timer, robot.right_motor->channel_fwd, duty);
+      if(strcmp(direction, "FWD") == 0){
+        __HAL_TIM_SET_COMPARE(robot.right_motor->timer, robot.right_motor->channel_fwd, duty);
+      }
+      else{
+        __HAL_TIM_SET_COMPARE(robot.right_motor->timer, robot.right_motor->channel_rev, duty);
+      }
     }
     else if (motor_id == 'L') {
-      __HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel_fwd, duty);
+      if(strcmp(direction, "FWD") == 0){
+        __HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel_fwd, duty);
+      }
+      else{
+        __HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel_rev, duty);
+      }
     }
 
-    HAL_Delay(100);
+    vTaskDelay(10 / portTICK_PERIOD_MS);
   }
 }
 

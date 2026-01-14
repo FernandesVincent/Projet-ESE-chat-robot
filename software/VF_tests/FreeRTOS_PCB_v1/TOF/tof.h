@@ -10,13 +10,19 @@
 #include "i2c.h"
 #include "vl53l0x_platform.h"
 #include <stdbool.h>
+#include "main.h"
+#include "stm32g4xx_hal.h"
+#include "vl53l0x_api.h"
+#include "vl53l0x_def.h"
+#include "vl53l0x_platform.h"
+#include "motors.h"
 
 
 #define TOF_DEFAULT_DEV_ADDR 0x29<<1
 #define TOF_I2C hi2c3
 #define NUMBER_OF_TOFS 6
 #define TIMING_BUDGET_US 200000
-
+#define THRESHOLD 700 // in mm
 typedef struct{
   GPIO_TypeDef* Port;
   uint16_t Pin;

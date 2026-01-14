@@ -9,6 +9,8 @@
 #include "stm32g4xx_hal.h"
 #include "main.h"
 #include <stdio.h>
+#include <string.h>
+#include "cmsis_os.h"
 
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim3;
@@ -77,9 +79,10 @@ void motor_backward(uint8_t speed_percent, char motor_id, int duration_ms);
 void motors_stop_all();
 void motor_stop_right();
 void motor_stop_left();
+void motor_turn(uint8_t speed_right, uint8_t speed_left, char direction, int duration_ms);
 
 void test_motor_right(void);
 void test_motor_left(void);
-void motor_speed_ramp_up(uint32_t objective, char motor_id);
+void motor_speed_ramp_up(uint32_t objective, char motor_id, char *direction);
 uint32_t motor_set_speed(uint8_t speed_percent, char motor_id);
 #endif // MOTORS_H //
