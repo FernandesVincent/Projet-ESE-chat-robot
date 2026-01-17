@@ -129,14 +129,11 @@ int VL53L0X_CompareThreshold(int index, int distance_mm, int threshold_mm){
     return (distance_mm > threshold_mm) ? 1 : 0;
 }
 
-extern bool motors_enabled;
-
 bool VL53L0X_IsAboveThreshold(int index){
     int distance = VL53L0X_ReadDistance(index);
     int result = VL53L0X_CompareThreshold(index, distance, THRESHOLD);
     if(result == 1){
         printf("TOF %d Above Threshold !\r\n", index);
-        motors_enabled = false;
         return true;
     } else {
         printf("TOF %d Below Threshold !\r\n", index);

@@ -22,7 +22,7 @@
 #define TOF_I2C hi2c3
 #define NUMBER_OF_TOFS 6
 #define TIMING_BUDGET_US 200000
-#define THRESHOLD 700 // in mm
+#define THRESHOLD 400 // in mm
 typedef struct{
   GPIO_TypeDef* Port;
   uint16_t Pin;
@@ -51,4 +51,5 @@ void VL53L0X_Init(TOF *t);
 void VL53L0X_Param(TOF *t, uint32_t timing_budget_us, VL53L0X_DeviceModes mode);
 void VL53L0X_StartMeasure(int index);
 bool VL53L0X_IsAboveThreshold(int index);
+
 #endif /* __TOF_H__ */

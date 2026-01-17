@@ -66,10 +66,10 @@ void Error_Handler(void);
 #define Encodeur1_PhaseA_GPIO_Port GPIOC
 #define ADC_bat_Pin GPIO_PIN_1
 #define ADC_bat_GPIO_Port GPIOA
-#define UART_PI_TX_Pin GPIO_PIN_2
-#define UART_PI_TX_GPIO_Port GPIOA
-#define UART_PI_RX_Pin GPIO_PIN_3
-#define UART_PI_RX_GPIO_Port GPIOA
+#define UART_LIDAR_Pin GPIO_PIN_2
+#define UART_LIDAR_GPIO_Port GPIOA
+#define M_CTRL_Pin GPIO_PIN_3
+#define M_CTRL_GPIO_Port GPIOA
 #define INT1_Pin GPIO_PIN_4
 #define INT1_GPIO_Port GPIOA
 #define INT1_EXTI_IRQn EXTI4_IRQn

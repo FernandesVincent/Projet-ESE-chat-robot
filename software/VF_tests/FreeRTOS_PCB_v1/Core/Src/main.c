@@ -20,6 +20,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "adc.h"
+#include "dma.h"
 #include "i2c.h"
 #include "tim.h"
 #include "usart.h"
@@ -32,6 +33,8 @@
 #include "vl53l0x_device.h"
 #include <stdio.h>
 #include "motors.h"
+#include "lidar.h"
+#include "brillez.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,6 +56,7 @@
 
 /* USER CODE BEGIN PV */
 
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -71,41 +75,51 @@ int __io_putchar(int ch) {
 
 static TaskHandle_t MotorTaskHandle;
 static TaskHandle_t TOFTaskHandle;
-
-bool motors_enabled = true;
+SemaphoreHandle_t semMotorEnable;
 
 void task_motors(void * unused){
   while(1){
-    if(motors_enabled ==true){
-      motor_forward(80, 'R', 0);
-      motor_forward(65, 'L', 0);
-    }
-    else{
-      motor_backward(80, 'R', 0);
-      motor_backward(65, 'L', 0);
-      vTaskDelay(pdMS_TO_TICKS(3000));
-      motors_stop_all();
-      motor_turn(30, 65, 'F', 0);
-      vTaskDelay(pdMS_TO_TICKS(2000));
-    }
+    xSemaphoreTake(semMotorEnable, portMAX_DELAY);
+    motor_forward(60, 'R', 0);
+    motor_forward(50, 'L', 0);    
     vTaskDelay(pdMS_TO_TICKS(50)); 
   }
 }
-bool turn[6] = {false, false, false, false, false, false};
 
-void test_tofs(void * unused){
-  while(1){
-  for(uint8_t i = 0; i < 6; i++){
-    turn[i] = VL53L0X_IsAboveThreshold(i);
-    vTaskDelay(pdMS_TO_TICKS(1000));
+void task_tofs(void *unused){
+  while (1){
+    bool obstacle = false;
+
+    for (uint8_t i = 0; i < 6; i++){
+      if (VL53L0X_IsAboveThreshold(i)){
+        obstacle = true;
+        break;
+      }
     }
-    bool allFalse = !(turn[0] || turn[1] || turn[2] || turn[3] || turn[4] || turn[5]);
-    if(allFalse){
-      motors_enabled = true;
+
+    if (obstacle){
+      xSemaphoreTake(semMotorEnable, 0);
+
+      motors_stop_all();
+
+      motor_backward(60, 'R', 0);
+      motor_backward(50, 'L', 0);
+      vTaskDelay(pdMS_TO_TICKS(1200));
+
+      motors_stop_all();
+
+      motor_turn(40, 60, 'F', 0);
+      vTaskDelay(pdMS_TO_TICKS(500));
     }
-  vTaskDelay(pdMS_TO_TICKS(100));
+    else{
+      xSemaphoreGive(semMotorEnable);
+    }
+
+    vTaskDelay(pdMS_TO_TICKS(50));
   }
 }
+
+
 /* USER CODE END 0 */
 
 /**
@@ -137,6 +151,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC1_Init();
   MX_I2C3_Init();
   MX_TIM1_Init();
@@ -147,18 +162,32 @@ int main(void)
   MX_UART4_Init();
   MX_UART5_Init();
   MX_USART2_UART_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
+
+  printf("TEST 12\r\n");
+  HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_4); 
+  __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_4, 0); 
+
+
 	printf("TEST TOFs\r\n");
 	VL53L0X_InitAllSensor();
-  printf("TEST MOTORS left 47\r\n");
+  printf("TEST MOTORS left 53\r\n");
   motors_init();
+  printf("TEST LEDS\r\n");
+  printf("LEDS INITIALIZED\r\n");
   printf("MOTORS INITIALIZED\r\n");
+  printf("WAITING 5 SEC\r\n");
+  HAL_Delay(500); 
+  printf("STARTING TESTS\r\n");
   
-  // test_motor_left();
-  // printf("LEFT MOTOR TESTED\r\n");
-  // HAL_Delay(2000);
-  // test_motor_right();
-  // printf("RIGHT MOTOR TESTED\r\n");
+
+    semMotorEnable = xSemaphoreCreateBinary();
+    if (semMotorEnable == NULL) {
+      while(1);
+    }
+    xSemaphoreGive(semMotorEnable);
+
 
   if (xTaskCreate(task_motors, "MOTORS", 256, NULL, 3, &MotorTaskHandle) != pdPASS){
 		printf("Error creating task b1");
@@ -168,7 +197,7 @@ int main(void)
     printf("Motor task created\r\n");
   }
 
-  if(xTaskCreate(test_tofs, "TOFS", 512, NULL, 2, &TOFTaskHandle) != pdPASS){
+  if(xTaskCreate(task_tofs, "TOFS", 512, NULL, 2, &TOFTaskHandle) != pdPASS){
     printf("Error creating task test tofs");
     Error_Handler();
   }
@@ -194,6 +223,7 @@ int main(void)
 	while (1) 
 	{
 
+
     // motor_forward(40, 'R');
     // HAL_Delay(5000);
     // motor_stop_right();
@@ -215,13 +245,6 @@ int main(void)
 // #################################### TOF
 
 // #################################### MOTORS
-
-    
-
-
-
-
-
 
     // motor_forward(60, 'R');
     // // motor_forward(20, 'L');

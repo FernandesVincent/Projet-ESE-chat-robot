@@ -53,6 +53,9 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x/vl53l0x_platform.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Motors/motors.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Motors/motors_pcb_v1.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/LED/brillez.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/LED/ws2812b.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/LiDAR/lidar.c
     # Add user sources here
 )
 
@@ -61,6 +64,8 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/TOF
     ${CMAKE_CURRENT_SOURCE_DIR}/vl53l0x
     ${CMAKE_CURRENT_SOURCE_DIR}/Motors
+    ${CMAKE_CURRENT_SOURCE_DIR}/LED
+    ${CMAKE_CURRENT_SOURCE_DIR}/LiDAR
     # Add user defined include paths
 )
 
