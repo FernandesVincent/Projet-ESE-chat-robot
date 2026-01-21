@@ -1,4 +1,0 @@
-(sym_lib_table
-  (version 7)
-  (lib (name "Regulateur")(type "KiCad")(uri "${KIPRJMOD}/Regulateur.kicad_sym")(options "")(descr ""))
-)
