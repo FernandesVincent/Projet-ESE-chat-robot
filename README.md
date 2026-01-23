@@ -43,28 +43,28 @@ Pour la conception de PCB nous sommes passés par le logiciel KiCAD et nous en a
 
 # PCB v1
 
-Ce PCB est le premier qui a été designé pour le projet de robot chat. Il inclut notamment les composants de base au fonctionnement du robot tel que les drivers de moteurs, l'accéléromètre et les connecteurs pour les TOFs ainsi que celui pour le LiDAR. En effet, pour ce projet nous avons choisis d'utiliser une solution à base de 6 TOFs afin de détecter le vide autour de la table sur laquelle se déplace le robot. Le choix de 6 TOFs a été réfléchis afin d'avoir suffisament de TOFs pour pouvoir repérer le vide peut importe l'orientation du robot au moment de l'approcher, sans non plus utiliser une quantité non raisonnable de capteurs.
+Ce PCB est le premier qui a été designé pour le projet de robot chat. Il inclut notamment les composants de base au fonctionnement du robot tel que les drivers de moteurs, l'accéléromètre et les connecteurs pour les TOFs ainsi que celui pour le LiDAR. En effet, pour ce projet nous avons choisis d'utiliser une solution à base de 6 TOFs afin de détecter le vide autour de la table sur laquelle se déplace le robot. Le choix de 6 TOFs a été réfléchis afin d'avoir suffisament de TOFs pour pouvoir repérer le vide peut importe l'orientation du robot au moment d'approcher le bord de table, sans non plus utiliser une quantité non raisonnable de capteurs.
 
 De plus, ce PCB inclut trois nouveaux éléments que l'on a décidé d'ajouter à notre robot. Le premier est un connecteur vers un module MP3 dans le but de jouer un son, défini en amont, à certains moments clés de la présentation. On peut prendre comme exemple le moment où du vide est repéré par un TOF ou bien au moment d'une collision avec un autre robot. 
 
-Le deuxième élément est un bandeau de LED Neopixels commandé par une PWM avec DMA. Le but ici est de venir, tout comme le module MP3, indiqué la réalisation de certaines actions du robot. Par exemple, l'idée principale ici était d'illuminer une des 96 LEDs du bandeau dès lors que le LiDAR détecte une cible. Certaines LED pourraient s'allumer en rouge en direction de cibles non valides alors qu'une LED unique serait allumer en direction de l'objet valide : l'autre robot.
+Le deuxième élément est un bandeau de LED Neopixels commandé par une PWM avec DMA. Le but ici est de venir, tout comme le module MP3, indiquer la réalisation de certaines actions du robot. Par exemple, l'idée principale était d'illuminer une des 96 LEDs du bandeau dès lors que le LiDAR détecte une cible. Certaines LED pourraient s'allumer en rouge en direction de cibles non valides alors qu'une LED unique serait allumée en direction de l'objet valide : l'autre robot.
 
-Finalement, le troisième élément est une Raspberry Pi zéro 2W. Nous avons choisis de l'incorporer pour, d'une part, remplacer la connexion bluetooth demandée mais également d'une autre part pour y développer une interface graphique intéractive pour récupérer les données captées par le robot en temps réel mais également pour lui envoyer des instructions également en temps réel via une lisaion UART cadencée à 1Mo de baud rate.
+Finalement, le troisième élément est une Raspberry Pi zéro 2W. Nous avons choisis de l'incorporer pour, d'une part, remplacer la connexion bluetooth demandée mais également d'une autre part pour y développer une interface graphique intéractive. Cette dernière permettra de récupérer les données captées par le robot en temps réel mais également de lui envoyer des instructions, également en temps réel, via une lisaion UART cadencée à 1Mo de baud rate.
 
 L'ajout de ces composants nous a obligé à changer le microcontroleur fournis de base pour un STM32G474RET6 possédant, au contraire de l'initial, le nombre suffisant d'HUART accessibles simultanément pour nos besoins.
 
-Cependant, plusieurs problèmes datant de la conception sous KiCAD sont apparus une fois le PCB soudé et testé car nous avons pas correctement designé avec de nombreuses erreurs. Parmi celles-ci, les plus notables et plus importante sont les suivantes : 
+Cependant, plusieurs problèmes datant de la conception sous KiCAD sont apparus une fois le PCB soudé et testé. Parmi celles-ci, les plus notables et plus importante sont les suivantes : 
 
 - Oubli de connection de la pin ADDR de l'accéléromètre à GND (ou VCC en fonctiond de l'adresse voulue).
 - Inversion des connexions SDA/SCL pour l'I2C de l'accéléromètre.
 - Mauvaise connexion du pin Tx du LiDAR à un GPIO simple.
 - Mauvaises connexions des pins GPIO des TOFs empêchant leur utilisation en interruption.
 
-Même si à la fin nous avons pu corriger ces erreurs de différentes façons ils nou semblait essentiel de les faire apparaître dans ce compte rendu.
+Même si, à la fin nous avons pu corriger ces erreurs de différentes façons il nous semblait essentiel de les faire apparaître dans ce compte rendu.
 
 # PCB v1.5
 
-Cette version du PCB a été créée suite à la découverte des erreurs présentes sur la v1. Cette version a été designée dans l'idée d'avoir un pcb purement fonctionnel corrigeant les erreurs du PCB précédent tout en enlevant les éléments non nécessaires ajoutés dans la v1. Nous avons tout de même garder le même microcontrôleur bien qu'il soit overkill en terme de nombre de pins mais cela nous a fait gagné en temps de conception qui a pu être faite en moins d'une journée.
+Cette version du PCB a été créée suite à la découverte des erreurs présentes sur la v1. Cette version a été designée dans l'idée d'avoir un pcb purement fonctionnel corrigeant les erreurs du PCB précédent tout en enlevant les éléments non nécessaires ajoutés dans la v1. Nous avons tout de même gardé le même microcontrôleur bien que le nombre de pins soit bien plus important que nécessaire. Cela nous a cependant fait gagné du temps de conception et le pcb a donc pu être réalisé en moins d'une journée.
 
 # PCB v2
 
@@ -72,7 +72,33 @@ Cette
 
 # PCB audio
 
-Ce PCB très simple utilise uniquement un amplificateur audio afin d'amplifier le signal en sortie du module MP3 qui utilise un câble mini-jack fonctionnant parfaitement pour une utilisation en connexion mini-jack directe comme avec un casque audio. Cependant cette sortie ne fournit pas assez de puissance pour y connecter un haut parleur directement et que le son produit soit audible. Il faut donc entre l'haut-parleur et le module MP3 ajouté un amplificateur audio. 
+Ce PCB très simple utilise uniquement un amplificateur audio afin d'amplifier le signal en sortie du module MP3. Ce dernier utilise un câble mini-jack fonctionnant parfaitement pour une utilisation en connexion mini-jack directe comme avec un casque audio. Cependant cette sortie de module ne fournit pas assez de puissance pour qu'un haut parleur directement connecté produise un son audible. Il faut donc entre le haut-parleur et le module MP3 ajouter un amplificateur audio. 
 
-Cet amplificateur audio a été choisis tout d'abord pour ses spécificités techniques de 1W/8ohm correspondant excatement à celles de notre haut-parleur. De plus, quand la liste des choix possibles a été suffisament réduite nous avons pris le parti de choisir celui de la marque Texas Instrument car leur documentation est très lisible et compréhensible comparer à celle de leur concurrent, ce qui nous permet de réduire le temps passer tant sur la partie hardware que sur la partie software de cet amplificateur audio. De plus, un autre avantage de cet amplificateur est le fait que la communication I2C qu'il inclut permet de modifier le volume en sortie sur 28 niveaux différents.
+Cet amplificateur audio a été choisi, tout d'abord pour ses spécificités techniques de 1W/8ohm correspondant excatement à celles de notre haut-parleur. De plus, quand la liste des choix possibles a été suffisament réduite nous avons pris le parti de choisir celui de la marque Texas Instrument car leur documentation est très lisible et compréhensible comparé à celle de leur concurrent. Cela nous permet, par exemple, de réduire le temps passé, tant sur la partie hardware, que sur la partie software de ce pcb. De plus, La communication I2C de l'amplificateur permet de modifier le volume en sortie sur 28 niveaux différents, ce qui est encore un autre avantage de ce dernier.
 
+# Software 
+
+# Lidar
+
+# Moteurs
+
+Les moteurs sont un élement essentiel du projet puisqu'il faut que le robot puisse se déplacer sur la table. Nous avons à notre disposition des moteurs FIT0520 qui seront chacuns pilotés par un driver. Nous avons fait le choix de faire une structure par moteur, cette dernière contenant le timer qui correspond à la PWM qui sera appliquée, la direction (Forward ou Reverse), la vitesse ainsi que le channel pour le timer. Un deuxième type de structure a ensuite été créé, celle du PID qui contient les valeurs des coefficients du correcteur afin de bien asservir le moteur. Il faut cependant noter que nous n'avons pas eu le temps de bien mettre en place le correcteur, les valeures ne sont donc pas les bonnes. Nous avons ensuite eu l'idée d'une autre structure appelée Robot qui comprend les deux moteurs et les PID, nous ne nous en sommes au final pas servis car nous controlions chaque moteur séparément.
+
+Dans le .c, on commence par initialiser chaque moteur, en fournissant le timer ainsi qu'un channel pour "Forward" et un autre pour "Reverse", une vitesse nulle et la direction Forward. (On retrouve aussi les initialisations des autres structures).
+Il a ensuite fallu réaliser les différentes fonctions des moteurs, start, stop, ainsi que les changements de direction et les changements de vitesse.
+
+En exemple, pour la fonction moteur_forward, le code commence par vérifier quel moteur appelle la fonction, ensuite la PWM correspondante au bon moteur Forward est démarrée. La direction Reverse est éteinte, et ce même si le moteur était arrété précédement.
+
+# TOF
+
+# Accéléromètre
+
+L'accéléromètre est l'élément du robot qui va nous permettre de mettre à jour le rôle du robot, souris ou chat. C'est un module où l'on va directement écrire et lire dans les registres, accessibles grâce à leur adresse.
+
+Il a donc fallu commencer par énumérer tous les registres qui nous intéressaient 
+
+# LEDs
+
+# Audio
+
+# Raspi
