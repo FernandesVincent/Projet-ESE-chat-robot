@@ -52,9 +52,9 @@ Une liste de cibles potentielles est alors extraite, parmi laquelle seule la cib
 
 <img src="https://www.plantuml.com/plantuml/svg/VLFDRjD04BxxAKQz9BaH43s0a5eIjKIgrGW7r0EIjNZ7pY9xrvgTZK2exyArpv4NOxnreWq1ZfxvVhxP6LzvLiIXQpCst2Aih66ZMkCL6sT1JuA5IlMCWM3ZRc3AhYwDW6PPzkQwOhD3WXQFcEb3yU7J1jx1VFPM49_lNh-wU_5GBXMhGNfwKYrONAfZlI4NUbY8-rSQxSDH-8iTd2lLIlUv-JDHMYFLZhgFM1Uzqhcogi4EhUXcvv348UaNoFTrxP6JzX0xDnMv71bf2FbuY7bH_F2C7GY1ZMtyHSopSBOsJI0aODD97JhqyfcwvAYa5EDj8kPzq0roz2cmSbPxSJeLwvp6KGe48OuXbLpYpbIO2-YCURjUtOEnZ4IX7sPAURUzSS_Oo7iSg5jb6-4fJUWzmkhbujpfMiUkl5wEp8Im_mNVN211Lu8OsZ0ziAHGSeort3zrYYXUZ1_7yLbo3PG-JdeJuppZLI2qatGa40fu3AOTpyGZbqT0oLknsRfMJsT_B6aawSc_7cXrg6yE6iFGEzLYe267DfwLhU83o5vsI6m8qCAD-RvseZg_d5-MVBgJlwNN-wTUUHy77uHZiF-lAhj2guS_zpS0" width="300">
 
-- Les capteurs TOF VL53L0X fonctionne avec une communication I2C donc les registres ne sont pas ouvertement indiquer dans la datasheet qui nous recommande d'utiliser le driver fourni par le constructeur.
-- Comme nous prévoyons 6 capteurs sur un même bus I2C et que l'addresse par défaut des TOF est la même, nous utilisons le pin XSHUT du capteur pour activer puis configurer sans oublier de changer l'addresse device des TOF un à un, pour pouvoir ensuite manipuler les 6 TOFs correctement.
-- Les étapes de configuation suivent les étapes indiquer dans le [manuel de référence](https://www.st.com/resource/en/user_manual/um2039-world-smallest-timeofflight-ranging-and-gesture-detection-sensor-application-programming-interface-stmicroelectronics.pdf)
+- Les capteurs TOF VL53L0X fonctionne avec une communication I2C dont les registres ne sont pas ouvertement indiqué dans la datasheet qui nous recommande d'utiliser le driver fourni par le constructeur.
+- Comme nous prévoyons 6 capteurs sur un même bus I2C et que l'addresse device par défaut des TOFs est toujours la même, nous utilisons le pin XSHUT du capteur pour activer puis configurer sans oublier de changer l'addresse device des TOF un à un, pour ensuite pouvoir manipuler les 6 TOFs correctement.
+- Les étapes de configuation suivent les étapes indiqués dans le [manuel de référence](https://www.st.com/resource/en/user_manual/um2039-world-smallest-timeofflight-ranging-and-gesture-detection-sensor-application-programming-interface-stmicroelectronics.pdf)
 
 #### Traitement des interruptions
 
