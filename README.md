@@ -1,58 +1,60 @@
 # Projet ESE – Chat Robot  
-**Point à mi-parcours – 13 novembre 2025**
 
-Je propose ici de faire un point sur l’ensemble du projet tel qu’il a été défini à la date d’aujourd’hui.
+Le projet de Chat Robot développé dans le cadre de la spécialité ESE dirigée par M.Fiack et supervisée par lui et M. Papazogou s'est achevée le vendredi 16 Janvier 2026. 
 
----
+Nous allons donc revenir ici sur les différents aspects notables du projet, notamment ceux où notre projet s'est détaché des consignes initiales.
 
-## Partie hardware
+Nous allons donc passer en revue les différentes parties du projet en commençant par une partie sur l'organisation du projet et des tâches attribuées aux différents membres de l'équipe puis nous aborderons la partie Hardware séparée en deux sous parties pour Onshape et Kicad suivie de la partie Software avec les différents composants importants du projet. 
 
-Commençons par la partie hardware du projet, en détaillant l’ensemble des périphériques présents sur le PCB :
+Par soucis de lisibilité de l'ensemble du document nous n'allons pas détaillé en profondeur toutes les parties et sous parties liées à la mise en place de chaque composant sur le pcb ou à sa programmation. À la place, nous expliquerons brièvement l'ensemble des logiques hardware et software pour ensuite analyser en profondeurs seulement certains aspects de ces parties.
 
-### TOFs  
-Le robot est équipé de six capteurs TOF, disposés en cercle et orientés en biais (environ 45° selon la conception actuelle). Cette disposition permet d’obtenir une “vision” plus étendue (environ une dizaine de centimètres) de l’environnement autour du robot, plutôt que de se limiter à une détection verticale à la base.
+## Organisation du Projet
 
-### Module MP3  
-Le connecteur est relié à un module MP3 communiquant en UART. Ce module permet d’insérer une carte microSD contenant des fichiers audio. Via l’UART, il est possible de sélectionner le fichier à lire et de régler le volume de sortie.  
-La sortie audio (mini-jack) est connectée à un PCB annexe — actuellement en commande — qui amplifie le signal avant de l’envoyer à un haut-parleur.  
-Ce système sera utilisé lors de moments clés de la démonstration, notamment lorsque le robot changera de rôle après une collision, afin d’indiquer s’il est “devenu” un chat ou une souris.
+Le projet a été porté par une équipe de quatres étudiants de 3ème année à l'ENSEA faisant partit de la spécialité ESE, cette équipe est composée de : 
 
-### LEDs  
-Nous utilisons un ruban de LEDs Neopixel qui viendra en soutien au LiDAR pour indiquer la direction dans laquelle le robot adverse a été détecté.  
-Elles serviront également, à l’instar du haut-parleur, à signaler les changements de rôle du robot.
+- Vincent FERNANDES
+- Paul CAILLAUD
+- Kelly LUO
+- Yimei Xia
 
-### Raspberry Pi Zero 2W  
-Un Raspberry Pi Zero 2W est ajouté au PCB afin d’héberger une interface graphique utilisateur (GUI) accessible en ligne.  
-Cette interface permettra d’obtenir une “vision” du robot grâce à une caméra embarquée, ainsi que de visualiser diverses constantes et mesures telles que la vitesse, l’accélération ou encore le niveau de batterie du robot.
+Après diverses discussions au cours du semestre, voici comment ont été attribués les rôles concernant le projet : 
 
----
+- Vincent : PCB, modélisation 3D, Soudure CMS & THT TOFs, mise en commun du code sous FreeRTOS
+- Paul : Modélisation 3D, cablâge, Soudure CMS & THT, Accéléromètre, Moteurs
+- Kelly : Lidar
+- Yimei : Accéléromètre
 
-## Partie software
+Par ailleurs un README relatant l'avancée à mi-parcours (13 Novembre) est disponible dans le dossier Gestion.
 
-Concernant la partie **logicielle**, voici l’état d’avancement et l’organisation du travail à ce jour :
+# Hardware
 
-### Drivers développés
-À l’heure actuelle, plusieurs drivers ont déjà été créés pour les périphériques mentionnés ci-dessus :
+## Modélisation 3D
 
-- **LEDs** : fonctionnel  
-- **MP3** : fonctionnel  
-- **TOFs** : améliorable  
-- **Moteurs** : en cours de développement  
-- **LiDAR** : en cours de développement  
+Pour notre projet, nous avons décidés d'utiliser un pack de batteries Li-ion 2S au lieu du pack de 5 batteries NIMH car cela nous apporte une stabilité accrue de maintient de la tension aux bornes de la batterie ainsi qu'une simplicité de la recharge. En effet, pour recharger les batteries que nous utilisions il nous fallait simplement les connecter à n'importe quelle alimentation stabilisée à 8.4V.
 
-La prochaine étape consistera à finaliser ces drivers, puis à travailler sur l’aspect noyau temps réel du projet à l’aide de FreeRTOS.  
-Ce dernier nous permettra de faire fonctionner simultanément l’ensemble des modules pour aboutir à un robot pleinement opérationnel.
+Cela étant, dû au fait d'avoir modifier les batteries nous avons du adapter notre modélisation 3D. Nous avons donc décider de l'inclure directement dans la base comme présenté ci-dessous afin d'augmenter la stabilité de l'ensemble du robot. Cependant, cela a eu pour effet d'augmenter le diamètre de la base de notre robot passant d'une quinzaine de centrimètre à une vingtaine. De plus, nous avons ajouté un cache sur le dessus de la base pour bloquer la batterie en cas de chute ou autre accident. Finalement nous avons également équipé la base d'un arceau afin d'accueillir un bandeau de LED Neopixel ws2812b. 
+Contrairement aux autres robots, nous n'avons fait qu'un unique étage, sur lequel sont placé les 6 TOFs et le LiDAR, afin d'avoir la place entre le cache de la batterie et le sol de cet étage de placer le PCB suspendu par des vis M3 et bloqué par les écrous correspondants.
 
-### Évolutions envisagées
-Dans la perspective d’un système complet, plusieurs idées ont émergé, notamment :  
-- la connexion d’une manette Bluetooth (type console) à la Raspberry Pi pour piloter le robot ;  
-- l’intégration de commandes vocales pour une interaction plus naturelle.
+De plus, nous avons également modifier les roues afin d'y inclure non pas un mais deux joints toriques par roue afin, encore une fois, de garantir une meilleur stabilité du robot au vu de sa taille. Or, cela complexifie légerment les virages que peut effectuer le robot là où les lignes droites sont cependant meilleures.
 
----
+## PCB
 
-## Partie mécanique
+Pour la conception de PCB nous sommes passés par le logiciel KiCAD et nous en avons crée 4 différents pour certaines raisons particulières que j'expliquerais au fur et à mesure avec l'explication générale de chaque PCB.
 
-Enfin, la modélisation 3D du robot est pratiquement terminée.  
-Quelques ajustements mineurs restent à effectuer, notamment au niveau de la base.  
-Le principal point de réflexion concerne les roues, qui ont été modifiées pour être élargies par l’ajout d’un second joint torique sur chacune d’elles.  
-Cependant, cette modification pourrait compliquer le contrôle du robot, car elle transforme le point de contact unique en aire de contact, ce qui pourrait affecter la maniabilité.
+# PCB v1
+
+Ce PCB est le premier qui a été designé pour le projet de robot chat. Il inclut notamment les composants de base au fonctionnement du robot tel que les drivers de moteurs, l'accéléromètre et les connecteurs pour les TOFs ainsi que celui pour le LiDAR. En effet, pour ce projet nous avons choisis d'utiliser une solution à base de 6 TOFs afin de détecter le vide autour de la table sur laquelle se déplace le robot. Le choix de 6 TOFs a été réfléchis afin d'avoir suffisament de TOFs pour pouvoir repérer le vide peut importe l'orientation du robot au moment de l'approcher, sans non plus utiliser une quantité non raisonnable de capteurs.
+
+De plus, ce PCB inclut trois nouveaux éléments que l'on a décidé d'ajouter à notre robot. Le premier est un connecteur vers un module MP3 dans le but de jouer un son, défini en amont, à certains moments clés de la présentation. On peut prendre comme exemple le moment où du vide est repéré par un TOF ou bien au moment d'une collision avec un autre robot. 
+
+Le deuxième élément est un bandeau de LED Neopixels commandé par une PWM avec DMA. Le but ici est de venir, tout comme le module MP3, indiqué la réalisation de certaines actions du robot. Par exemple, l'idée principale ici était d'illuminer une des 96 LEDs du bandeau dès lors que le LiDAR détecte une cible. Certaines LED pourraient s'allumer en rouge en direction de cibles non valides alors qu'une LED unique serait allumer en direction de l'objet valide : l'autre robot.
+
+Finalement, le troisième élément est une Raspberry Pi zéro 2W. Nous avons choisis de l'incorporer pour, d'une part, remplacer la connexion bluetooth demandée mais également d'une autre part pour y développer une interface graphique intéractive pour récupérer les données captées par le robot en temps réel mais également pour lui envoyer des instructions également en temps réel via une lisaion UART cadencée à 1Mo de baud rate.
+
+Cependant, plusieurs problèmes datant de la conception sous KiCAD sont apparus une fois le PCB soudé et testé car nous avons
+
+# PCB v1.5
+
+# PCB v2
+
+# PCB audio
