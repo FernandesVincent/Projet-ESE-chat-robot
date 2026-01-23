@@ -51,10 +51,28 @@ Le deuxième élément est un bandeau de LED Neopixels commandé par une PWM ave
 
 Finalement, le troisième élément est une Raspberry Pi zéro 2W. Nous avons choisis de l'incorporer pour, d'une part, remplacer la connexion bluetooth demandée mais également d'une autre part pour y développer une interface graphique intéractive pour récupérer les données captées par le robot en temps réel mais également pour lui envoyer des instructions également en temps réel via une lisaion UART cadencée à 1Mo de baud rate.
 
-Cependant, plusieurs problèmes datant de la conception sous KiCAD sont apparus une fois le PCB soudé et testé car nous avons
+L'ajout de ces composants nous a obligé à changer le microcontroleur fournis de base pour un STM32G474RET6 possédant, au contraire de l'initial, le nombre suffisant d'HUART accessibles simultanément pour nos besoins.
+
+Cependant, plusieurs problèmes datant de la conception sous KiCAD sont apparus une fois le PCB soudé et testé car nous avons pas correctement designé avec de nombreuses erreurs. Parmi celles-ci, les plus notables et plus importante sont les suivantes : 
+
+- Oubli de connection de la pin ADDR de l'accéléromètre à GND (ou VCC en fonctiond de l'adresse voulue).
+- Inversion des connexions SDA/SCL pour l'I2C de l'accéléromètre.
+- Mauvaise connexion du pin Tx du LiDAR à un GPIO simple.
+- Mauvaises connexions des pins GPIO des TOFs empêchant leur utilisation en interruption.
+
+Même si à la fin nous avons pu corriger ces erreurs de différentes façons ils nou semblait essentiel de les faire apparaître dans ce compte rendu.
 
 # PCB v1.5
 
+Cette version du PCB a été créée suite à la découverte des erreurs présentes sur la v1. Cette version a été designée dans l'idée d'avoir un pcb purement fonctionnel corrigeant les erreurs du PCB précédent tout en enlevant les éléments non nécessaires ajoutés dans la v1. Nous avons tout de même garder le même microcontrôleur bien qu'il soit overkill en terme de nombre de pins mais cela nous a fait gagné en temps de conception qui a pu être faite en moins d'une journée.
+
 # PCB v2
 
+Cette
+
 # PCB audio
+
+Ce PCB très simple utilise uniquement un amplificateur audio afin d'amplifier le signal en sortie du module MP3 qui utilise un câble mini-jack fonctionnant parfaitement pour une utilisation en connexion mini-jack directe comme avec un casque audio. Cependant cette sortie ne fournit pas assez de puissance pour y connecter un haut parleur directement et que le son produit soit audible. Il faut donc entre l'haut-parleur et le module MP3 ajouté un amplificateur audio. 
+
+Cet amplificateur audio a été choisis tout d'abord pour ses spécificités techniques de 1W/8ohm correspondant excatement à celles de notre haut-parleur. De plus, quand la liste des choix possibles a été suffisament réduite nous avons pris le parti de choisir celui de la marque Texas Instrument car leur documentation est très lisible et compréhensible comparer à celle de leur concurrent, ce qui nous permet de réduire le temps passer tant sur la partie hardware que sur la partie software de cet amplificateur audio. De plus, un autre avantage de cet amplificateur est le fait que la communication I2C qu'il inclut permet de modifier le volume en sortie sur 28 niveaux différents.
+
