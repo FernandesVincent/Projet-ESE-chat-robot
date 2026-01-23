@@ -41,7 +41,7 @@ De plus, nous avons également modifier les roues afin d'y inclure non pas un ma
 
 Pour la conception de PCB nous sommes passés par le logiciel KiCAD et nous en avons crée 4 différents pour certaines raisons particulières que j'expliquerais au fur et à mesure avec l'explication générale de chaque PCB.
 
-# PCB v1
+### PCB v1
 
 Ce PCB est le premier qui a été designé pour le projet de robot chat. Il inclut notamment les composants de base au fonctionnement du robot tel que les drivers de moteurs, l'accéléromètre et les connecteurs pour les TOFs ainsi que celui pour le LiDAR. En effet, pour ce projet nous avons choisis d'utiliser une solution à base de 6 TOFs afin de détecter le vide autour de la table sur laquelle se déplace le robot. Le choix de 6 TOFs a été réfléchis afin d'avoir suffisament de TOFs pour pouvoir repérer le vide peut importe l'orientation du robot au moment d'approcher le bord de table, sans non plus utiliser une quantité non raisonnable de capteurs.
 
@@ -62,15 +62,15 @@ Cependant, plusieurs problèmes datant de la conception sous KiCAD sont apparus 
 
 Même si, à la fin nous avons pu corriger ces erreurs de différentes façons il nous semblait essentiel de les faire apparaître dans ce compte rendu.
 
-# PCB v1.5
+### PCB v1.5
 
 Cette version du PCB a été créée suite à la découverte des erreurs présentes sur la v1. Cette version a été designée dans l'idée d'avoir un pcb purement fonctionnel corrigeant les erreurs du PCB précédent tout en enlevant les éléments non nécessaires ajoutés dans la v1. Nous avons tout de même gardé le même microcontrôleur bien que le nombre de pins soit bien plus important que nécessaire. Cela nous a cependant fait gagné du temps de conception et le pcb a donc pu être réalisé en moins d'une journée.
 
-# PCB v2
+### PCB v2
 
 Cette
 
-# PCB audio
+#### PCB audio
 
 Ce PCB très simple utilise uniquement un amplificateur audio afin d'amplifier le signal en sortie du module MP3. Ce dernier utilise un câble mini-jack fonctionnant parfaitement pour une utilisation en connexion mini-jack directe comme avec un casque audio. Cependant cette sortie de module ne fournit pas assez de puissance pour qu'un haut parleur directement connecté produise un son audible. Il faut donc entre le haut-parleur et le module MP3 ajouter un amplificateur audio. 
 
@@ -78,9 +78,17 @@ Cet amplificateur audio a été choisi, tout d'abord pour ses spécificités tec
 
 # Software 
 
-# Lidar
+Des précisions supplémentaires sont disponibles [ici](/software/README.md).
 
-# Moteurs
+### Lidar
+
+La lidar est l'élément qui permet au robot de :
+- détecter la cible à suivre en mode chat
+- détecter la direction à fuire en mode souris
+La YDLIDAR X2 est interfacé en UART avec notre micro controleur et les données envoyés suit un protocole particulier.
+Pour atteindre notre objectif, il nous a d'abord fallut traiter les informations reçu. Les trames reçu comportais beaucoup de valeur nulle, qui ne correspondait pas à un distance nulle, mais plus à un signal envoyé et non reçu. Nous avons décider de stocker les distances de plusieurs trames, pour avoir une image de l'environnement plus complète. Ensuite, nous avons mis en place un algorithme de détection de cible. L'algorithme mis en place est assez précis, mais je pense qu'il est lourd en calcul. Peut être qu'un algorithme plus simple aurait été plus adapté pour notre utilisation.
+
+### Moteurs
 
 Les moteurs sont un élement essentiel du projet puisqu'il faut que le robot puisse se déplacer sur la table. Nous avons à notre disposition des moteurs FIT0520 qui seront chacuns pilotés par un driver. Nous avons fait le choix de faire une structure par moteur, cette dernière contenant le timer qui correspond à la PWM qui sera appliquée, la direction (Forward ou Reverse), la vitesse ainsi que le channel pour le timer. Un deuxième type de structure a ensuite été créé, celle du PID qui contient les valeurs des coefficients du correcteur afin de bien asservir le moteur. Il faut cependant noter que nous n'avons pas eu le temps de bien mettre en place le correcteur, les valeures ne sont donc pas les bonnes. Nous avons ensuite eu l'idée d'une autre structure appelée Robot qui comprend les deux moteurs et les PID, nous ne nous en sommes au final pas servis car nous controlions chaque moteur séparément.
 
@@ -89,16 +97,21 @@ Il a ensuite fallu réaliser les différentes fonctions des moteurs, start, stop
 
 En exemple, pour la fonction moteur_forward, le code commence par vérifier quel moteur appelle la fonction, ensuite la PWM correspondante au bon moteur Forward est démarrée. La direction Reverse est éteinte, et ce même si le moteur était arrété précédement.
 
-# TOF
+### TOF
 
-# Accéléromètre
+Les 6 capteurs TOFS VL53L0X permettant la détection de bord de table, sont interfacés en I2C avec le microcontroleur. 
+Nous avions au début utilisé des TOF VL53L1X, puis nous sommes parties sur des VL53L0X qui contrairement aux précédents, pouvaient pas envoyer d'interruption sur un dépassement de seuil d'une mesure. Ce qui permet d'éviter de tout le temps lire une valeur lorsque l'interruption data ready est là. Au lieu de ça, avec les VL53L0X, on peut les configurer pour que l'interruption soit envoyer seulement quand la mesure de distance dépasse un certain seuil, ce qui permet d'alléger le microcontroleur. 
+
+### Accéléromètre
 
 L'accéléromètre est l'élément du robot qui va nous permettre de mettre à jour le rôle du robot, souris ou chat. C'est un module où l'on va directement écrire et lire dans les registres, accessibles grâce à leur adresse.
 
 Il a donc fallu commencer par énumérer tous les registres qui nous intéressaient 
 
-# LEDs
+### LEDs
 
-# Audio
+Les LEDs permettent d'indiquer le rôle du robot chat ou souris.
 
-# Raspi
+### Audio
+
+### Raspi
