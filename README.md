@@ -70,7 +70,7 @@ Cette version du PCB a été créée suite à la découverte des erreurs présen
 
 Cette
 
-#### PCB audio
+### PCB audio
 
 Ce PCB très simple utilise uniquement un amplificateur audio afin d'amplifier le signal en sortie du module MP3. Ce dernier utilise un câble mini-jack fonctionnant parfaitement pour une utilisation en connexion mini-jack directe comme avec un casque audio. Cependant cette sortie de module ne fournit pas assez de puissance pour qu'un haut parleur directement connecté produise un son audible. Il faut donc entre le haut-parleur et le module MP3 ajouter un amplificateur audio. 
 
@@ -85,6 +85,7 @@ Des précisions supplémentaires sont disponibles [ici](/software/README.md).
 La lidar est l'élément qui permet au robot de :
 - détecter la cible à suivre en mode chat
 - détecter la direction à fuire en mode souris
+  
 La YDLIDAR X2 est interfacé en UART avec notre micro controleur et les données envoyés suit un protocole particulier.
 Pour atteindre notre objectif, il nous a d'abord fallut traiter les informations reçu. Les trames reçu comportais beaucoup de valeur nulle, qui ne correspondait pas à un distance nulle, mais plus à un signal envoyé et non reçu. Nous avons décider de stocker les distances de plusieurs trames, pour avoir une image de l'environnement plus complète. Ensuite, nous avons mis en place un algorithme de détection de cible. L'algorithme mis en place est assez précis, mais je pense qu'il est lourd en calcul. Peut être qu'un algorithme plus simple aurait été plus adapté pour notre utilisation.
 
