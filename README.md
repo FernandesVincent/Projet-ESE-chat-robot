@@ -307,7 +307,7 @@ L'ojectif des TOFs est uniquement de savoir si la distance perçue par le TOF es
 
 <figure style="display:flex; gap:16px;">
   <figure style="text-align:center">
-    <img src="Gestion/Photo-Video/code_tof_read_distance.png" style="width:33%;">
+    <img src="Gestion/Photo-Video/code_tof_read_distance.png" style="width:100%;">
     <figcaption>Fonction de lecture de la distance en mm</figcaption>
   </figure>
   <figure style="text-align:center">
