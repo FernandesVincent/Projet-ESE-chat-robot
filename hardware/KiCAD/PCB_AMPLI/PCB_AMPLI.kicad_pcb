@@ -7849,7 +7849,7 @@
 		(pts
 			(xy 182.5 117.5) (xy 136 117.5)
 		)
-		(height 11.7)
+		(height 7.94)
 		(orientation 0)
 		(format
 			(prefix "")
@@ -7869,7 +7869,7 @@
 			(keep_text_aligned yes)
 		)
 		(gr_text "46.5"
-			(at 159.25 128.05 0)
+			(at 159.25 124.29 0)
 			(layer "User.1")
 			(uuid "a87c665e-5b86-4c0a-920a-5a766c8b2bbc")
 			(effects
@@ -7887,7 +7887,7 @@
 		(pts
 			(xy 147.5 102.5) (xy 147.5 123.25)
 		)
-		(height -15)
+		(height -12.13)
 		(orientation 1)
 		(format
 			(prefix "")
@@ -7907,7 +7907,7 @@
 			(keep_text_aligned yes)
 		)
 		(gr_text "20.75"
-			(at 131.35 112.875 90)
+			(at 134.22 112.875 90)
 			(layer "User.1")
 			(uuid "edb94c56-2ab2-4e83-ac27-7963d9431277")
 			(effects

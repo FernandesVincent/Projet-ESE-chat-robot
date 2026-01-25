@@ -138,13 +138,11 @@ void motor_forward(uint8_t speed_percent, char motor_id, int duration_ms){
   if(motor_id == 'R'){
     motor_right_start_fwd();
     motor_right_stop_rev();
-    // __HAL_TIM_SET_COMPARE(robot.right_motor->timer, robot.right_motor->channel_fwd, duty);
     motor_speed_ramp_up(duty, 'R', "FWD");
   }
   else if(motor_id == 'L'){
     motor_left_start_fwd();
     motor_left_stop_rev();
-    // __HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel_fwd, duty);
     motor_speed_ramp_up(duty, 'L', "FWD");
   }
   if(duration_ms > 0){
@@ -164,13 +162,11 @@ void motor_backward(uint8_t speed_percent, char motor_id, int duration_ms){
   if(motor_id == 'R'){
     motor_right_start_rev();
     motor_right_stop_fwd();
-    // __HAL_TIM_SET_COMPARE(robot.right_motor->timer, robot.right_motor->channel_rev, duty);
     motor_speed_ramp_up(duty, 'R', "REV");
   }
   else if(motor_id == 'L'){
     motor_left_start_rev();
     motor_left_stop_fwd();
-    // __HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel_rev, duty);
     motor_speed_ramp_up(duty, 'L', "REV");
 
   }
@@ -203,21 +199,15 @@ void motor_turn(uint8_t speed_right, uint8_t speed_left, char direction, int dur
 /* ===================== SPEED ===================== */
 
 uint32_t motor_set_speed(uint8_t speed_percent, char motor_id){
-
   if(speed_percent > 100){
     speed_percent = 100;
   }
-  // else if(speed_percent < 40){
-  //   speed_percent = 40;
-  // }
-
   if(motor_id == 'R'){
     return (robot.right_motor->timer->Init.Period * speed_percent) / 100;
   }
   else if(motor_id == 'L'){
     return (robot.left_motor->timer->Init.Period * speed_percent) / 100;
   }
-
   return 0;
 }
 
@@ -226,7 +216,6 @@ void motor_speed_ramp_up(uint32_t objective, char motor_id, char *direction){
   if (duty_step == 0) {
     duty_step = 1;
   }
-
   for (uint32_t duty = 0; duty <= objective; duty += duty_step)
   {
     if (motor_id == 'R') {
@@ -245,178 +234,6 @@ void motor_speed_ramp_up(uint32_t objective, char motor_id, char *direction){
         __HAL_TIM_SET_COMPARE(robot.left_motor->timer, robot.left_motor->channel_rev, duty);
       }
     }
-
     vTaskDelay(10 / portTICK_PERIOD_MS);
   }
-}
-
-
-/*************************************************
- * BANC DE TEST – MOTEUR DROIT
- * Carte : STM32
- * Moteur : Right (R)
- *************************************************/
-
-void test_motor_right(void)
-{
-    /* Sécurité : moteur arrêté au départ */
-    motor_stop_right();
-    HAL_Delay(2000);
-
-    /*************** TEST 1 ****************
-     * Avant – vitesse lente
-     **************************************/
-    motor_forward(30, 'R', 10000);
-    motor_stop_right();
-    HAL_Delay(2000);
-    printf("TEST 1 MOTOR RIGHT DONE\r\n");
-
-    /*************** TEST 2 ****************
-     * Arrière – vitesse lente
-     **************************************/
-    motor_backward(30, 'R', 10000);
-    motor_stop_right();
-    HAL_Delay(2000);
-
-    printf("TEST 2 MOTOR RIGHT DONE\r\n");
-
-    /*************** TEST 3 ****************
-     * Avant – vitesse moyenne
-     **************************************/
-    motor_forward(50, 'R', 10000);
-    motor_stop_right();
-    HAL_Delay(2000);
-
-    printf("TEST 3 MOTOR RIGHT DONE\r\n");
-
-    /*************** TEST 4 ****************
-     * Arrière – vitesse moyenne
-     **************************************/
-    motor_backward(50, 'R', 10000);
-    motor_stop_right();
-    HAL_Delay(2000);
-    printf("TEST 4 MOTOR RIGHT DONE\r\n");
-
-    /*************** TEST 5 ****************
-     * Avant – vitesse élevée
-     **************************************/
-    motor_forward(80, 'R', 10000);
-    motor_stop_right();
-    HAL_Delay(2000);
-    printf("TEST 5 MOTOR RIGHT DONE\r\n");
-
-    /*************** TEST 6 ****************
-     * Arrière – vitesse élevée
-     **************************************/
-    motor_backward(80, 'R', 10000);
-    motor_stop_right();
-    HAL_Delay(2000);
-    printf("TEST 6 MOTOR RIGHT DONE\r\n");
-
-    /*************** TEST 7 ****************
-     * Variation progressive de vitesse (avant)
-     **************************************/
-    for (uint8_t speed = 20; speed <= 80; speed += 10)
-    {
-      motor_forward(speed, 'R', 3000);
-    }
-    motor_stop_right();
-    HAL_Delay(2000);
-    printf("TEST 7 MOTOR RIGHT DONE\r\n");
-
-    /*************** TEST 8 ****************
-     * Inversion rapide de sens
-     **************************************/
-    motor_forward(40, 'R', 5000);
-    motor_stop_right();
-    HAL_Delay(500);
-
-    motor_backward(40, 'R', 5000);
-    motor_stop_right();
-    HAL_Delay(2000);
-    printf("TEST 8 MOTOR RIGHT DONE\r\n");
-
-    /*************** FIN DES TESTS *********/
-    motor_stop_right();
-}
-
-/*************************************************
- * BANC DE TEST – MOTEUR GAUCHE
- * Carte : STM32
- * Moteur : Left (L)
- *************************************************/
-
-void test_motor_left(void)
-{
-    /* Sécurité : moteur arrêté au départ */
-    motor_stop_left();
-    HAL_Delay(2000);
-
-    /*************** TEST 1 ****************
-     * Avant – vitesse lente
-     **************************************/
-    motor_forward(30, 'L', 10000);
-    motor_stop_left();
-    HAL_Delay(2000);
-
-    /*************** TEST 2 ****************
-     * Arrière – vitesse lente
-     **************************************/
-    motor_backward(30, 'L', 10000);
-    motor_stop_left();
-    HAL_Delay(2000);
-
-    /*************** TEST 3 ****************
-     * Avant – vitesse moyenne
-     **************************************/
-    motor_forward(50, 'L', 10000);
-    motor_stop_left();
-    HAL_Delay(2000);
-
-    /*************** TEST 4 ****************
-     * Arrière – vitesse moyenne
-     **************************************/
-    motor_backward(50, 'L', 10000);
-    motor_stop_left();
-    HAL_Delay(2000);
-
-    /*************** TEST 5 ****************
-     * Avant – vitesse élevée
-     **************************************/
-    motor_forward(80, 'L', 10000);
-    motor_stop_left();
-    HAL_Delay(2000);
-
-    /*************** TEST 6 ****************
-     * Arrière – vitesse élevée
-     **************************************/
-    motor_backward(80, 'L', 10000);
-    motor_stop_left();
-    HAL_Delay(2000);
-
-    /*************** TEST 7 ****************
-     * Variation progressive de vitesse (avant)
-     **************************************/
-    for (uint8_t speed = 20; speed <= 80; speed += 10)
-    {
-        motor_forward(speed, 'L', 3000);
-    }
-    motor_stop_left();
-    HAL_Delay(2000);
-
-    /*************** TEST 8 ****************
-     * Inversion rapide de sens
-     **************************************/
-    motor_forward(40, 'L', 5000);
-    HAL_Delay(5000);
-    motor_stop_left();
-    HAL_Delay(500);
-
-    motor_backward(40, 'L', 5000);
-    HAL_Delay(5000);
-    motor_stop_left();
-    HAL_Delay(2000);
-
-    /*************** FIN DES TESTS *********/
-    motor_stop_left();
 }

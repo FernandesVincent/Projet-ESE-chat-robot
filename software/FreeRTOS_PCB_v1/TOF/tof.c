@@ -116,7 +116,6 @@ int VL53L0X_ReadDistance(int index) {
         if(VL53L0X_GetRangingMeasurementData(t->dev, &measure) != VL53L0X_ERROR_NONE){
             printf("Error reading measurement\n");
         }
-        printf("TOF %d Distance = %d mm\n", index, measure.RangeMilliMeter);
         VL53L0X_ClearInterruptMask(t->dev, 0);
         return measure.RangeMilliMeter;
     }

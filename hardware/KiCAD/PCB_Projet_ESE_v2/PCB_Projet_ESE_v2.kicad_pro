@@ -799,11 +799,15 @@
     ],
     [
       "1255fbdd-dd20-42db-b7f6-2aa7912bc741",
-      "Régulateurs1"
+      "Régulateurs"
     ],
     [
-      "a78794e5-d1ee-4039-a52b-29a198390dce",
-      "TOF1"
+      "4e70ef34-9a25-4161-9f52-411727ec9259",
+      "Motors"
+    ],
+    [
+      "f188940c-26ff-4e8f-bd82-d745dcc3cb79",
+      "Connectors"
     ]
   ],
   "text_variables": {}
